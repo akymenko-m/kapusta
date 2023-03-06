@@ -4,6 +4,7 @@ import { HomePage } from 'pages/HomePage/HomePage';
 import { Expenses } from './Expenses/Expenses';
 import { Income } from './Income/Income';
 
+
 export const App = () => {
   return (
     <>
