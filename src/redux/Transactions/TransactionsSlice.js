@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getPeriodData } from './TransactionsOperations';
 
+
 const initialState = {
   items: [],
   balance: null,
@@ -19,3 +20,4 @@ const transactionSlice = createSlice({
 });
 
 export const transactionsReducer = transactionSlice.reducer;
+
