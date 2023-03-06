@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <Provider> */}
      <Global styles={GlobalStyles} />
-     <BrowserRouter>
+     <BrowserRouter  basename='/kapusta/'>
     <App />
     </BrowserRouter>
     {/* </Provider> */}
