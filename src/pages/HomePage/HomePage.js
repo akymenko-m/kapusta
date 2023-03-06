@@ -1,22 +1,29 @@
-
-import {Main,  Background,  DownImg} from './HomePage.styled'
-import back from "../../images/backgronds/cabbage-down.png";
+import { Main, Background, Title, Wrapper } from './HomePage.styled';
+import title from "../../images/title/title.png";
 import { RegisterPage } from 'pages/RegisterPage';
-import { LoginPage } from '../LoginPage/LoginPage'
+import { LoginPage } from '../LoginPage/LoginPage';
 import { Logout } from 'components/Logout';
-
-export const HomePage = () =>{
-
-
-    return (
+import { FooterOfApp } from 'components/Footer/Footer';
+export const HomePage = () => {
+  return (
+    <>
       <Main>
-       <Background>
-        <h4>домашня сторінка</h4>
-            <LoginPage />
-        <RegisterPage />
-        <Logout/>
-         < DownImg src={back} alt="cabbage"/>
-         </Background> 
+        <Background>
+          <Wrapper>
+            <div>
+                <Title src={title}/>
+            </div>
+            <div>
+            
+              <LoginPage />
+              <RegisterPage />
+            </div>
+          </Wrapper>
+
+          <Logout />
+        </Background>
       </Main>
-    );
-}
+      <FooterOfApp />
+    </>
+  );
+};
