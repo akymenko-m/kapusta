@@ -8,7 +8,7 @@ background-repeat: no-repeat;
 background-size: contain;
 background-position: top;
 
-color: red;
+
 height: 300px;
 
 `;
