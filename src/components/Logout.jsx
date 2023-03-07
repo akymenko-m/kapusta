@@ -10,9 +10,10 @@ export function Logout() {
     dispatch(logOut());
   };
 
+  
   return (
     <div>
-      <div>E</div>
+      {user.email && <div>{user.email.toUpperCase().slice(0, 1)}</div>}
       <p>{user.email}</p>
       <button onClick={handleLogout}>Exit</button>
     </div>

@@ -1,22 +1,55 @@
-
-import {Main,  Background,  DownImg} from './HomePage.styled'
-import back from "../../images/backgronds/cabbage-down.png";
+import { Main, Title, Wrapper , Background } from './HomePage.styled';
+import title from '../../images/title/title.png';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import { RegisterPage } from 'pages/RegisterPage';
-import { LoginPage } from '../LoginPage/LoginPage'
+import { LoginPage } from '../LoginPage/LoginPage';
 import { Logout } from 'components/Logout';
+import { Expenses } from 'components/Expenses/Expenses';
+import { Income } from 'components/Income/Income';
+import { FooterOfApp } from 'components/Footer/Footer';
+import { Container } from 'components/App.styled';
+import { Balance } from 'components/Balance/Balance';
 
-export const HomePage = () =>{
 
-
-    return (
+export const HomePage = () => {
+  return (
+    <>
+      <Background>
       <Main>
-       <Background>
-        <h4>домашня сторінка</h4>
+
+      
+
+        <Container>
+    <Wrapper>
+            <div>
+            <Title src={title} />
+          </div>
+          <div>
             <LoginPage />
-        <RegisterPage />
-        <Logout/>
-         < DownImg src={back} alt="cabbage"/>
-         </Background> 
+            <RegisterPage />
+          </div>
+        </Wrapper>
+
+        <Logout />
+        <Balance />
+        <Tabs>
+        <TabList>
+          <Tab>Expenses</Tab>
+          <Tab>Income</Tab>
+        </TabList>
+
+        <TabPanel>{<Expenses />}</TabPanel>
+        <TabPanel>{<Income />}</TabPanel>
+      </Tabs>
+       
+     
+      
+
+      <FooterOfApp />
+      </Container>
       </Main>
-    );
-}
+      </Background>
+    </>
+  );
+};
