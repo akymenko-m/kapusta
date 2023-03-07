@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getPeriodData } from './TransactionsOperations';
 
 
 const initialState = {
@@ -6,17 +7,17 @@ const initialState = {
   balance: null,
   expenses: null,
   income: null,
-  
+  transactionData: {},
 };
 
-
-
-const transactionsSlice = createSlice({
-  name: 'transactions',
+const transactionSlice = createSlice({
+  name: 'transaction',
   initialState,
   extraReducers: builder =>
-    builder
-      
+    builder.addCase(getPeriodData.fulfilled, (state, action) => {
+      state.transactionData = action.payload;
+    }),
 });
 
-export const transactionsReducer = transactionsSlice.reducer;
+export const transactionsReducer = transactionSlice.reducer;
+
