@@ -10,7 +10,7 @@ export const UserMenu = () => {
       <NavLink to="/">{<img src={logo} alt="logo" />}</NavLink>
       {isLoggedIn && <Logout />}
 
-      <NavLink to="/">{<img src={logo} alt="logo" />}</NavLink>
+     
 
       <p>Welcome, User</p>
 
