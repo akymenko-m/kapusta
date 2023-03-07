@@ -23,7 +23,7 @@ export const Background = styled.div`
   wirdth: 100%;
   @media (min-width: 321px) {
     height: 526px;
-  } ;
+  };
 `;
 export const Wrapper = styled.div`
   @media (min-width: 769px) {

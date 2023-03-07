@@ -5,6 +5,7 @@ export const UserMenu = () => {
     <>
 
       <NavLink to="/">{<img src={logo} alt="logo"/>}</NavLink>
+      
         <p>Welcome, User</p>
 
       <button type="button">Logout</button>
