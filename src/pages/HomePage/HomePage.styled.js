@@ -13,8 +13,7 @@ export const Main = styled.main`
   height: 300px;
 `;
 export const Background = styled.div`
-  z-index: -1;
-  position: relative;
+  
   top: 0;
   left: 0;
   height: 296px;
@@ -23,7 +22,7 @@ export const Background = styled.div`
   wirdth: 100%;
   @media (min-width: 321px) {
     height: 526px;
-  } ;
+  };
 `;
 export const Wrapper = styled.div`
   @media (min-width: 769px) {
