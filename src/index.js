@@ -21,9 +21,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
 
+
           <BrowserRouter      basename="/kapusta/"   >
        
          
+
 
 
           <App />
@@ -34,5 +36,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 
 
-// basename = '/kapusta/';
 
