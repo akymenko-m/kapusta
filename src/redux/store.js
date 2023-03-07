@@ -12,7 +12,7 @@ import {
 import { userReducer } from './user/userSlice';
 import { transactionsReducer } from './Transactions/TransactionsSlice';
 import storage from 'redux-persist/lib/storage';
-import { transactionsReducer } from './Transactions/TransactionsSlice';
+
 
 const persistConfig = {
   key: 'user',
