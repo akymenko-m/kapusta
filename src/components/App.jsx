@@ -9,7 +9,6 @@ import { refreshUser } from 'redux/user/userOperations';
 import { ReportsPage } from 'pages/ReportsPage/ReportsPage';
 import { FooterOfApp } from './Footer/Footer';
 
-
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,12 +20,11 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<HomePage />} />
-        <Route path="expenses" element={<Expenses />} />
+          <Route path="expenses" element={<Expenses />} />
           <Route path="income" element={<Income />} />
           <Route path="/transaction/period-data" element={<ReportsPage />} />
         </Route>
-        <Route element={ <FooterOfApp/>}/>
-
+        <Route element={<FooterOfApp />} />
       </Routes>
     </>
   );

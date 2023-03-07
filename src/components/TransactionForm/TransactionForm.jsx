@@ -44,8 +44,9 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
   };
 
   return (
-    <section>
+    <>
       <Form onSubmit={createUserData}>
+        {/* <div> */}
         <CalendarBox>
           <GoCalendar size="25px" color="#52555F" />
           <Example onChange={getData} />
@@ -108,12 +109,13 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
             <CgCalculator size="20px" color="#52555F" />
           </AmountLabelBox>
         </InputBox>
+        {/* </div> */}
         <ButtonBox>
           <InputButton type="submit">Input</InputButton>
           <ClearButton type="reset">Clear</ClearButton>
         </ButtonBox>
       </Form>
-    </section>
+    </>
   );
 };
 
