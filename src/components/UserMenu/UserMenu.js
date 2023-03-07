@@ -8,8 +8,16 @@ export const UserMenu = () => {
    const { isLoggedIn } = useAuth();
   return (
     <>
+
       <NavLink to="/">{<img src={logo} alt="logo" />}</NavLink>
       {isLoggedIn && <Logout />}
+
+
+      <NavLink to="/">{<img src={logo} alt="logo"/>}</NavLink>
+      
+        <p>Welcome, User</p>
+
+
 
       <NavLink to="/transaction/period-data">Reports</NavLink>
 
