@@ -1,11 +1,10 @@
+import { TransactionsList } from 'components/TransactionsList/TransactionsList';
 
-export const Income = () =>{ 
-    return (
-      
-            <h4>
-              incomes
-            </h4>
-        
-       
-    )
-}
+export const Income = () => {
+  return (
+    <>
+      <h4>expenses</h4>
+      <TransactionsList />
+    </>
+  );
+};
