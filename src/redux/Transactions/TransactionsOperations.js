@@ -1,3 +1,4 @@
+
 import { instance } from 'redux/operations';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -23,3 +24,21 @@ export const addExpenseTransaction = createAsyncThunk(
     }
   }
 );
+
+
+
+export const getPeriodData = createAsyncThunk(
+  'transaction/getTransactionData',
+  async (periodData, thunkApi) => {
+    try {
+      const { data } = await instance.get(
+        `/transaction/period-data?date=${periodData}`
+      );
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
