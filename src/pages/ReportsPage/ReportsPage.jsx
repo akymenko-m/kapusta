@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { getPeriodData } from 'redux/Transactions/TransactionsOperations';
 import { MainContainer } from './ReportsPage.styled';
+import { Slider } from 'components/Reports/ReportsNav/Slider/Slider';
 
 export const ReportsPage = () => {
   const date = new Date();
@@ -23,6 +24,8 @@ export const ReportsPage = () => {
 
   return (
     <MainContainer>
+      <Slider />
+
       <TotalTransactionsData />
       <ReportByCategories />
     </MainContainer>

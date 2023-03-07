@@ -10,14 +10,15 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { userReducer } from './user/userSlice';
-import { transactionsReducer } from './Transactions/TransactionsSlice';
+// import { transactionsReducer } from './Transactions/TransactionsSlice';
 import storage from 'redux-persist/lib/storage';
+import { transactionsReducer } from './Transactions/TransactionsSlice';
 
 const persistConfig = {
   key: 'user',
   version: 1,
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'refreshToken', 'sid'],
 };
 
 const persistedReducer = persistReducer(persistConfig, userReducer);

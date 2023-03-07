@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 
+import { DatePickerStyled } from './DatePicker.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
-const Example = () => {
+const Example = ({ onChange }) => {
   const [startDate, setStartDate] = useState(new Date());
+  const getStartDate = date => {
+    setStartDate(date);
+    onChange(date);
+  };
   return (
-    <DatePicker
+    <DatePickerStyled
       selected={startDate}
-      onChange={date => setStartDate(date)}
-      showIcon
-
-      // maxDate={addDays(new Date(), 1)}
-      // placeholderText="Select a date before 1 days in the future"
+      onChange={getStartDate}
+      dateFormat="dd.MM.yyyy"
     />
   );
 };

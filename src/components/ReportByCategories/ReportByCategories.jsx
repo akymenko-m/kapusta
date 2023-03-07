@@ -8,7 +8,6 @@ import {
   ReportName,
   ReportType,
 } from './ReportByCategories.styled';
-// import { IconContext } from 'react-icons';
 
 export const ReportByCategories = () => {
   const curReport = useSelector(selectCurrentReport);
