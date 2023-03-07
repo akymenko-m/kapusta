@@ -21,8 +21,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
 
-          <BrowserRouter   basename="/kapusta/"    >
-
+          <BrowserRouter      basename="/kapusta/"   >
+       
          
 
 

@@ -46,7 +46,7 @@ export const getPeriodData = createAsyncThunk(
   async (periodData, thunkApi) => {
     try {
       const { data } = await instance.get(
-        `/transaction/period-data?date=${periodData}`
+        `transaction/period-data?date=${periodData}`
       );
       console.log(data);
       return data;
@@ -84,7 +84,7 @@ export const deleteTransacton = createAsyncThunk(
   'transaction/deleteTransaction',
   async (transactionId, thunkAPI) => {
     try {
-      const res = await instance.delete(`/transaction/${transactionId}`);
+      const res = await instance.delete(`transaction/${transactionId}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
