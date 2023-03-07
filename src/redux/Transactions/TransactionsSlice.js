@@ -50,5 +50,5 @@ const transactionsSlice = createSlice({
 
 });
 
-export const transactionsReducer = transactionSlice.reducer;
+export const transactionsReducer = transactionsSlice.reducer;
 

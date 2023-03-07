@@ -9,7 +9,7 @@ export const Main = styled.main`
   background-size: contain;
   background-position: top;
 
-  color: red;
+
   height: 300px;
 `;
 export const Background = styled.div`
