@@ -10,28 +10,16 @@ export const HomePage = () => {
     <>
       <Main>
         <Background>
-<<<<<<< HEAD
-          <h4>домашня сторінка</h4>
-          <DownImg src={back} alt="cabbage" />
-        </Background>
-        <LoginPage />
-        <RegisterPage />
-        <Logout />
-=======
           <Wrapper>
             <div>
               <Title src={title} />
             </div>
-            <div>
-              <LoginPage />
-              <RegisterPage />
-            </div>
+            <div></div>
           </Wrapper>
-
-          <Logout />
         </Background>
->>>>>>> main
       </Main>
+      <LoginPage />
+      <RegisterPage />
       <FooterOfApp />
       <Balance />
     </>
