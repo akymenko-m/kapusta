@@ -11,6 +11,7 @@ export const Expenses = () => {
     dispatch(addExpenseTransaction(formData));
   };
   return (
+    <>
     <TransactionContainer>
       {/* <h4>expenses</h4> */}
       <TransactionForm onSubmit={handlePostExpense} isExpenseForm />

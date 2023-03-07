@@ -9,9 +9,8 @@ export const UserMenu = () => {
   return (
     <HeaderWrap >
       <NavLink to="/">{<img src={logo} alt="logo" />}</NavLink>
-      {isLoggedIn && <Logout />}
 
-     
+      {isLoggedIn && <Logout />}
 
       {/* <p>Welcome, User</p>
 

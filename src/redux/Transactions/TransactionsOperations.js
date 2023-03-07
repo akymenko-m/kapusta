@@ -56,6 +56,7 @@ export const getPeriodData = createAsyncThunk(
   }
 );
 
+
 export const getTransactionIncome = createAsyncThunk(
   '/transaction/getIncome',
   async (_, thunkAPI) => {
@@ -90,3 +91,4 @@ export const deleteTransacton = createAsyncThunk(
     }
   }
 );
+

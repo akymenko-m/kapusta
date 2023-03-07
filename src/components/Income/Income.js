@@ -12,6 +12,7 @@ export const Income = () => {
     dispatch(addIncomeTransaction(formData));
   };
   return (
+    <>
     <TransactionContainer>
       {/* <h4>incsomes</h4> */}
       <TransactionForm onSubmit={handlePostIncome} />

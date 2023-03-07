@@ -13,6 +13,7 @@ import { userReducer } from './user/userSlice';
 import { transactionsReducer } from './Transactions/TransactionsSlice';
 import storage from 'redux-persist/lib/storage';
 
+
 const persistConfig = {
   key: 'user',
   version: 1,
