@@ -5,19 +5,21 @@ import { monthNames, getMonth, getYear } from './SliderUtils';
 import { Calendar } from './Calendar/Calendar';
 import { SliderBox, SliderText } from './Slider.styled';
 import { ButtonsNextPrev } from './ButtonsNextPrev/ButtonsNextPrev';
-import { reportsQueryAction } from 'redux/reportsQuery/reportsQuery.slice';
-import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
-
-
+// import { reportsQueryAction } from 'redux/reportsQuery/reportsQuery.slice';
+// import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
+import { useSearchParams } from 'react-router-dom';
+import { getPeriodData } from 'redux/Transactions/TransactionsOperations';
+import { setReportsQuery } from 'redux/Transactions/TransactionsSlice';
 
 export const Slider = () => {
-
   const [monthNumber, setMonthNumber] = useState(0);
   const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const [modalCalendar, setModalCalendar] = useState(false);
 
   const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams);
 
   useEffect(() => {
     setMonthNumber(getMonth());
@@ -36,14 +38,20 @@ export const Slider = () => {
     }
     const query = `${year}-${monthString}`;
     // if (query !== '-01') dispatch(getReports(query));
+    if (query === '-01') return;
     console.log(query);
-    dispatch(reportsQueryAction(`${year}-${monthString}`));
-  }, [monthNumber, year, dispatch]);
+    setSearchParams({ date: query });
+
+    dispatch(setReportsQuery(query));
+    dispatch(getPeriodData(query));
+
+    // dispatch(reportsQueryAction(`${year}-${monthString}`));
+  }, [monthNumber, year, dispatch, setSearchParams]);
 
   const handlerClick = name => {
     switch (name) {
       case 'decrement':
-        dispatch(filteredDataAction([]));
+        // dispatch(filteredDataAction([]));
         setMonthNumber(monthNumber - 1);
         if (monthNumber === 0) {
           setMonthNumber(11);
@@ -51,7 +59,7 @@ export const Slider = () => {
         }
         break;
       case 'increment':
-        dispatch(filteredDataAction([]));
+        // dispatch(filteredDataAction([]));
         setMonthNumber(monthNumber + 1);
         if (monthNumber === 11) {
           setMonthNumber(0);

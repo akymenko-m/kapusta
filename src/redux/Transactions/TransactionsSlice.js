@@ -13,10 +13,13 @@ const initialState = {
   items: [],
   balance: null,
 
+  reportsQuery: '',
   transactionData: {},
   expenses: [],
   income: [],
   currentReport: 'Expenses',
+  error: null,
+  isLoading: false,
 };
 
 const transactionsSlice = createSlice({
@@ -27,6 +30,9 @@ const transactionsSlice = createSlice({
       state.currentReport =
         state.currentReport === 'Expenses' ? 'Income' : 'Expenses';
     },
+    setReportsQuery(state, action) {
+      state.reportsQuery = action.payload;
+    },
   },
 
   extraReducers: builder =>
@@ -34,8 +40,16 @@ const transactionsSlice = createSlice({
       .addCase(balance.fulfilled, (state, { payload }) => {
         state.balance = payload;
       })
+      .addCase(getPeriodData.pending, (state, action) => {
+        state.isLoading = true;
+      })
       .addCase(getPeriodData.fulfilled, (state, action) => {
         state.transactionData = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getPeriodData.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
       })
       .addCase(addIncomeTransaction.fulfilled, (state, { payload }) => {
         state.income = [...payload];
@@ -47,7 +61,7 @@ const transactionsSlice = createSlice({
       }),
 });
 
-export const { changeReportType } = transactionsSlice.actions;
+export const { changeReportType, setReportsQuery } = transactionsSlice.actions;
 export const transactionsReducer = transactionsSlice.reducer;
 
 // const iconObj = {

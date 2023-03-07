@@ -1,4 +1,3 @@
-
 import { instance } from '../operations';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -18,8 +17,6 @@ export const balance = createAsyncThunk(
     }
   }
 );
-
-
 
 export const addIncomeTransaction = createAsyncThunk(
   '/income/addIncome',
@@ -44,8 +41,6 @@ export const addExpenseTransaction = createAsyncThunk(
   }
 );
 
-
-
 export const getPeriodData = createAsyncThunk(
   'transaction/getTransactionData',
   async (periodData, thunkApi) => {
@@ -60,5 +55,3 @@ export const getPeriodData = createAsyncThunk(
     }
   }
 );
-
-
