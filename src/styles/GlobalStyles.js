@@ -1,6 +1,11 @@
 import { css } from '@emotion/react';
 
 export const GlobalStyles = css`
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
   h1,
   h2,
   h3,
