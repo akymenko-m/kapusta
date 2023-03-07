@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { register } from 'redux/user/userOperations';
 
 export function RegisterPage() {
@@ -12,7 +13,7 @@ export function RegisterPage() {
       email: email.value,
       password: password.value,
     };
-       dispatch(register(user));
+    dispatch(register(user));
        event.target.reset();
   };
 
@@ -22,7 +23,12 @@ export function RegisterPage() {
       <p>Or log in using an email and password, after registering:</p>
       <form
         onSubmit={handleSubmit}
-        style={{ width: '200px', display: 'flex', flexDirection: 'column', padding:20 }}
+        style={{
+          width: '200px',
+          display: 'flex',
+          flexDirection: 'column',
+          padding: 20,
+        }}
       >
         <label>
           Email:
@@ -34,7 +40,7 @@ export function RegisterPage() {
         </label>
         <button type="submit">Registration</button>
       </form>
-      <button>Log in</button>
+      <NavLink to="/login">Log in</NavLink>
     </div>
   );
 }

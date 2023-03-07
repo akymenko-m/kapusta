@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { getPeriodData } from 'redux/Transactions/TransactionsOperations';
 
+
 export const ReportsPage = () => {
   const date = new Date();
   const dateFormat = date.getFullYear() + '-' + 0 + (date.getMonth() + 1);
@@ -19,6 +20,7 @@ export const ReportsPage = () => {
     setSearchParams({ date: dateFormat });
     dispatch(getPeriodData(dateFormat));
   }, [dispatch, dateFormat, setSearchParams]);
+  
 
   return (
     <div>
