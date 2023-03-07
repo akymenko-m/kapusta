@@ -74,26 +74,26 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
                 <option value="DEFAULT" disabled defaultValue="">
                   Product category
                 </option>
-                <option value="Transport">Transport</option>
-                <option value="Products">Products</option>
-                <option value="Alcohol">Alcohol</option>
-                <option value="Entertainment">Entertainment</option>
-                <option value="Housing">Housing</option>
-                <option value="Technique">Technique</option>
-                <option value="Communal, communication">
+                <option value="Транспорт">Transport</option>
+                <option value="Продукты">Products</option>
+                <option value="Алкоголь">Alcohol</option>
+                <option value="Развлечения">Entertainment</option>
+                <option value="Всё для дома">Housing</option>
+                <option value="Техника">Technique</option>
+                <option value="Коммуналка и связь">
                   Communal, communication
                 </option>
-                <option value="Sports, hobbies">Sports, hobbies</option>
-                <option value="Education">Education</option>
-                <option value="Communal, communication">Other</option>
+                <option value="Спорт и хобби">Sports, hobbies</option>
+                <option value="Образование">Education</option>
+                <option value="Прочее">Other</option>
               </>
             ) : (
               <>
                 <option value="DEFAULT" disabled defaultValue="">
                   Income category
                 </option>
-                <option value="Salary">Salary</option>
-                <option value="Add.income">Add.income</option>
+                <option value="З/П">Salary</option>
+                <option value="Доп. доход">Add.income</option>
               </>
             )}
           </CategorySelect>
