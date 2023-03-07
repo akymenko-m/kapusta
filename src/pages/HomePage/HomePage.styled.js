@@ -13,8 +13,7 @@ export const Main = styled.main`
   height: 300px;
 `;
 export const Background = styled.div`
-  z-index: -1;
-  position: relative;
+  
   top: 0;
   left: 0;
   height: 296px;
