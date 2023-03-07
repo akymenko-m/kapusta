@@ -62,12 +62,21 @@ export const BalanceForm = styled.form`
   }
 `;
 export const BalanceInput = styled.input`
+  padding: 0 20px;
   width: 140px;
   min-height: 44px;
   border: 2px solid #ffffff;
   border-radius: 22px 0px 0px 22px;
   background: #f5f6fb;
   color: #000000;
+  &::placeholder {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    text-transform: uppercase;
+    color: #000000;
+  }
   @media screen and (min-width: 768px) {
     border-radius: 16px;
   }
