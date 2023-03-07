@@ -1,9 +1,10 @@
 import { Main, Background, Title, Wrapper } from './HomePage.styled';
-import title from "../../images/title/title.png";
+import title from '../../images/title/title.png';
 import { RegisterPage } from 'pages/RegisterPage';
 import { LoginPage } from '../LoginPage/LoginPage';
 import { Logout } from 'components/Logout';
 import { FooterOfApp } from 'components/Footer/Footer';
+import { Balance } from 'components/Balance/Balance';
 export const HomePage = () => {
   return (
     <>
@@ -11,10 +12,9 @@ export const HomePage = () => {
         <Background>
           <Wrapper>
             <div>
-                <Title src={title}/>
+              <Title src={title} />
             </div>
             <div>
-            
               <LoginPage />
               <RegisterPage />
             </div>
@@ -24,6 +24,7 @@ export const HomePage = () => {
         </Background>
       </Main>
       <FooterOfApp />
+      <Balance />
     </>
   );
 };

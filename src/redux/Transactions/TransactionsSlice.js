@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { balance } from './TransactionsOperations';
+
+
 import {
   addIncomeTransaction,
   addExpenseTransaction,
@@ -8,19 +11,25 @@ import {
 import { getPeriodData } from './TransactionsOperations';
 
 
+
 const initialState = {
   items: [],
   balance: null,
+
   transactionData: {},
   expenses: [],
   income: [],
+
 };
 
 const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
   extraReducers: builder =>
-    builder
+
+    builder.addCase(balance.fulfilled, (state, { payload }) => {
+      state.balance = payload;
+    })
       .addCase(getPeriodData.fulfilled, (state, action) => {
       state.transactionData = action.payload;
     })
