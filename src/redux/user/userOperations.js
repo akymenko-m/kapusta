@@ -2,7 +2,7 @@ import { instance } from '../operations';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const setAuthHeader = token => {
-  instance.defaults.headers.common.Authorization = `Bearer${token}`;
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearAuthHeader = () => {
@@ -14,7 +14,6 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await instance.post('/auth/register', credentials);
-      console.log(res.data.token);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
@@ -24,10 +23,11 @@ export const register = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-  'auth/login',
+  'user/login',
   async (credentials, thunkAPI) => {
     try {
       const res = await instance.post('/auth/login', credentials);
+
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
@@ -36,22 +36,37 @@ export const login = createAsyncThunk(
   }
 );
 
+export const getUserInfo = createAsyncThunk('user/getInfo', async (_, thunkAPI) => {
+   try {
+     const res = await instance.get('/user');
+
+     setAuthHeader(res.data.token);
+     return res.data;
+   } catch (error) {
+     return thunkAPI.rejectWithValue(error.message);
+   }
+});
+
 export const refreshUser = createAsyncThunk(
-  'auth/refresh',
+  'user/refresh',
   async (_, thunkAPI) => {
     // Reading the token from the state via getState()
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    // const token = state.user.token;
+    const refreshToken = state.user.refreshToken;
+    const sid = state.user.sid;
 
-    if (persistedToken === null) {
+    if (refreshToken === null) {
       // If there is no token, exit without performing any request
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
 
     try {
       // If there is a token, add it to the HTTP header and perform the request
-      setAuthHeader(persistedToken);
-      const res = await instance.get('/auth/refresh');
+      setAuthHeader(refreshToken);
+      const res = await instance.post('/auth/refresh', { sid });
+      setAuthHeader(res.data.newAccessToken);
+      thunkAPI.dispatch(getUserInfo());
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -62,7 +77,7 @@ export const refreshUser = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await instance.post('/auth/logout');
+    await instance.post('/user/logout');
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

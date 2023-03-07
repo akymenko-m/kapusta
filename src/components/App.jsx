@@ -3,9 +3,17 @@ import { Header } from './NavBar/NavBar';
 import { HomePage } from 'pages/HomePage/HomePage';
 import { Expenses } from './Expenses/Expenses';
 import { Income } from './Income/Income';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from 'redux/user/userOperations';
 
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <>
       <Routes>

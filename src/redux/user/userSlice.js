@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, refreshUser, logOut } from './userOperations';
+import { register, login, refreshUser, logOut, getUserInfo } from './userOperations';
 
 const initialState = {
-  user: { email: null },
+  user: { email: null, id: null },
   token: null,
+  refreshToken: null,
+  sid: null,
   isLoggedIn: false,
   isRefreshing: false,
 };
@@ -14,19 +16,36 @@ const userSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(register.fulfilled, (state, { payload }) => {
-        console.log(payload);
-        state.user = payload.user;
-        state.token = payload.token;
-        state.isLoggedIn = true;
-      })
-      .addCase(login.fulfilled, (state, { payload }) => {
-        state.user = payload.user;
+        // console.log(payload);
+        // console.log(state);
+        //         console.log(payload.userData);
+        state.user = payload.userData;
+        // console.log(payload.userData);
         state.token = payload.token;
         state.isLoggedIn = true;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
+        state.accessToken = payload.newAccessToken;
+        state.refreshToken = payload.newRefreshToken;
+        state.sid = payload.newSid;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(login.fulfilled, (state, { payload }) => {
+        state.user = payload.user;
+        state.token = payload.accessToken;
+        state.refreshToken = payload.refreshToken;
+        state.sid = payload.sid;
+        state.isLoggedIn = true;
+      })
+      .addCase(getUserInfo.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoggedIn = true;
+      })
+      .addCase(getUserInfo.pending, (state, { payload }) => {
+       state.isRefreshing = true;
+      })
+      .addCase(getUserInfo.rejected, (state, { payload }) => {
         state.isRefreshing = false;
       })
       .addCase(logOut.fulfilled, state => {

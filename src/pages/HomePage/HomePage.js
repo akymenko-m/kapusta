@@ -10,13 +10,13 @@ export const HomePage = () =>{
 
     return (
       <Main>
-       <Background>
-        <h4>домашня сторінка</h4>
-            <LoginPage />
+        <Background>
+          <h4>домашня сторінка</h4>
+          <DownImg src={back} alt="cabbage" />
+        </Background>
+        <LoginPage />
         <RegisterPage />
-        <Logout/>
-         < DownImg src={back} alt="cabbage"/>
-         </Background> 
+        <Logout />
       </Main>
     );
 }

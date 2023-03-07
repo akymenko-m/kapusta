@@ -6,6 +6,7 @@ import { useAuth } from 'hook/useAuth';
 export function Logout() {
   const dispatch = useDispatch();
   const { user } = useAuth();
+  console.log(user);
   const handleLogout = () => {
     dispatch(logOut());
   };
@@ -13,7 +14,7 @@ export function Logout() {
   return (
     <div>
       <div>E</div>
-      <p>{user.email}</p>
+      <p></p>
       <button onClick={handleLogout}>Exit</button>
     </div>
   );
