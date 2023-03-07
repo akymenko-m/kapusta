@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteTransacton,getTransactionIncome,getTransactionExpense } from 'redux/Transactions/TransactionsOperations';
+import {selectTransactions} from 'redux/Transactions/selectors';
 import {
   TransactionTable,
   TableHead,
@@ -16,111 +20,25 @@ import {
 export function TransactionsList() {
   const { pathname } = useLocation();
   const isIncomePage = pathname.includes('/income');
+  const isExpensePage = pathname.includes('/expense');
+  const dispatch = useDispatch(); 
 
-  const items = [
-    {
-      newBalance: 100,
-      transaction: {
-        description: 'Income description',
-        amount: 100,
-        date: '2020-12-31',
-        category: 'Salary',
-        _id: '507f1f77bcf86cd799439011',
-      },
-    },
-    {
-      newBalance: 200,
-      transaction: {
-        description: 'Expense description',
-        amount: 200,
-        date: '2020-12-31',
-        category: 'Products',
-        _id: '507f1f77bcf86cd799439012',
-      },
-    },
-    {
-      newBalance: 100,
-      transaction: {
-        description: 'Income description',
-        amount: 100,
-        date: '2020-12-31',
-        category: 'Salary',
-        _id: '507f1f77bcf86cd799439013',
-      },
-    },
-    {
-      newBalance: 200,
-      transaction: {
-        description: 'Expense description',
-        amount: 200,
-        date: '2020-12-31',
-        category: 'Products',
-        _id: '507f1f77bcf86cd799439014',
-      },
-    },
-    {
-      newBalance: 200,
-      transaction: {
-        description: 'Expense description',
-        amount: 200,
-        date: '2020-12-31',
-        category: 'Products',
-        _id: '507f1f77bcf86cd799439015',
-      },
-    },
-    {
-      newBalance: 200,
-      transaction: {
-        description: 'Expense description',
-        amount: 200,
-        date: '2020-12-31',
-        category: 'Products',
-        _id: '507f1f77bcf86cd799439016',
-      },
-    },
-    {
-      newBalance: 200,
-      transaction: {
-        description: 'Expense description',
-        amount: 200,
-        date: '2020-12-31',
-        category: 'Products',
-        _id: '507f1f77bcf86cd799439017',
-      },
-    },
-    {
-      newBalance: 200,
-      transaction: {
-        description: 'Expense description',
-        amount: 200,
-        date: '2020-12-31',
-        category: 'Products',
-        _id: '507f1f77bcf86cd799439018',
-      },
-    },
-    {
-      newBalance: 200,
-      transaction: {
-        description: 'Expense description',
-        amount: 200,
-        date: '2020-12-31',
-        category: 'Products',
-        _id: '507f1f77bcf86cd799439019',
-      },
-    },
-    {
-      newBalance: 200,
-      transaction: {
-        description: 'Expense description',
-        amount: 200,
-        date: '2020-12-31',
-        category: 'Products',
-        _id: '507f1f77bcf86cd799439020',
-      },
-    },
-  ];
+ 
+  useEffect(() => {
+    if (isIncomePage) {dispatch(getTransactionIncome())}
+    if (isExpensePage) {dispatch(getTransactionExpense())}
+    return
+  
+  }, [dispatch, isExpensePage, isIncomePage]);
 
-  return (
+
+  const items = useSelector(selectTransactions);
+
+  const handleDelete = _id => {
+    dispatch(deleteTransacton(_id));
+  };
+
+  return ( items && (
     <TransactionTable>
       <TableHead >
         <BlockHead>
@@ -154,13 +72,15 @@ export function TransactionsList() {
                 : '- ' + item.transaction.amount + ' UAH'}
             </TableData>
 
-            <Button>
+            <Button onClick={() => handleDelete(item.transaction._id)}>
               <GoTrashcanStyled />
             </Button>
           </TableRow>
         ))}
       </TableBody>
     </TransactionTable>
+  )
+    
   );
 }
 

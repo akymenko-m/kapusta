@@ -95,6 +95,11 @@ export const TableRow = styled.li`
     height: 40px;
     padding-left: 20px;
     padding-right: 20px;
+    border-left: 1px solid #f5f6fb;
+    &:last-child{
+      border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    }
   }
 `;
 
