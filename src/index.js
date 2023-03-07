@@ -11,9 +11,9 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <Provider> */}
-     <Global styles={GlobalStyles} />
-     <BrowserRouter  basename='/kapusta/'>
-    <App />
+    <Global styles={GlobalStyles} />
+    <BrowserRouter basename="/kapusta/">
+      <App />
     </BrowserRouter>
     {/* </Provider> */}
   </React.StrictMode>
