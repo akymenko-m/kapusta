@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Header } from './Header/Header';
 import { HomePage } from 'pages/HomePage/HomePage';
 import { Expenses } from './Expenses/Expenses';
@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/user/userOperations';
 import { ReportsPage } from 'pages/ReportsPage/ReportsPage';
 import { FooterOfApp } from './Footer/Footer';
+
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,11 @@ export const App = () => {
           <Route path="income" element={<Income />} />
           <Route path="/transaction/period-data" element={<ReportsPage />} />
         </Route>
-        <Route element={<FooterOfApp />} />
+
+        <Route element={ <FooterOfApp/>}/>
+        <Route path="*" element={<Navigate to="/" replace={true} />} />
+
+
       </Routes>
     </>
   );

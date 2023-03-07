@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { balance } from './TransactionsOperations';
+import { balance, deleteTransacton, getTransactionExpense, getTransactionIncome } from './TransactionsOperations';
 
 
 import {
@@ -39,6 +39,18 @@ const transactionsSlice = createSlice({
       })
       .addCase(addExpenseTransaction.fulfilled, (state, { payload }) => {
         state.expenses = [...payload];
+        // state.isLoading = false;
+      })
+      .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {
+        state.items = [...payload].reverse();
+        // state.isLoading = false;
+      })
+      .addCase(getTransactionExpense.fulfilled, (state, { payload }) => {
+        state.items = [...payload].reverse();
+        // state.isLoading = false;
+      })
+      .addCase(deleteTransacton.fulfilled, (state, { payload }) => {
+        state.items = state.items.filter(item => item.id !== payload.id);
         // state.isLoading = false;
       }),
 

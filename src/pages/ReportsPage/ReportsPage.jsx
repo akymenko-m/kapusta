@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { getPeriodData } from 'redux/Transactions/TransactionsOperations';
+import { Slider} from 'components/Reports/ReportsNav/Slider/Slider';
+
 
 export const ReportsPage = () => {
   const date = new Date();
@@ -25,7 +27,7 @@ export const ReportsPage = () => {
       <div>
         <p>Current period:</p>
       </div>
-
+      <Slider/>
       <TotalTransactionsData />
       <ReportByCategories />
     </div>
