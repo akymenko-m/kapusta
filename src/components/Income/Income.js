@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import TransactionForm from 'components/TransactionForm/TransactionForm';
+import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { addIncomeTransaction } from 'redux/Transactions/TransactionsOperations';
 
 export const Income = () => {

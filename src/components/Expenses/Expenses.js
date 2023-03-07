@@ -1,4 +1,4 @@
-import TransactionForm from 'components/TransactionForm/TransactionForm';
+import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useDispatch } from 'react-redux';
 import { addExpenseTransaction } from 'redux/Transactions/TransactionsOperations';
 
