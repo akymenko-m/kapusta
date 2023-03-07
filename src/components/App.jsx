@@ -10,6 +10,7 @@ import { ReportsPage } from 'pages/ReportsPage/ReportsPage';
 import { FooterOfApp } from './Footer/Footer';
 
 
+
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
