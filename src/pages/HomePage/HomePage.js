@@ -10,17 +10,16 @@ import { Income } from 'components/Income/Income';
 import { FooterOfApp } from 'components/Footer/Footer';
 import { Container } from 'components/App.styled';
 import { Balance } from 'components/Balance/Balance';
+
+
 export const HomePage = () => {
   return (
     <>
       <Background>
       <Main>
         <Container>
-    
-     
-    
-        <Wrapper>
-          <div>
+    <Wrapper>
+            <div>
             <Title src={title} />
           </div>
           <div>
@@ -30,7 +29,7 @@ export const HomePage = () => {
         </Wrapper>
 
         <Logout />
-
+        <Balance />
         <Tabs>
         <TabList>
           <Tab>Expenses</Tab>
@@ -42,7 +41,7 @@ export const HomePage = () => {
       </Tabs>
        
      
-      <Balance />
+      
      
       <FooterOfApp />
       </Container>
