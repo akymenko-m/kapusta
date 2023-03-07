@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { TransactionsList } from 'components/TransactionsList/TransactionsList';
 import { addIncomeTransaction } from 'redux/Transactions/TransactionsOperations';
+import { TransactionContainer } from 'components/Expenses/Expenses.styled';
 
 export const Income = () => {
   const dispatch = useDispatch();
@@ -11,11 +12,15 @@ export const Income = () => {
     dispatch(addIncomeTransaction(formData));
   };
   return (
-    <>
-      <h4>incomes</h4>
+    <TransactionContainer>
+      {/* <h4>incsomes</h4> */}
       <TransactionForm onSubmit={handlePostIncome} />
+
+    </TransactionContainer>
+
       <TransactionsList />
 
     </>
+
   );
 };

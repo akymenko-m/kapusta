@@ -2,6 +2,7 @@ import { TransactionsList } from 'components/TransactionsList/TransactionsList';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useDispatch } from 'react-redux';
 import { addExpenseTransaction } from 'redux/Transactions/TransactionsOperations';
+import { TransactionContainer } from './Expenses.styled';
 
 export const Expenses = () => {
   const dispatch = useDispatch();
@@ -10,11 +11,15 @@ export const Expenses = () => {
     dispatch(addExpenseTransaction(formData));
   };
   return (
-    <>
-      <h4>expenses</h4>
+    <TransactionContainer>
+      {/* <h4>expenses</h4> */}
       <TransactionForm onSubmit={handlePostExpense} isExpenseForm />
+
+    </TransactionContainer>
+
       <TransactionsList />
 
     </>
+
   );
 };
