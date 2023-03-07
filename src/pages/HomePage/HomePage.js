@@ -17,6 +17,9 @@ export const HomePage = () => {
     <>
       <Background>
       <Main>
+
+      
+
         <Container>
     <Wrapper>
             <div>
@@ -42,7 +45,7 @@ export const HomePage = () => {
        
      
       
-     
+
       <FooterOfApp />
       </Container>
       </Main>
