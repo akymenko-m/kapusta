@@ -55,3 +55,40 @@ export const getPeriodData = createAsyncThunk(
     }
   }
 );
+
+
+export const getTransactionIncome = createAsyncThunk(
+  '/transaction/getIncome',
+  async (_, thunkAPI) => {
+    try {
+      const res = await instance.get('transaction/income');
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const getTransactionExpense = createAsyncThunk(
+  '/transaction/getExpense',
+  async (_, thunkAPI) => {
+    try {
+      const res = await instance.get('transaction/expense');
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteTransacton = createAsyncThunk(
+  'transaction/deleteTransaction',
+  async (transactionId, thunkAPI) => {
+    try {
+      const res = await instance.delete(`/transaction/${transactionId}`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
