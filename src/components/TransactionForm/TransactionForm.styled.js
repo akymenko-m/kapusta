@@ -2,10 +2,15 @@ import styled from '@emotion/styled';
 
 export const Form = styled.form`
   display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   column-gap: 10px;
   row-gap: 44px;
+  margin-top: 24px;
+  @media (min-width: 1280px) {
+    justify-content: space-between;
+    margin-top: 32px;
+  }
 `;
 export const CalendarBox = styled.div`
   display: flex;
@@ -25,7 +30,7 @@ export const DescInput = styled.input`
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
-  color: #c7ccdc;
+  color: #989dac;
   height: 100%;
   border: none;
   padding: 2px 20px;
@@ -34,7 +39,6 @@ export const DescInput = styled.input`
   @media (min-width: 768px) {
     max-width: 160px;
   }
-  max-width: 260px;
   @media (min-width: 1280px) {
     max-width: 260px;
   }
@@ -51,7 +55,7 @@ export const CategorySelect = styled.select`
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
-  color: #c7ccdc;
+  color: #989dac;
   height: 100%;
   border-top: none;
   border-bottom: none;
@@ -67,7 +71,6 @@ export const CategorySelect = styled.select`
   @media (min-width: 768px) {
     max-width: 186px;
   }
-  max-width: 260px;
   @media (min-width: 1280px) {
     max-width: 180px;
   }
@@ -85,7 +88,7 @@ export const AmountInput = styled.input`
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
-  color: #c7ccdc;
+  color: #989dac;
   height: 100%;
   border: none;
   max-width: 110px;
@@ -95,13 +98,6 @@ export const AmountInput = styled.input`
   &:active {
     outline: none;
   }
-  @media (min-width: 768px) {
-    max-width: 110px;
-  }
-  max-width: 260px;
-  @media (min-width: 1280px) {
-    max-width: 120px;
-  }
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -109,6 +105,12 @@ export const AmountInput = styled.input`
   }
   &[type='number'] {
     -moz-appearance: textfield;
+  }
+  @media (min-width: 768px) {
+    max-width: 110px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 120px;
   }
 `;
 
