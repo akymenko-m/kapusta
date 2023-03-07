@@ -1,4 +1,4 @@
-import { Main, Background, Title, Wrapper } from './HomePage.styled';
+import { Main,  Title, Wrapper } from './HomePage.styled';
 import title from '../../images/title/title.png';
 import { RegisterPage } from 'pages/RegisterPage';
 import { LoginPage } from '../LoginPage/LoginPage';
@@ -8,17 +8,10 @@ import { Balance } from 'components/Balance/Balance';
 export const HomePage = () => {
   return (
     <>
+      
       <Main>
-        <Background>
-<<<<<<< HEAD
-          <h4>домашня сторінка</h4>
-          <DownImg src={back} alt="cabbage" />
-        </Background>
-        <LoginPage />
-        <RegisterPage />
-        <Logout />
-=======
-          <Wrapper>
+     
+            <Wrapper>
             <div>
               <Title src={title} />
             </div>
@@ -29,9 +22,11 @@ export const HomePage = () => {
           </Wrapper>
 
           <Logout />
-        </Background>
->>>>>>> main
+          {/* <Background>
+       </Background> */}
+
       </Main>
+     
       <FooterOfApp />
       <Balance />
     </>
