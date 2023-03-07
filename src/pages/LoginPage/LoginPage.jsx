@@ -15,7 +15,6 @@ export function LoginPage() {
      password: password.value,
      };
      
-     console.log(user);
    dispatch(login(user));
    event.target.reset();
  };

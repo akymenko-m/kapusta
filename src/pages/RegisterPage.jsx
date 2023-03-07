@@ -14,7 +14,6 @@ export function RegisterPage() {
     };
        dispatch(register(user));
        event.target.reset();
-    console.log(user);
   };
 
   return (
