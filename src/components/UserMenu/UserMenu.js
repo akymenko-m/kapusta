@@ -1,11 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import logo from "../../images/logo/logo.png";
+import logo from '../../images/logo/logo.png';
 export const UserMenu = () => {
   return (
     <>
-
-      <NavLink to="/">{<img src={logo} alt="logo"/>}</NavLink>
-        <p>Welcome, User</p>
+      <NavLink to="/">{<img src={logo} alt="logo" />}</NavLink>
+      <p>Welcome, User</p>
 
       <button type="button">Logout</button>
 

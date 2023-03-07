@@ -1,9 +1,10 @@
-import { ReportByCategories } from 'components/ExpensesCategories/ExpensesCategories';
+import { ReportByCategories } from 'components/ReportByCategories/ReportByCategories';
 import { TotalTransactionsData } from 'components/TotalTransactionsData/TotalTransactionsData';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { getPeriodData } from 'redux/Transactions/TransactionsOperations';
+import { MainContainer } from './ReportsPage.styled';
 
 export const ReportsPage = () => {
   const date = new Date();
@@ -21,13 +22,9 @@ export const ReportsPage = () => {
   }, [dispatch, dateFormat, setSearchParams]);
 
   return (
-    <div>
-      <div>
-        <p>Current period:</p>
-      </div>
-
+    <MainContainer>
       <TotalTransactionsData />
       <ReportByCategories />
-    </div>
+    </MainContainer>
   );
 };
