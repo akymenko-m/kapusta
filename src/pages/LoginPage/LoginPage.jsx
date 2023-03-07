@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { login } from 'redux/user/userOperations';
 
 export function LoginPage() {
@@ -37,6 +38,7 @@ export function LoginPage() {
           </label>
           <button type="submit">Log in</button>
         </form>
+        <NavLink to='/register'>Registration</NavLink>
       </div>
     ); 
 }

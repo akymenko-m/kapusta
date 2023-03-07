@@ -10,6 +10,7 @@ import { Loader } from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 import { getIsloading } from 'redux/Transactions/selectors';
 
+
 export const ReportsPage = () => {
   // const date = new Date();
   // const dateFormat = date.getFullYear() + '-' + 0 + (date.getMonth() + 1);
@@ -26,7 +27,14 @@ export const ReportsPage = () => {
     <MainContainer>
       {isLoading && <Loader />}
 
+  useEffect(() => {
+    setSearchParams({ date: dateFormat });
+    dispatch(getPeriodData(dateFormat));
+  }, [dispatch, dateFormat, setSearchParams]);
+  
+
       <Slider />
+
 
       <TotalTransactionsData />
       <ReportByCategories />

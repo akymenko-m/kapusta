@@ -5,6 +5,8 @@ import { useAuth } from 'hook/useAuth';
 
 export function Logout() {
   const dispatch = useDispatch();
+
+  
   const { user } = useAuth();
   const handleLogout = () => {
     dispatch(logOut());

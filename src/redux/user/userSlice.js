@@ -18,13 +18,14 @@ const userSlice = createSlice({
       .addCase(register.fulfilled, (state, { payload }) => {
         console.log(payload);
         state.user = payload.userData;
-        console.log(payload.userData);
-        state.token = payload.token;
+        state.token = payload.accessToken;
+        state.refreshToken = payload.refreshToken;
+        state.sid = payload.sid;
         state.isLoggedIn = true;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
-        console.log(payload);
-        state.accessToken = payload.newAccessToken;
+        console.log('refreshUser - ' + payload.newAccessToken);
+        state.token = payload.newAccessToken;
         state.refreshToken = payload.newRefreshToken;
         state.sid = payload.newSid;
         state.isLoggedIn = true;
