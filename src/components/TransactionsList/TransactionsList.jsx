@@ -36,7 +36,7 @@ export function TransactionsList() {
 
   const handleDelete = _id => {
     dispatch(deleteTransacton(_id));
-  };
+     };
 
   return ( items && (
     <TransactionTable>
@@ -51,28 +51,28 @@ export function TransactionsList() {
       </TableHead>
       <TableBody>
         {items.map(item => (
-          <TableRow key={item.transaction._id}>
+          <TableRow key={item._id}>
             <Block>
               <TableData  className="dataTable">
-                {item.transaction.date}
+                {item.date}
               </TableData>
               <TableData className="descriptionTable">
-                {item.transaction.description}
+                {item.description}
               </TableData>
             </Block>
 
             <TableData className="categoryTable">
-              {item.transaction.category}
+              {item.category}
             </TableData>
             <TableData
               className={`sumTable ${isIncomePage ? 'income' : 'expense'}`}
             >
               {isIncomePage
-                ? item.transaction.amount + ' UAH'
-                : '- ' + item.transaction.amount + ' UAH'}
+                ? item.amount + ' UAH'
+                : '- ' + item.amount + ' UAH'}
             </TableData>
 
-            <Button onClick={() => handleDelete(item.transaction._id)}>
+            <Button onClick={() => handleDelete(item._id)}>
               <GoTrashcanStyled />
             </Button>
           </TableRow>
