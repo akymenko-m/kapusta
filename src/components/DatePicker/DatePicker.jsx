@@ -8,7 +8,7 @@ const Example = ({ onChange }) => {
 
   useEffect(() => {
     onChange(startDate);
-  }, []);
+  }, [ onChange, startDate]);
 
   const getStartDate = date => {
     setStartDate(date);
