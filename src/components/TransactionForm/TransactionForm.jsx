@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Example from 'components/DatePicker/DatePicker';
 // import { FaRegCalendarAlt } from 'react-icons/fa';
-import { CgCalculator } from 'react-icons/cg';
+// import { CgCalculator } from 'react-icons/cg';
 import { GoCalendar } from 'react-icons/go';
 
 import {
