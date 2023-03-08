@@ -34,8 +34,7 @@ export const HomePage = () => {
                       </NavLink>
                     </Tab>
                     <Tab>
-                  
-                      <NavLink to="income">
+                  <NavLink to="income">
                         Income
                       </NavLink>
                     </Tab>
