@@ -3,6 +3,7 @@ import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useDispatch } from 'react-redux';
 import { addExpenseTransaction } from 'redux/Transactions/TransactionsOperations';
 import { TransactionContainer, Block } from './Expenses.styled';
+import { Summary } from './../Summary/Summary';
 
 export const Expenses = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export const Expenses = () => {
       </TransactionContainer>
       <Block>
         <TransactionsList />
-        <div>summary</div>
+        <Summary />
       </Block>
     </>
   );

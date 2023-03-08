@@ -5,7 +5,7 @@ import { Tab, Tabs, TabList } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { NavLink } from 'react-router-dom';
 
-export const CabbageTop = styled.main`
+export const CabbageTop = styled.div`
   width: 100%;
 
   background-image: url(${background});
@@ -15,7 +15,7 @@ export const CabbageTop = styled.main`
 
   height: 300px;
 `;
-export const CabbageBottom = styled.main`
+export const CabbageBottom = styled.div`
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -24,7 +24,7 @@ export const CabbageBottom = styled.main`
   background-image: url(${background});
   background-repeat: repeat-x;
   background-size: contain;
-  background-position: bottom left;
+  background-position: bottom;
 
   height: 300px;
 `;
