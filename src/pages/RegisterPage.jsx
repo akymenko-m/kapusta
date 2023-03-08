@@ -32,11 +32,16 @@ export function RegisterPage() {
       >
         <label>
           Email:
-          <input type="text" name="email" placeholder="your@email.com" />
+          <input
+            type="text"
+            name="email"
+            placeholder="your@email.com"
+            requred
+          />
         </label>
         <label>
           Password:
-          <input type="text" name="password" placeholder="password" />
+          <input type="text" name="password" placeholder="password" requred />
         </label>
         <button type="submit">Registration</button>
       </form>

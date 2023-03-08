@@ -1,6 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { login } from 'redux/user/userOperations';
+import {
+  LoginPageWrapper,
+  LoginForm,
+  LoginFormLabel,
+  LoginFormInput,
+  LoginButton,
+  RegisterNavLink,
+  GoogleLogin,
+} from './LoginPage.styled';
 
 export function LoginPage() {
  const dispatch = useDispatch();
@@ -21,24 +30,40 @@ export function LoginPage() {
  };
 
     return (
-      <div>
-        <p>You can log in with your Google Account:</p>;
+      <LoginPageWrapper>
+        <GoogleLogin>
+          <p>You can log in with your Google Account:</p>
+        </GoogleLogin>
+
         <p>Or log in using an email and password, after registering:</p>
-        <form
+        <LoginForm
           onSubmit={handleSubmit}
-          style={{ width: '200px', display: 'flex', flexDirection: 'column' }}
         >
-          <label>
+          <LoginFormLabel>
             Email:
-            <input type="text" name="email" placeholder="your@mail.com" />
-          </label>
-          <label>
+            <LoginFormInput
+              type="text"
+              name="email"
+              placeholder="your@mail.com"
+              requred
+            />
+          </LoginFormLabel>
+          <LoginFormLabel>
             Password:
-            <input type="text" name="password" placeholder="password" />
-          </label>
-          <button type="submit">Log in</button>
-        </form>
-        <NavLink to='/register'>Registration</NavLink>
-      </div>
+            <LoginFormInput
+              type="password"
+              name="password"
+              placeholder="password"
+              requred
+            />
+          </LoginFormLabel>
+          <LoginButton type="submit">Log in</LoginButton>
+        </LoginForm>
+        <RegisterNavLink>
+          <NavLink to="/register" style={{ padding: '12px 14px' }}>
+            Registration
+          </NavLink>
+        </RegisterNavLink>
+      </LoginPageWrapper>
     ); 
 }

@@ -55,7 +55,7 @@ export const HomePage = () => {
                 </div>
                 <div>
                   <LoginPage />
-                  <RegisterPage />
+                  {/* <RegisterPage /> */}
                 </div>
               </Wrapper>
             )}

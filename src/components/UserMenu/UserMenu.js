@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../../images/logo/logo.png';
-import { Logout } from '../Logout';
+import { Logout } from '../Logout/Logout';
 import { useAuth } from '../../hook/useAuth';
 import { HeaderWrap } from './UserMenu.styled';
 
