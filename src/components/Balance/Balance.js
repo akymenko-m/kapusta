@@ -13,6 +13,7 @@ import {
   Wrap,
 } from './Balance.styled';
 
+import ModalWindow from '../BalanceModal/BalanceModal';
 export function Balance() {
   const dispatch = useDispatch();
 
@@ -51,6 +52,7 @@ export function Balance() {
           </label>
           <BalanceBtn>Confirm</BalanceBtn>
         </BalanceForm>
+        <ModalWindow/>
       </BalanceContainer>
     </Wrap>
   );

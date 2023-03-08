@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { getIsloading } from 'redux/Transactions/selectors';
 import ChartReport from 'components/ChartReport/ChartReport';
 
+
 export const ReportsPage = () => {
   const isLoading = useSelector(getIsloading);
 
