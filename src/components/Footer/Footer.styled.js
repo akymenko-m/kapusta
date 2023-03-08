@@ -8,11 +8,12 @@ export const Footer = styled.div`
 background-image: url(${backMobile});
 background-repeat: no-repeat;
 background-size: contain;
-background-position:  bottom 0px left 30px;
+
+
 height: 90px;
 @media (min-width: 321px) {
     background-image: url(${back});
-    background-position:  bottom -2px left 100px;
+    
     height: 145px;
   };
 
@@ -22,8 +23,14 @@ height: 90px;
 `;
 
 export const Wrapper = styled.div`
-padding-top: 200px;
+width: 200px;
+height: 200px;
+padding-top: 336px;
+    margin-left: 87px;
+
 @media (min-width: 321px) {
     padding-top: 100px;
+    padding-top: 336px;
+    margin-left: 87px;
   };
 `
