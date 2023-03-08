@@ -18,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Global styles={GlobalStyles} />
 
 
+
       
 
 
@@ -25,9 +26,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 
 
-          <BrowserRouter        >
+          <BrowserRouter >
        
          
+
 
 
 
@@ -37,4 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>
 );
+
+
 // basename = '/kapusta/';
+

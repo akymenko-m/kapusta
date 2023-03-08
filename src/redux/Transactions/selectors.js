@@ -1,5 +1,4 @@
-export const selectBalance = state => state.transactions.balance;
-
+export const selectBalance = state => state.transactions.newBalance;
 
 export const selectCurrentReport = state => state.transactions.currentReport;
 export const selectTransactionDataIncomes = state =>
@@ -10,4 +9,3 @@ export const selectTransactionDataExpenses = state =>
 export const getIsloading = state => state.transactions.isLoading;
 
 export const selectTransactions = state => state.transactions.items;
-

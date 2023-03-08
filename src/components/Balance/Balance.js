@@ -19,7 +19,7 @@ export function Balance() {
   const [number, setNumber] = useState('');
   const formSubmit = e => {
     e.preventDefault();
-    dispatch(balance(number));
+    dispatch(balance({ newBalance: number }));
   };
   const inputChange = event => {
     const { name, value } = event.target;
@@ -34,7 +34,7 @@ export function Balance() {
   return (
     <Wrap>
       <BalanceWrap>
-      <NavLink to="/transaction/period-data">Reports</NavLink>
+        <NavLink to="/transaction/period-data">Reports</NavLink>
         <FiBarChart2 />
       </BalanceWrap>
       <BalanceContainer>
