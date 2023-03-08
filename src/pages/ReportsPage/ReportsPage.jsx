@@ -8,14 +8,17 @@ import { Loader } from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 import { getIsloading } from 'redux/Transactions/selectors';
 import ChartReport from 'components/ChartReport/ChartReport';
-
+import { selectIsRefreshing } from 'redux/user/selectors';
 
 export const ReportsPage = () => {
   const isLoading = useSelector(getIsloading);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
-  return (
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <MainContainer>
-      {isLoading && <Loader />}
+      {/* {isLoading && <Loader />} */}
 
       <Slider />
 
