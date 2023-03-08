@@ -4,9 +4,15 @@ import {
   Background,
   CabbageTop,
   CabbageBottom,
+
+  TabsStyled,
+  TabListStyled,
+  TabStyled,
+  NavLinkStyled
+
 } from './HomePage.styled';
 import title from '../../images/title/title.png';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { RegisterPage } from 'pages/RegisterPage';
 import { LoginPage } from '../LoginPage/LoginPage';
@@ -15,10 +21,12 @@ import { LoginPage } from '../LoginPage/LoginPage';
 import { FooterOfApp } from 'components/Footer/Footer';
 import { Container } from 'components/App.styled';
 import { Balance } from 'components/Balance/Balance';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../hook/useAuth';
+
 import { Summary } from 'components/Summary/Summary';
+
 
 export const HomePage = () => {
   const { isLoggedIn } = useAuth();
@@ -34,18 +42,21 @@ export const HomePage = () => {
             {' '}
             <div>
               <Balance />
-              <Tabs selectedIndex={index} onSelect={() => {}}>
-                <TabList>
-                  <Tab>
-                    <NavLink to="expenses">Expenses</NavLink>
-                  </Tab>
-                  <Tab>
-                    <NavLink to="income">Income</NavLink>
-                  </Tab>
-                </TabList>
+
+              
+              <TabsStyled selectedIndex={index} onSelect={() => {}}>
+                <TabListStyled>
+                  <TabStyled>
+                    <NavLinkStyled to="expenses">Expenses</NavLinkStyled>
+                  </TabStyled>
+                  <TabStyled>
+                    <NavLinkStyled to="income">Income</NavLinkStyled>
+                  </TabStyled>
+                </TabListStyled>
                 <TabPanel>{<Outlet />}</TabPanel>
                 <TabPanel>{<Outlet />}</TabPanel>
-              </Tabs>
+              </TabsStyled>
+
             </div>
           </Container>
           <CabbageBottom />
