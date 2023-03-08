@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/kapusta/static/css/main.cfee0302.css",
-    "main.js": "/kapusta/static/js/main.6401a4ce.js",
+    "main.js": "/kapusta/static/js/main.fcb2ced9.js",
     "static/media/cabbage.png": "/kapusta/static/media/cabbage.62b7b4d56fa2adf6f4d0.png",
     "index.html": "/kapusta/index.html",
     "static/media/reports.svg": "/kapusta/static/media/reports.22c7d3ee7969e983d42c47aef02ec127.svg",
     "main.cfee0302.css.map": "/kapusta/static/css/main.cfee0302.css.map",
-    "main.6401a4ce.js.map": "/kapusta/static/js/main.6401a4ce.js.map"
+    "main.fcb2ced9.js.map": "/kapusta/static/js/main.fcb2ced9.js.map"
   },
   "entrypoints": [
     "static/css/main.cfee0302.css",
-    "static/js/main.6401a4ce.js"
+    "static/js/main.fcb2ced9.js"
   ]
 }
