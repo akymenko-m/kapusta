@@ -185,13 +185,12 @@ export const GoTrashcanStyled = styled(GoTrashcan)`
 export const Block = styled.div`
   @media (max-width: 767px) {
     display: flex;
-
     flex-direction: column-reverse;
     align-items: flex-start;
   }
   @media (min-width: 768px) {
     display: flex;
-
+    gap:30px;
     justify-content: space-around;
     align-items: center;
   }
@@ -199,7 +198,7 @@ export const Block = styled.div`
 export const BlockHead = styled.div`
   @media (min-width: 768px) {
     display: flex;
-
+    gap:30px;
     justify-content: space-around;
     align-items: center;
   }
