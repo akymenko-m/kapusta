@@ -1,3 +1,5 @@
+import { ExpensesReport } from 'components/ExpensesReport/ExpensesReport';
+import { IncomesReport } from 'components/IncomesReport/IncomesReport';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentReport } from 'redux/Transactions/selectors';
 import { changeReportType } from 'redux/Transactions/TransactionsSlice';
@@ -31,11 +33,7 @@ export const ReportByCategories = () => {
         </BtnReport>
       </ReportType>
 
-      {curReport === 'Expenses' ? (
-        <ul>Expenses Categories</ul>
-      ) : (
-        <ul>Income Categories</ul>
-      )}
+      {curReport === 'Expenses' ? <ExpensesReport /> : <IncomesReport />}
     </div>
   );
 };
