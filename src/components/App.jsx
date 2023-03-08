@@ -9,20 +9,24 @@ import { refreshUser } from 'redux/user/userOperations';
 import { ReportsPage } from 'pages/ReportsPage/ReportsPage';
 import { FooterOfApp } from './Footer/Footer';
 
+
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <>
+  return ( <>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />}>
           <Route path="expenses" element={<Expenses />} />
           <Route path="income" element={<Income />} />
-        </Route>
+       </Route>
+      
+      
+       
+       
 
         <Route path="/transaction/period-data" element={<ReportsPage />} />
 
