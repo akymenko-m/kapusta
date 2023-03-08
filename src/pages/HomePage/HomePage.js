@@ -12,6 +12,7 @@ import { Balance } from 'components/Balance/Balance';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../hook/useAuth';
+import { Summary } from 'components/Summary/Summary';
 
 
 
@@ -55,6 +56,7 @@ const index = location.pathname === '/income'?1 : 0;
                     <RegisterPage />
                   </div>
                 </Wrapper><FooterOfApp /></Container></CabbageTop></Background>)}
+                                                         <Summary />
        
       </>
     );
