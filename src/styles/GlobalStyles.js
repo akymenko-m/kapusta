@@ -42,4 +42,13 @@ export const GlobalStyles = css`
     max-width: 100%;
     height: auto;
   }
+
+  div.react-datepicker__day.react-datepicker__day--selected.react-datepicker__day--today,
+  div.react-datepicker__day.react-datepicker__day--selected {
+    background: #ff751d;
+  }
+
+  div.react-datepicker__input-container input.css-skgz4h {
+    background-color: transparent;
+  }
 `;
