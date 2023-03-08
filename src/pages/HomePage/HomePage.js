@@ -4,10 +4,12 @@ import {
   Background,
   CabbageTop,
   CabbageBottom,
+
   TabsStyled,
   TabListStyled,
   TabStyled,
   NavLinkStyled
+
 } from './HomePage.styled';
 import title from '../../images/title/title.png';
 import { TabPanel } from 'react-tabs';
@@ -23,6 +25,9 @@ import { useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../hook/useAuth';
 
+import { Summary } from 'components/Summary/Summary';
+
+
 export const HomePage = () => {
   const { isLoggedIn } = useAuth();
   const location = useLocation();
@@ -37,6 +42,7 @@ export const HomePage = () => {
             {' '}
             <div>
               <Balance />
+
               
               <TabsStyled selectedIndex={index} onSelect={() => {}}>
                 <TabListStyled>
@@ -50,7 +56,7 @@ export const HomePage = () => {
                 <TabPanel>{<Outlet />}</TabPanel>
                 <TabPanel>{<Outlet />}</TabPanel>
               </TabsStyled>
-              {/* border-top-right-radius */}
+
             </div>
           </Container>
           <CabbageBottom />
@@ -74,6 +80,7 @@ export const HomePage = () => {
           </CabbageTop>
         </Background>
       )}
+      <Summary />
     </>
   );
 };

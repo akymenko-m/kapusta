@@ -14,7 +14,3 @@ code {
     monospace;
 
   /* color: #989dac; */
-div.react-datepicker__day.react-datepicker__day--selected.react-datepicker__day--today,
-div.react-datepicker__day.react-datepicker__day--selected {
-  background: #ff751d;
-}
