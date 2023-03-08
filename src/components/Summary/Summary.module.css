@@ -1,7 +1,13 @@
     .summaryContainer {
       width: 230px;
       height: 278px;
+     
     }
+    @media only screen and (max-width: 768px) {
+      .summaryContainer {
+          display: none;
+      }
+  }
   
     .summaryTitle {
       display: flex;
@@ -20,6 +26,7 @@
       list-style: none;
       height: 136%;
       overflow-x: hidden;
+      
     }
   
     .summaryItem {

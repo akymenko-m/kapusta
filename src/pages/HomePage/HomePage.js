@@ -25,7 +25,7 @@ import { useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../hook/useAuth';
 
-import { Summary } from 'components/Summary/Summary';
+
 
 
 export const HomePage = () => {
@@ -80,7 +80,7 @@ export const HomePage = () => {
           </CabbageTop>
         </Background>
       )}
-      <Summary />
+      
     </>
   );
 };
