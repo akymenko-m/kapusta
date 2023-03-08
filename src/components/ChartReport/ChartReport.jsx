@@ -7,9 +7,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
 } from 'recharts';
 import css from './ChartReport.module.css';
 

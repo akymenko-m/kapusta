@@ -1,6 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { register } from 'redux/user/userOperations';
+import { GoogleLogin } from '../components/LoginRegister/GoogleLogin/GoogleLogin';
+import { LoginRegisterText } from '../components/LoginRegister/LoginRegisterText/LoginRegisterText';
+import {
+  RegisterPageWrapper,
+  RegisterForm,
+  RegisterFormLabel,
+  RegisterFormInput,
+  RegisterButton,
+  LoginNavLink
+} from './RegisterPage.styled';
 
 export function RegisterPage() {
   const dispatch = useDispatch();
@@ -14,38 +24,41 @@ export function RegisterPage() {
       password: password.value,
     };
     dispatch(register(user));
-       event.target.reset();
+    event.target.reset();
   };
 
   return (
-    <div>
-      <p>You can log in with your Google Account:</p>;
-      <p>Or log in using an email and password, after registering:</p>
-      <form
+    <RegisterPageWrapper>
+      <GoogleLogin />
+      <LoginRegisterText />
+      <RegisterForm
         onSubmit={handleSubmit}
-        style={{
-          width: '200px',
-          display: 'flex',
-          flexDirection: 'column',
-          padding: 20,
-        }}
       >
-        <label>
+        <RegisterFormLabel>
           Email:
-          <input
+          <RegisterFormInput
             type="text"
             name="email"
             placeholder="your@email.com"
             requred
           />
-        </label>
-        <label>
+        </RegisterFormLabel>
+        <RegisterFormLabel>
           Password:
-          <input type="text" name="password" placeholder="password" requred />
-        </label>
-        <button type="submit">Registration</button>
-      </form>
-      <NavLink to="/login">Log in</NavLink>
-    </div>
+          <RegisterFormInput
+            type="text"
+            name="password"
+            placeholder="password"
+            requred
+          />
+        </RegisterFormLabel>
+        <RegisterButton type="submit">Registration</RegisterButton>
+      </RegisterForm>
+      <LoginNavLink>
+        <NavLink to="/login" style={{ padding: '12px 14px' }}>
+          Log in
+        </NavLink>
+      </LoginNavLink>
+    </RegisterPageWrapper>
   );
 }

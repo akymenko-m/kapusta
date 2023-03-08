@@ -7,7 +7,11 @@ import {
   UserWrapper,
   UserEmail,
   ExitButton,
+  ExitText,
+  ExitIcon,
 } from './Logout.styled';
+import exit from '../../images/exit/exit.svg'
+
 
 export function Logout() {
   const dispatch = useDispatch();
@@ -26,7 +30,8 @@ export function Logout() {
         <UserEmail>{user.email}</UserEmail>
       </UserWrapper>
       <ExitButton onClick={handleLogout}>
-        Exit
+        <ExitIcon src={exit} alt="Exit" />
+        <ExitText>Exit</ExitText>
       </ExitButton>
     </HederUserWrapper>
   );

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const LoginPageWrapper = styled.div`
+export const RegisterPageWrapper = styled.div`
   @media (min-width: 320px) {
     width: 280px;
     color: #52555f;
@@ -27,7 +27,7 @@ export const LoginPageWrapper = styled.div`
   }
 `;
 
-export const LoginForm = styled.form`
+export const RegisterForm = styled.form`
   @media (min-width: 321px) {
     width: 240px;
     display: flex;
@@ -43,7 +43,7 @@ export const LoginForm = styled.form`
   }
 `;
 
-export const LoginFormLabel = styled.label`
+export const RegisterFormLabel = styled.label`
   @media (min-width: 321px) {
     width: 100%;
     display: flex;
@@ -63,24 +63,19 @@ export const LoginFormLabel = styled.label`
   }
 `;
 
-export const LoginFormInput = styled.input`
+export const RegisterFormInput = styled.input`
   @media (min-width: 321px) {
     background-color: #f6f7fb;
     color: #a6abb9;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 1.17;
     padding: 17px 19px;
     border-radius: 30px;
     border: none;
   }
-  @media screen and (min-width: 768px) {
-  }
-
-  @media screen and (min-width: 1280px) {
-  }
 `;
 
-export const LoginButton = styled.button`
+export const RegisterButton = styled.button`
   @media (min-width: 321px) {
     display: flex;
     align-items: center;
@@ -99,7 +94,7 @@ export const LoginButton = styled.button`
   }
 `;
 
-export const RegisterNavLink = styled.div`
+export const LoginNavLink = styled.div`
   @media (min-width: 321px) {
     display: flex;
     align-items: center;

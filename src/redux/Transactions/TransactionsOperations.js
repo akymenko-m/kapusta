@@ -1,17 +1,13 @@
 import { instance } from '../operations';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const setAuthHeader = token => {
-  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
 export const balance = createAsyncThunk(
   'user/balance',
-  async (credentials, thunkAPI) => {
+  async (balance, thunkAPI) => {
     try {
-      const res = await instance.patch('/user/balance', credentials);
-      console.log(res);
-      setAuthHeader(res.data.token);
-      return res.data;
+      const {data} = await instance.patch('/user/balance', balance);
+      console.log(data);
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -56,13 +52,13 @@ export const getPeriodData = createAsyncThunk(
   }
 );
 
-
 export const getTransactionIncome = createAsyncThunk(
   '/transaction/getIncome',
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/income');
-      return res.data;
+      console.log(res.data);
+      return res.data.incomes;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -73,7 +69,8 @@ export const getTransactionExpense = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/expense');
-      return res.data;
+      console.log(res.data);
+      return res.data.expenses;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -85,10 +82,10 @@ export const deleteTransacton = createAsyncThunk(
   async (transactionId, thunkAPI) => {
     try {
       const res = await instance.delete(`transaction/${transactionId}`);
+      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-

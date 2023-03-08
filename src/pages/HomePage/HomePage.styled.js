@@ -1,13 +1,27 @@
 import styled from '@emotion/styled';
 import background from '../../images/backgronds/cabbage.png';
 
-export const Main = styled.main`
+export const CabbageTop = styled.main`
   width: 100%;
 
   background-image: url(${background});
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   background-size: contain;
-  background-position: top;
+  background-position: top left;
+
+
+  height: 300px;
+`;
+export const CabbageBottom = styled.main`
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url(${background});
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: bottom left;
 
 
   height: 300px;
@@ -24,6 +38,7 @@ export const Background = styled.div`
     height: 526px;
   };
 `;
+
 export const Wrapper = styled.div`
   @media (min-width: 769px) {
     display: flex;
