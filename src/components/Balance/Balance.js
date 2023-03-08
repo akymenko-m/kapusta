@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { FiBarChart2 } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux';
-import { balance } from 'redux/Transactions/TransactionsOperations';
+// import { balance } from 'redux/Transactions/TransactionsOperations';
 
 import {
   BalanceBtn,
@@ -22,10 +22,10 @@ export function Balance() {
   const form = useRef();
   const dispatch = useDispatch();
   let balance;
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    balance = evt.target.balance.value;
-  };
+  // const handleSubmit = evt => {
+  //   evt.preventDefault();
+  //   balance = evt.target.balance.value;
+  // };
 
   const [number, setNumber] = useState('');
   const formSubmit = e => {
