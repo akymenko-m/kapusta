@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { balance, deleteTransacton, getTransactionExpense, getTransactionIncome } from './TransactionsOperations';
+import {
+  balance,
+  deleteTransacton,
+  getTransactionExpense,
+  getTransactionIncome,
+} from './TransactionsOperations';
 
 import {
   addIncomeTransaction,
@@ -52,11 +57,13 @@ const transactionsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(addIncomeTransaction.fulfilled, (state, { payload }) => {
-        state.income = [...payload];
+        console.log(payload);
+        state.income = [payload, ...state.income];
         // state.isLoading = false;
       })
       .addCase(addExpenseTransaction.fulfilled, (state, { payload }) => {
-        state.expenses = [...payload];
+        console.log(payload);
+        state.expenses = [payload, ...state.expenses];
         // state.isLoading = false;
       })
       .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {
