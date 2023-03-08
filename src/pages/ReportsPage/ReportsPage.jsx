@@ -8,6 +8,7 @@ import { Loader } from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 import { getIsloading } from 'redux/Transactions/selectors';
 
+
 export const ReportsPage = () => {
   const isLoading = useSelector(getIsloading);
 
