@@ -1,18 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
 import {
   balance,
   deleteTransacton,
   getTransactionExpense,
   getTransactionIncome,
-} from './TransactionsOperations';
-
-import {
   addIncomeTransaction,
   addExpenseTransaction,
+  getPeriodData,
 } from './TransactionsOperations';
-
-import { getPeriodData } from './TransactionsOperations';
 
 const initialState = {
   items: [],
@@ -37,6 +33,9 @@ const transactionsSlice = createSlice({
     setReportsQuery(state, action) {
       state.reportsQuery = action.payload;
     },
+    deleteTransactionItem(state, action) {
+      state.items = state.items.filter(item => item._id !== action.payload);
+    },
   },
 
   extraReducers: builder =>
@@ -56,30 +55,55 @@ const transactionsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(addIncomeTransaction.fulfilled, (state, { payload }) => {
-        console.log(payload);
-        state.income = [payload, ...state.income];
-        // state.isLoading = false;
+        state.items = [payload.transaction, ...state.items];
+
+        state.isLoading = false;
       })
       .addCase(addExpenseTransaction.fulfilled, (state, { payload }) => {
-        console.log(payload);
-        state.expenses = [payload, ...state.expenses];
-        // state.isLoading = false;
+        state.items = [payload.transaction, ...state.items];
+        state.isLoading = false;
       })
       .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {
         state.items = [...payload].reverse();
-        // state.isLoading = false;
+        state.isLoading = false;
       })
       .addCase(getTransactionExpense.fulfilled, (state, { payload }) => {
         state.items = [...payload].reverse();
-        // state.isLoading = false;
+        state.isLoading = false;
       })
       .addCase(deleteTransacton.fulfilled, (state, { payload }) => {
-        state.items = state.items.filter(item => item.id !== payload.id);
-        // state.isLoading = false;
-      }),
+        state.newBalance = payload.newBalance;
+        state.isLoading = false;
+      })
+      .addMatcher(
+        isAnyOf(
+          getTransactionIncome.rejected,
+          getTransactionExpense.rejected,
+          deleteTransacton.rejected,
+          addIncomeTransaction.rejected,
+          addExpenseTransaction.rejected
+        ),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          getTransactionIncome.pending,
+          getTransactionExpense.pending,
+          deleteTransacton.pending,
+          addIncomeTransaction.pending,
+          addExpenseTransaction.pending
+        ),
+        state => {
+          state.isLoading = true;
+        }
+      ),
 });
 
-export const { changeReportType, setReportsQuery } = transactionsSlice.actions;
+export const { deleteTransactionItem, changeReportType, setReportsQuery } =
+  transactionsSlice.actions;
 export const transactionsReducer = transactionsSlice.reducer;
 
 // const iconObj = {

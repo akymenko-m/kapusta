@@ -2,8 +2,13 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteTransacton,getTransactionIncome,getTransactionExpense } from 'redux/Transactions/TransactionsOperations';
-import {selectTransactions} from 'redux/Transactions/selectors';
+import {
+  deleteTransacton,
+  getTransactionIncome,
+  getTransactionExpense,
+} from 'redux/Transactions/TransactionsOperations';
+import { selectTransactions, getIsloading } from 'redux/Transactions/selectors';
+import { Loader } from 'components/Loader/Loader';
 import {
   TransactionTable,
   TableHead,
@@ -14,73 +19,79 @@ import {
   GoTrashcanStyled,
   Block,
   TableTitle,
-  BlockHead
+  BlockHead,
 } from './TransactionsList.styled';
+import { deleteTransactionItem } from 'redux/Transactions/TransactionsSlice';
 
 export function TransactionsList() {
   const { pathname } = useLocation();
   const isIncomePage = pathname.includes('/income');
   const isExpensePage = pathname.includes('/expense');
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
- 
   useEffect(() => {
-    if (isIncomePage) {dispatch(getTransactionIncome())}
-    if (isExpensePage) {dispatch(getTransactionExpense())}
-    return
-  
+    if (isIncomePage) {
+      dispatch(getTransactionIncome());
+    }
+    if (isExpensePage) {
+      dispatch(getTransactionExpense());
+    }
+    return;
   }, [dispatch, isExpensePage, isIncomePage]);
 
-
+ 
   const items = useSelector(selectTransactions);
+
 
   const handleDelete = _id => {
     dispatch(deleteTransacton(_id));
-     };
+    dispatch(deleteTransactionItem(_id));
+  };
 
-  return ( items && (
-    <TransactionTable>
-      <TableHead >
-        <BlockHead>
-        <TableTitle className="headerData">Date</TableTitle>
-        <TableTitle className="headerDesc">Description</TableTitle>
-        </BlockHead>
-       <TableTitle className="headerCat">Category</TableTitle>
-        <TableTitle className="headerSum">Sum</TableTitle>
-        <TableTitle className="headerBtn"></TableTitle>
-      </TableHead>
-      <TableBody>
-        {items.map(item => (
-          <TableRow key={item._id}>
-            <Block>
-              <TableData  className="dataTable">
-                {item.date}
-              </TableData>
-              <TableData className="descriptionTable">
-                {item.description}
-              </TableData>
-            </Block>
+  const isLoading = useSelector(getIsloading);
 
-            <TableData className="categoryTable">
-              {item.category}
-            </TableData>
-            <TableData
-              className={`sumTable ${isIncomePage ? 'income' : 'expense'}`}
-            >
-              {isIncomePage
-                ? item.amount + ' UAH'
-                : '- ' + item.amount + ' UAH'}
-            </TableData>
+  return (
+    <>
+      {isLoading && <Loader />}
+      {!isLoading && (
+        <TransactionTable>
+          <TableHead>
+            <BlockHead>
+              <TableTitle className="headerData">Date</TableTitle>
+              <TableTitle className="headerDesc">Description</TableTitle>
+            </BlockHead>
+            <TableTitle className="headerCat">Category</TableTitle>
+            <TableTitle className="headerSum">Sum</TableTitle>
+            <TableTitle className="headerBtn"></TableTitle>
+          </TableHead>
+          <TableBody>
+            {items.map(item => (
+              <TableRow key={item._id}>
+                <Block>
+                  <TableData className="dataTable">{item.date}</TableData>
+                  <TableData className="descriptionTable">
+                    {item.description}
+                  </TableData>
+                </Block>
 
-            <Button onClick={() => handleDelete(item._id)}>
-              <GoTrashcanStyled />
-            </Button>
-          </TableRow>
-        ))}
-      </TableBody>
-    </TransactionTable>
-  )
-    
+                <TableData className="categoryTable">{item.category}</TableData>
+                <TableData
+                  className={`sumTable ${isIncomePage ? 'income' : 'expense'}`}
+                >
+                  {isIncomePage
+                    ? item.amount + ' UAH'
+                    : '- ' + item.amount + ' UAH'}
+                </TableData>
+
+                <Button onClick={() => handleDelete(item._id)}>
+                  <GoTrashcanStyled />
+                </Button>
+              </TableRow>
+            ))}
+          </TableBody>
+        </TransactionTable>
+      )}
+    </>
   );
 }
 

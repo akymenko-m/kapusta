@@ -28,14 +28,14 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
 
   const createUserData = e => {
     e.preventDefault();
-    console.log(amountInputRef.current.value);
+   
     const formData = {
       description: descInputRef.current.value,
       amount: Number(amountInputRef.current.value),
       date: date,
       category: categoryInputRef.current.value,
     };
-    console.log(formData);
+   
     onSubmit(formData);
     e.target.reset();
   };

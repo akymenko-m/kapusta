@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FiBarChart2 } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import { balance } from 'redux/Transactions/TransactionsOperations';
-import { NavLink } from 'react-router-dom';
+
 import {
   BalanceBtn,
   BalanceContainer,
@@ -33,8 +33,8 @@ export function Balance() {
   };
   return (
     <Wrap>
-      <BalanceWrap>
-        <NavLink to="/transaction/period-data">Reports</NavLink>
+      <BalanceWrap to="/transaction/period-data" >
+        Reports
         <FiBarChart2 />
       </BalanceWrap>
       <BalanceContainer>

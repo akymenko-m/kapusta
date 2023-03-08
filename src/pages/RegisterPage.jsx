@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { register } from 'redux/user/userOperations';
 
+
 export function RegisterPage() {
   const dispatch = useDispatch();
   const handleSubmit = event => {
