@@ -14,7 +14,7 @@ export const Income = () => {
   return (
     <>
     <TransactionContainer>
-      {/* <h4>incsomes</h4> */}
+   
       <TransactionForm onSubmit={handlePostIncome} />
 
     </TransactionContainer>

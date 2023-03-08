@@ -3,22 +3,17 @@ import { GoTrashcan } from 'react-icons/go';
 
 export const TransactionTable = styled.ul`
   border-collapse: collapse;
-  margin-left: 20px;
-  margin-right: 20px;
+
   margin-top: 23px;
   font-family: 'Roboto';
   width: 280px;
 
   @media (min-width: 768px) {
-    margin-left: 40px;
-    margin-right: 40px;
     width: 624px;
   }
 
-  @media (min-width: 1200px) {
-    padding-left: 16px;
-    padding-right: 16px;
-    margin: 0;
+  @media (min-width: 1280px) {
+    margin-top:0;
     width: 746px;
   }
 `;
@@ -32,7 +27,7 @@ export const TableHead = styled.li`
     justify-content: space-between;
     align-items: center;
     height: 40px;
-    border-bottom: 1px solid #f5f6fb;
+    border-bottom: 2px solid #f5f6fb;
     background-color: #f5f6fb;
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
@@ -64,27 +59,27 @@ export const TableTitle = styled.h2`
   }
 `;
 export const TableBody = styled.div`
-    height: 122px;
-  
-    @media (min-width: 768px) {
-      height: 344px;
-      display: block;
-      overflow-y: auto;
-      overflow-x: hidden;
-      &::-webkit-scrollbar {
-        width: 6px;
-        background-color: #f5f6fb;
+  height: 122px;
+
+  @media (min-width: 768px) {
+    height: 344px;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: #f5f6fb;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: #FF751D;
-        border-radius: 2px;
+      background-color: #ff751d;
+      border-radius: 2px;
     }
-    }
+  }
 `;
 
 export const TableRow = styled.li`
   height: 35px;
-  border-bottom: 1px solid #f5f6fb;
+  border-bottom: 2px solid #f5f6fb;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -95,10 +90,11 @@ export const TableRow = styled.li`
     height: 40px;
     padding-left: 20px;
     padding-right: 20px;
-    border-left: 1px solid #f5f6fb;
-    &:last-child{
+    border-left: 2px solid #f5f6fb;
+    border-right: 2px solid #f5f6fb;
+    &:last-child {
       border-bottom-right-radius: 30px;
-    border-bottom-left-radius: 30px;
+      border-bottom-left-radius: 30px;
     }
   }
 `;
@@ -123,7 +119,7 @@ export const TableData = styled.p`
     font-weight: 700;
     font-size: 12px;
     line-height: 1.17;
-
+    text-transform: capitalize;
     @media (min-width: 768px) {
       font-weight: 400;
       width: 168px;
@@ -190,7 +186,7 @@ export const Block = styled.div`
   }
   @media (min-width: 768px) {
     display: flex;
-    gap:30px;
+    gap: 30px;
     justify-content: space-around;
     align-items: center;
   }
@@ -198,7 +194,7 @@ export const Block = styled.div`
 export const BlockHead = styled.div`
   @media (min-width: 768px) {
     display: flex;
-    gap:30px;
+    gap: 30px;
     justify-content: space-around;
     align-items: center;
   }

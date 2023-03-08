@@ -2,7 +2,7 @@ import { TransactionsList } from 'components/TransactionsList/TransactionsList';
 import { TransactionForm } from 'components/TransactionForm/TransactionForm';
 import { useDispatch } from 'react-redux';
 import { addExpenseTransaction } from 'redux/Transactions/TransactionsOperations';
-import { TransactionContainer } from './Expenses.styled';
+import { TransactionContainer, Block } from './Expenses.styled';
 
 export const Expenses = () => {
   const dispatch = useDispatch();
@@ -12,15 +12,13 @@ export const Expenses = () => {
   };
   return (
     <>
-    <TransactionContainer>
-      {/* <h4>expenses</h4> */}
-      <TransactionForm onSubmit={handlePostExpense} isExpenseForm />
-
-    </TransactionContainer>
-
-      <TransactionsList />
-
+      <TransactionContainer>
+        <TransactionForm onSubmit={handlePostExpense} isExpenseForm />
+      </TransactionContainer>
+      <Block>
+        <TransactionsList />
+        <div>summary</div>
+      </Block>
     </>
-
   );
 };
