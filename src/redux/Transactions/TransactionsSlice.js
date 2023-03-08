@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { balance, deleteTransacton, getTransactionExpense, getTransactionIncome } from './TransactionsOperations';
+import {
+  balance,
+  deleteTransacton,
+  getTransactionExpense,
+  getTransactionIncome,
+} from './TransactionsOperations';
 
 import {
   addIncomeTransaction,
@@ -11,8 +16,7 @@ import { getPeriodData } from './TransactionsOperations';
 
 const initialState = {
   items: [],
-  balance: null,
-
+  newBalance: 0,
   reportsQuery: '',
   transactionData: {},
   expenses: [],
@@ -38,7 +42,7 @@ const transactionsSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(balance.fulfilled, (state, { payload }) => {
-        state.balance = payload;
+        state.newBalance = payload.newBalance;
       })
       .addCase(getPeriodData.pending, (state, action) => {
         state.isLoading = true;
