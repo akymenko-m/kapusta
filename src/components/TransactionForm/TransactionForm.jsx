@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Example from 'components/DatePicker/DatePicker';
 // import { FaRegCalendarAlt } from 'react-icons/fa';
-import { CgCalculator } from 'react-icons/cg';
+// import { CgCalculator } from 'react-icons/cg';
 import { GoCalendar } from 'react-icons/go';
 
 import {
@@ -18,6 +18,7 @@ import {
   AmountInput,
   AmountLabelBox,
   CalendarBox,
+  CgCalculatorStyled,
 } from './TransactionForm.styled';
 
 export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
@@ -47,17 +48,17 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
   return (
     <>
       <Form onSubmit={createUserData}>
-        {/* <div> */}
         <CalendarBox>
-          <GoCalendar size="25px" color="#52555F" />
-          <Example onChange={getData} />
+          <GoCalendar size="25px" color="#52555f" />
+          <Example onChange={getData} style={{ background: 'transparent' }} />
         </CalendarBox>
+
         <InputBox>
           <label>
             <DescInput
               type="text"
               name="description"
-              placeholder="Short description"
+              placeholder=" Short description"
               ref={descInputRef}
               required
               autoComplete="off"
@@ -107,10 +108,9 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
               required
               autoComplete="off"
             />
-            <CgCalculator size="20px" color="#52555F" />
+            <CgCalculatorStyled />
           </AmountLabelBox>
         </InputBox>
-        {/* </div> */}
         <ButtonBox>
           <InputButton type="submit">Input</InputButton>
           <ClearButton type="reset">Clear</ClearButton>

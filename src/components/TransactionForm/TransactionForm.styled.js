@@ -1,15 +1,22 @@
 import styled from '@emotion/styled';
+import { CgCalculator } from 'react-icons/cg';
 
 export const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 10px;
-  row-gap: 44px;
+  row-gap: 20px;
   margin-top: 24px;
+  background-color: #f6f7fc;
+  @media (min-width: 520px) {
+    row-gap: 32px;
+  }
+  @media (min-width: 768px) {
+    margin-top: 32px;
+  }
   @media (min-width: 1280px) {
     justify-content: space-between;
-    margin-top: 32px;
   }
 `;
 export const CalendarBox = styled.div`
@@ -18,24 +25,39 @@ export const CalendarBox = styled.div`
   gap: 10px;
 `;
 export const InputBox = styled.div`
-  display: flex;
-  border: 2px solid #f6f7fc;
-  border-radius: 16px 16px 16px 0px;
-  height: 40px;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  @media (min-width: 520px) {
+    width: auto;
+    display: flex;
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid #f6f7fc;
+    border-radius: 16px 16px 16px 0px;
+  }
 `;
 export const DescInput = styled.input`
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  display: flex;
-  align-items: center;
   letter-spacing: 0.02em;
   color: #989dac;
-  height: 100%;
-  border: none;
+  background-color: transparent;
+  height: 40px;
+  width: 100%;
+  border: 2px solid #fff;
   padding: 2px 20px;
   border-top-left-radius: 16px;
-  max-width: 160px;
+  border-top-right-radius: 16px;
+  @media (min-width: 520px) {
+    border-top-right-radius: none;
+    border: none;
+    background-color: #fff;
+    height: 100%;
+    max-width: 160px;
+  }
   @media (min-width: 768px) {
     max-width: 160px;
   }
@@ -56,17 +78,23 @@ export const CategorySelect = styled.select`
   align-items: center;
   letter-spacing: 0.02em;
   color: #989dac;
-  height: 100%;
+  border: 2px solid #fff;
+  background-color: transparent;
   border-top: none;
-  border-bottom: none;
-  border-right: 2px solid #f6f7fc;
-  border-left: 2px solid #f6f7fc;
+  height: 40px;
+  width: 100%;
   padding: 2px 20px;
-  max-width: 160px;
-  &:hover,
-  &:focus,
-  &:active {
-    outline: none;
+  margin-bottom: 32px;
+
+  @media (min-width: 520px) {
+    border: none;
+    border-bottom: none;
+    border-right: 2px solid #f6f7fc;
+    border-left: 2px solid #f6f7fc;
+    background-color: #fff;
+    height: 100%;
+    max-width: 160px;
+    margin-bottom: 0;
   }
   @media (min-width: 768px) {
     max-width: 186px;
@@ -74,25 +102,51 @@ export const CategorySelect = styled.select`
   @media (min-width: 1280px) {
     max-width: 180px;
   }
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
 `;
 
 export const AmountLabelBox = styled.label`
   display: flex;
   align-items: center;
   padding-right: 20px;
+  height: 40px;
+  border: 2px solid #fff;
+  width: 130px;
+  border-radius: 22px;
+  margin: 0 auto;
+  @media (min-width: 520px) {
+    /* margin: 0; */
+    height: auto;
+    border: none;
+    border-radius: none;
+  }
 `;
 export const AmountInput = styled.input`
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  display: flex;
-  align-items: center;
   letter-spacing: 0.02em;
   color: #989dac;
   height: 100%;
+  background-color: transparent;
   border: none;
-  max-width: 110px;
+  max-width: 74px;
   padding: 2px 20px;
+
+  @media (min-width: 520px) {
+    background-color: #fff;
+    max-width: 74px;
+  }
+  @media (min-width: 768px) {
+    max-width: 74px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 90px;
+  }
   &:hover,
   &:focus,
   &:active {
@@ -106,21 +160,26 @@ export const AmountInput = styled.input`
   &[type='number'] {
     -moz-appearance: textfield;
   }
-  @media (min-width: 768px) {
-    max-width: 110px;
-  }
-  @media (min-width: 1280px) {
-    max-width: 120px;
-  }
 `;
 
+export const CgCalculatorStyled = styled(CgCalculator)`
+  height: 28px;
+  width: 28px;
+  color: #52555f;
+  padding-left: 10px;
+  @media (min-width: 520px) {
+    height: 20px;
+    width: 20px;
+    padding-left: 0;
+  }
+`;
 export const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
   gap: 15px;
 `;
 export const InputButton = styled.button`
-  width: 125px;
+  width: 110px;
   height: 44px;
   background: #ff751d;
   border-radius: 16px;
@@ -136,7 +195,7 @@ export const InputButton = styled.button`
   }
 `;
 export const ClearButton = styled.button`
-  width: 125px;
+  width: 110px;
   height: 44px;
   background-color: #fff;
   color: #52555f;
