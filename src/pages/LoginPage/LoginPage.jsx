@@ -69,7 +69,7 @@ import { FooterImg } from 'components/Footer/Footer';
             requred
           />
         </LoginFormLabel>
-        <LoginButton path="/expenses" type="submit">Log in</LoginButton>
+        <LoginButton  type="submit">Log in</LoginButton>
       </LoginForm>
       <RegisterNavLink>
         <NavLink to="/register" style={{ padding: '12px 14px' }}>
