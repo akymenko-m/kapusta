@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 export const Wrap = styled.div`
   background: #f5f6fb;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   @media screen and (min-width: 768px) {
-   
+    flex-direction: row;
     justify-content: space-between;
     padding: 32px;
   }
@@ -103,4 +104,20 @@ export const BalanceBtn = styled.button`
     min-height: 44px;
     padding: 0 20px;
   }
+`;
+export const BalanceLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: calc(12 / 10);
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+export const BalanceBackText = styled.p`
+  color: black;
+  text-transform: uppercase;
 `;
