@@ -5,6 +5,8 @@ import { addIncomeTransaction } from 'redux/Transactions/TransactionsOperations'
 import { TransactionContainer } from 'components/Expenses/Expenses.styled';
 import { Summary } from 'components/Summary/Summary';
 import { Block } from 'components/Expenses/Expenses.styled';
+import cabbage from "../../images/backgronds/cabbage-down.png";
+import { CabbageImg } from './../Expenses/Expenses.styled';
 
 export const Income = () => {
   const dispatch = useDispatch();
@@ -21,6 +23,7 @@ export const Income = () => {
         <TransactionsList />
         <Summary />
       </Block>
+      <CabbageImg src={cabbage} alt="cabbagetwo"/>
     </>
   );
 };
