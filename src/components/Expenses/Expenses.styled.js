@@ -15,6 +15,7 @@ export const Block = styled.div`
   margin: 0 auto;
   max-width: 280px;
   
+  
 
   @media (min-width: 768px) {
     max-width: 624px;
