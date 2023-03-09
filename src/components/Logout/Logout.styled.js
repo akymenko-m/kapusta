@@ -58,6 +58,7 @@ export const ExitText = styled.span`
  display:none;
   @media screen and (min-width: 768px) {
 display:flex;
+padding:15px;
   }
 `;
 
