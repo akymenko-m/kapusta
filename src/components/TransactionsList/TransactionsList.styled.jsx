@@ -16,7 +16,7 @@ export const TransactionTable = styled.ul`
 
   @media (min-width: 1280px) {
     margin-top:0;
-    margin-bottom: 0;
+    margin-bottom: 60px;
     width: 746px;
   }
 `;

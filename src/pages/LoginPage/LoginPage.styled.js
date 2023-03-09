@@ -125,3 +125,16 @@ export const RegisterNavLink = styled.div`
     right: 83px;
   }
 `;
+
+export const Background = styled.div`
+top: 0;
+left: 0;
+height: 296px;
+background-color: #f5f6fb;
+border-bottom-left-radius: 10%;
+wirdth: 100%;
+
+@media (min-width: 321px) {
+  height: 526px;
+} ;
+`

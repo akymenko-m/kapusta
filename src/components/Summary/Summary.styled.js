@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 230px;
   height: 278px;
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.h3`

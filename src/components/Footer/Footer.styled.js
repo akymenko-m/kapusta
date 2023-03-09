@@ -15,6 +15,14 @@ height: 90px;
     background-image: url(${back});
     
     height: 145px;
+   
+  };
+  @media (min-width: 768px) {
+    background-image: url(${back});
+    margin-left: 135px;
+   
+    height: 145px;
+   
   };
 
 
