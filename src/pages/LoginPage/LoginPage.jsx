@@ -36,55 +36,53 @@ import { FooterImg } from 'components/Footer/Footer';
     event.target.reset();
   };
 
-  return (
-    <Background>
-    <CabbageTop>
-<Container>
-    <Wrapper>
-    <div>
-      <Title src={title} />
+   return (
+     <Background>
+       <CabbageTop>
+         <Container>
+           <Wrapper>
+             <div>
+               <Title src={title} />
+             </div>
+             <div>
+               <LoginPageWrapper>
+                 <GoogleLogin />
 
-    
-    </div>
-    <div>
-    <LoginPageWrapper>
-      <GoogleLogin />
-      <LoginRegisterText />
-      <LoginForm onSubmit={handleSubmit}>
-        <LoginFormLabel>
-          Email:
-          <LoginFormInput
-            type="text"
-            name="email"
-            placeholder="your@mail.com"
-            requred
-          />
-        </LoginFormLabel>
-        <LoginFormLabel>
-          Password:
-          <LoginFormInput
-            type="password"
-            name="password"
-            placeholder="password"
-            requred
-          />
-        </LoginFormLabel>
-        <LoginButton path="/expenses" type="submit">Log in</LoginButton>
-      </LoginForm>
-      <RegisterNavLink>
-        <NavLink to="/register" style={{ padding: '12px 14px' }}>
-          Registration
-        </NavLink>
-      </RegisterNavLink>
-    </LoginPageWrapper>
-    </div>
-  </Wrapper>
-  <FooterImg/>
-  </Container>
-  </CabbageTop>
-  </Background>
-    
-  );
+                 <LoginRegisterText />
+                 <LoginForm onSubmit={handleSubmit}>
+                   <LoginFormLabel>
+                     Email:
+                     <LoginFormInput
+                       type="text"
+                       name="email"
+                       placeholder="your@mail.com"
+                       required
+                     />
+                   </LoginFormLabel>
+                   <LoginFormLabel>
+                     Password:
+                     <LoginFormInput
+                       type="password"
+                       name="password"
+                       placeholder="password"
+                       required
+                     />
+                   </LoginFormLabel>
+                   <LoginButton type="submit">Log in</LoginButton>
+                 </LoginForm>
+                 <RegisterNavLink>
+                   <NavLink to="/register" style={{ padding: '12px 14px' }}>
+                     Registration
+                   </NavLink>
+                 </RegisterNavLink>
+               </LoginPageWrapper>
+             </div>
+           </Wrapper>
+           <FooterImg />
+         </Container>
+       </CabbageTop>
+     </Background>
+   );
 }
 
 export default LoginPage;

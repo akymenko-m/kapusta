@@ -48,6 +48,7 @@ export const UserEmail = styled.p`
 export const ExitButton = styled.div`
   @media screen and (min-width: 768px) {
     text-decoration: underline;
+    cursor:pointer;
   }
   margin-left: 20px;
   @media screen and (min-width: 1280px) {
