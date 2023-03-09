@@ -8,7 +8,7 @@ import { Loader } from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 // import { getIsloading } from 'redux/Transactions/selectors';
 import { selectIsRefreshing } from 'redux/user/selectors';
-import { Balance } from 'components/Balance/Balance';
+// import { Balance } from 'components/Balance/Balance';
 
 const ReportsPage = () => {
   // const isLoading = useSelector(getIsloading);
