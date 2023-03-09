@@ -35,6 +35,7 @@ export const Background = styled.div`
   background-color: #f5f6fb;
   border-bottom-left-radius: 10%;
   wirdth: 100%;
+
   @media (min-width: 321px) {
     height: 526px;
   } ;
@@ -58,6 +59,10 @@ export const Title = styled.img`
     width: 377px;
     height: 139px;
   } ;
+  @media (min-width: 1280px) {
+    margin-bottom: 155px;
+
+  }
 `;
 export const TabsStyled = styled(Tabs)`
   margin: 0 auto;
