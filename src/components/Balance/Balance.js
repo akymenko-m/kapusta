@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { FiBarChart2 } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux';
-// import { balance } from 'redux/Transactions/TransactionsOperations';
+import { balance } from 'redux/Transactions/TransactionsOperations';
 
 import {
   BalanceBtn,
@@ -19,17 +19,13 @@ import { LightModalWindow } from 'components/LightModalWindow/LightModalWindow';
 export function Balance() {
   const [modalOpen, setModalOpen] = useState(false);
   const stateBalance = useSelector(state => state.transactions.newBalance);
-  const items = useSelector(state=>state.transactions.items);
+  const items = useSelector(state => state.transactions.items);
   const form = useRef();
   const dispatch = useDispatch();
-  let balance;
-
 
   const [number, setNumber] = useState('');
   const formSubmit = e => {
     e.preventDefault();
-    dispatch(balance({ newBalance: number }));
-    balance = e.target.balance.value;
   };
   const inputChange = event => {
     const { name, value } = event.target;
@@ -42,10 +38,9 @@ export function Balance() {
     }
   };
 
-
   // Handle update users balance
   const handleClick = () => {
-    dispatch(balance({ newBalance: balance }));
+    dispatch(balance({ newBalance: number }));
     form.current.reset();
   };
   // Open modal window
@@ -59,7 +54,7 @@ export function Balance() {
 
   return (
     <Wrap>
-      <BalanceWrap to="/transaction/period-data" >
+      <BalanceWrap to="/transaction/period-data">
         Reports
         <FiBarChart2 />
       </BalanceWrap>
@@ -68,31 +63,33 @@ export function Balance() {
         <BalanceForm onSubmit={formSubmit} ref={form}>
           <label>
             <BalanceInput
-             className="inputTag"
+              className="inputTag"
               type="text"
               name="number"
               title="Please, enter your balance"
-          pattern="[0-9, .UAH]*"
+              pattern="[0-9, .UAH]*"
               value={number}
               onChange={inputChange}
               placeholder={`${stateBalance}.00 UAH`}
               required
             />
           </label>
-          <BalanceBtn type="submit" className="btn" onClick={handleModalOpen}>Confirm</BalanceBtn>
-          {!stateBalance &&  !items.length && <ModalWindow /> }
-          </BalanceForm>
-          {modalOpen && (
-        <LightModalWindow
-          changeBalance="true"
-          closeModal={handleModalClose}
-          dispatch={handleClick}
-          text="SURE"
-          balance={balance}
-        >
-          Are you sure?
-        </LightModalWindow>
-      )}
+          <BalanceBtn type="submit" className="btn" onClick={handleModalOpen}>
+            Confirm
+          </BalanceBtn>
+          {!stateBalance && !items.length && <ModalWindow />}
+        </BalanceForm>
+        {modalOpen && (
+          <LightModalWindow
+            changeBalance="true"
+            closeModal={handleModalClose}
+            dispatch={handleClick}
+            text="SURE"
+            balance={balance}
+          >
+            Are you sure?
+          </LightModalWindow>
+        )}
       </BalanceContainer>
     </Wrap>
   );
