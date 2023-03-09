@@ -17,7 +17,7 @@ export const ExpensesReportElement = ({
   };
 
   return (
-    <ExpensesItem onClick={() => handleClick(name)}>
+    <ExpensesItem>
       <Container>
         <Total>{numberWithSpaces(total)}</Total>
         <img src={url} alt={label} />

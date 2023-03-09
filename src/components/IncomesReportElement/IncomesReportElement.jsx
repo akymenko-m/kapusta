@@ -10,7 +10,7 @@ export const IncomesReportElement = ({
   };
 
   return (
-    <li onClick={() => handleClick(name)}>
+    <li>
       <p>{numberWithSpaces(total)}</p>
       <img src={url} alt={label} />
       <p>{label}</p>
