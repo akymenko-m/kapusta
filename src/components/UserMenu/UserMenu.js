@@ -9,7 +9,7 @@ export const UserMenu = () => {
   const { isLoggedIn } = useAuth();
   return (
     <HeaderWrap >
-      <NavLink to="/">{<img src={logo} alt="logo" />}</NavLink>
+      <NavLink to="/expenses">{<img src={logo} alt="logo" />}</NavLink>
 
       {isLoggedIn && <Logout />}
 

@@ -7,7 +7,6 @@ import { Slider } from 'components/Reports/ReportsNav/Slider/Slider';
 import { Loader } from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 // import { getIsloading } from 'redux/Transactions/selectors';
-import ChartReport from 'components/ChartReport/ChartReport';
 import { selectIsRefreshing } from 'redux/user/selectors';
 
  const ReportsPage = () => {
@@ -24,7 +23,6 @@ import { selectIsRefreshing } from 'redux/user/selectors';
 
       <TotalTransactionsData />
       <ReportByCategories />
-      <ChartReport />
     </MainContainer>
   );
 };

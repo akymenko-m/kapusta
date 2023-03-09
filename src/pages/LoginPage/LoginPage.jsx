@@ -11,9 +11,15 @@ import {
   LoginFormInput,
   LoginButton,
   RegisterNavLink,
+  Background
+ 
 } from './LoginPage.styled';
+import { Wrapper, Title, CabbageTop, } from 'pages/HomePage/HomePage.styled';
+import title from '../../images/title/title.png';
+import { Container } from 'components/App.styled';
+import { FooterImg } from 'components/Footer/Footer';
 
-export function LoginPage() {
+ function LoginPage() {
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
@@ -31,6 +37,16 @@ export function LoginPage() {
   };
 
   return (
+    <Background>
+    <CabbageTop>
+<Container>
+    <Wrapper>
+    <div>
+      <Title src={title} />
+
+    
+    </div>
+    <div>
     <LoginPageWrapper>
       <GoogleLogin />
       <LoginRegisterText />
@@ -53,7 +69,7 @@ export function LoginPage() {
             requred
           />
         </LoginFormLabel>
-        <LoginButton type="submit">Log in</LoginButton>
+        <LoginButton path="/expenses" type="submit">Log in</LoginButton>
       </LoginForm>
       <RegisterNavLink>
         <NavLink to="/register" style={{ padding: '12px 14px' }}>
@@ -61,5 +77,14 @@ export function LoginPage() {
         </NavLink>
       </RegisterNavLink>
     </LoginPageWrapper>
+    </div>
+  </Wrapper>
+  <FooterImg/>
+  </Container>
+  </CabbageTop>
+  </Background>
+    
   );
 }
+
+export default LoginPage;

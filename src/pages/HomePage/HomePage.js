@@ -1,43 +1,25 @@
 import {
-  Title,
-  Wrapper,
-  Background,
-  CabbageTop,
-  CabbageBottom,
-
-  TabsStyled,
+ Background,
+ CabbageBottom,
+ TabsStyled,
   TabListStyled,
   TabStyled,
   NavLinkStyled
-
 } from './HomePage.styled';
-import title from '../../images/title/title.png';
 import { TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { RegisterPage } from 'pages/RegisterPage';
-import { LoginPage } from '../LoginPage/LoginPage';
-
-import { FooterOfApp } from 'components/Footer/Footer';
+import  LoginPage  from '../LoginPage/LoginPage';
 import { Container } from 'components/App.styled';
 import { Balance } from 'components/Balance/Balance';
 import { useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../hook/useAuth';
 
-
-
-
-// import { Summary } from 'components/Summary/Summary';
-
-
-
- const HomePage = () => {
+const HomePage = () => {
   const { isLoggedIn } = useAuth();
   const location = useLocation();
-
-  const index = location.pathname === '/income' ? 1 : 0;
-
-  return (
+const index = location.pathname === '/income' ? 1 : 0;
+return (
     <>
       {isLoggedIn ? (
         <Background>
@@ -45,9 +27,7 @@ import { useAuth } from '../../hook/useAuth';
             {' '}
             <div>
               <Balance />
-
-              
-              <TabsStyled selectedIndex={index} onSelect={() => {}}>
+        <TabsStyled selectedIndex={index} onSelect={() => {}}>
                 <TabListStyled>
                   <TabStyled>
                     <NavLinkStyled to="expenses">Expenses</NavLinkStyled>
@@ -64,33 +44,27 @@ import { useAuth } from '../../hook/useAuth';
           </Container>
           <CabbageBottom />
         </Background>
-      ) : (
-        <Background>
-          <CabbageTop>
-            <Container>
-              {' '}
-              <Wrapper>
-                <div>
-                  <Title src={title} />
-                </div>
-                <div>
-                  <LoginPage />
-                  <RegisterPage />
-                </div>
-              </Wrapper>
-              <FooterOfApp />
-            </Container>
-          </CabbageTop>
-        </Background>
-      )}
-
-      
-
-     
-
-    </>
+      ) : ( <LoginPage />)}
+</>
   );
 }
 
 export default HomePage;
 
+ // <Background>
+        //   <CabbageTop>
+        //     <Container>
+        //       {' '}
+        //       <Wrapper>
+        //         <div>
+        //           <Title src={title} />
+        //         </div>
+        //         <div>
+        //           <LoginPage />
+        //           <RegisterPage />
+        //         </div>
+        //       </Wrapper>
+        //       <FooterOfApp />
+        //     </Container>
+        //   </CabbageTop>
+        // </Background>
