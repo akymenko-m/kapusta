@@ -71,26 +71,27 @@ export const TabsStyled = styled(Tabs)`
   @media (min-width: 768px) {
     max-width: 704px;
 
-    box-shadow: inset 0px 10px 60px rgba(170, 178, 197, 0.2);
+    box-shadow: 0px 50px 60px rgba(170, 178, 197, 0.2);
     border-radius: 30px;
   }
 
   @media (min-width: 1280px) {
     max-width: 1098px;
-
-    margin: 0 auto;
-    box-shadow: inset 0px 10px 60px rgba(170, 178, 197, 0.2);
-    border-radius: 30px;
   }
 `;
 export const TabStyled = styled(Tab)`
-background-color: #FEFEFE;
-border:none;
-width: 138px;
-height: 40px;
-border-radius: 30px 30px 0 0 ;
+background-color: #fefefe;
+    border: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px 20px 0 0;
 
-}
+  @media (min-width: 768px) {
+    
+    width: 138px;
+    height: 40px;
+    border-radius: 30px 30px 0 0;
+  }
 `;
 
 export const TabListStyled = styled(TabList)`
@@ -99,7 +100,7 @@ export const TabListStyled = styled(TabList)`
 `;
 
 export const NavLinkStyled = styled(NavLink)`
-  margin: 0 25px;
+  margin: 0 10px;
 
   color: #ff751d;
   font-family: 'Roboto';
@@ -109,4 +110,9 @@ export const NavLinkStyled = styled(NavLink)`
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  @media (min-width: 768px) {
+    margin: 0 25px;
+   
+    
+  }
 `;
