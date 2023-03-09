@@ -22,6 +22,7 @@ import {
   BlockHead,
 } from './TransactionsList.styled';
 import { deleteTransactionItem } from 'redux/Transactions/TransactionsSlice';
+import { translateCategory } from 'helpers/translateCategory';
 
 export function TransactionsList() {
   const { pathname } = useLocation();
@@ -39,9 +40,7 @@ export function TransactionsList() {
     return;
   }, [dispatch, isExpensePage, isIncomePage]);
 
- 
   const items = useSelector(selectTransactions);
-
 
   const handleDelete = _id => {
     dispatch(deleteTransacton(_id));
@@ -74,7 +73,9 @@ export function TransactionsList() {
                   </TableData>
                 </Block>
 
-                <TableData className="categoryTable">{item.category}</TableData>
+                <TableData className="categoryTable">
+                  {translateCategory(item.category)}
+                </TableData>
                 <TableData
                   className={`sumTable ${isIncomePage ? 'income' : 'expense'}`}
                 >

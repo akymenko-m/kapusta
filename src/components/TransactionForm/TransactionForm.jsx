@@ -1,10 +1,7 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { format } from 'date-fns';
-import { useState } from 'react';
 
 import Example from 'components/DatePicker/DatePicker';
-// import { FaRegCalendarAlt } from 'react-icons/fa';
-// import { CgCalculator } from 'react-icons/cg';
 import { GoCalendar } from 'react-icons/go';
 
 import {
@@ -29,14 +26,14 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
 
   const createUserData = e => {
     e.preventDefault();
-   
+
     const formData = {
       description: descInputRef.current.value,
       amount: Number(amountInputRef.current.value),
       date: date,
       category: categoryInputRef.current.value,
     };
-   
+
     onSubmit(formData);
     e.target.reset();
   };
@@ -76,10 +73,11 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
                 <option value="DEFAULT" disabled defaultValue="">
                   Product category
                 </option>
-                <option value="Транспорт">Transport</option>
                 <option value="Продукты">Products</option>
                 <option value="Алкоголь">Alcohol</option>
                 <option value="Развлечения">Entertainment</option>
+                <option value="Здоровье">Health</option>
+                <option value="Транспорт">Transport</option>
                 <option value="Всё для дома">Housing</option>
                 <option value="Техника">Technique</option>
                 <option value="Коммуналка и связь">

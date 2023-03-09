@@ -13,7 +13,7 @@ export const Form = styled.form`
     row-gap: 32px;
   }
   @media (min-width: 768px) {
-    margin-top: 32px;
+    padding-top: 32px;
   }
   @media (min-width: 1280px) {
     justify-content: space-between;

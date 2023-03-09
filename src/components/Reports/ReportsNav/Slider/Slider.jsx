@@ -20,7 +20,6 @@ export const Slider = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   console.log(searchParams);
-
   useEffect(() => {
     setMonthNumber(getMonth());
     setMonth(monthNames[getMonth()]);
@@ -40,7 +39,7 @@ export const Slider = () => {
     // if (query !== '-01') dispatch(getReports(query));
     if (query === '-01') return;
     console.log(query);
-    setSearchParams({ date: query });
+    setSearchParams({date: query });
 
     dispatch(setReportsQuery(query));
     dispatch(getPeriodData(query));

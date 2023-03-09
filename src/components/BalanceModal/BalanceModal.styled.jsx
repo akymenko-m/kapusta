@@ -21,7 +21,8 @@ export const StyledModalWindow = styled.div`
   border-radius: 30px;
   @media screen and (min-width: 768px) {
     max-width: 288px;
-    top: 160px;
+    top: 147px;
+    left: 37%;
   }
   @media screen and (min-width: 1280px) {
     max-width: 288px;

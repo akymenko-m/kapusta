@@ -1,5 +1,4 @@
 import { useWindowDimensions } from 'hooks/useWindowDimensions';
-
 import { useSelector } from 'react-redux';
 import {
   BarChart,

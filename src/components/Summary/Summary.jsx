@@ -66,7 +66,8 @@ export const Summary = () => {
       .map(e => {
         return { month: listMonthsEng[e], value: stateMonts[e] };
       })
-      .filter(e => e.value !== 'N/A').slice(0, summaryMonth);
+      .filter(e => e.value !== 'N/A')
+      .slice(0, summaryMonth);
 
     setlistMonths(result);
   }, [stateMonts, stateІtems]);
@@ -87,7 +88,6 @@ export const Summary = () => {
 };
 
 export default Summary;
-
 
 // import { Summary } from 'components/Summary/Summary';
 // <Summary />

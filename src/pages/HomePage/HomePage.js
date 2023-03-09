@@ -8,17 +8,23 @@ import {
 } from './HomePage.styled';
 import { TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import  LoginPage  from '../LoginPage/LoginPage';
+// import  LoginPage  from '../LoginPage/LoginPage';
 import { Container } from 'components/App.styled';
 import { Balance } from 'components/Balance/Balance';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate,  } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../hook/useAuth';
+import { useEffect } from 'react';
 
 const HomePage = () => {
   const { isLoggedIn } = useAuth();
   const location = useLocation();
 const index = location.pathname === '/income' ? 1 : 0;
+const navigate = useNavigate();
+const path = location.pathname === '/' ? '/expenses' : location.pathname;
+useEffect(() =>{
+    navigate( path || '/login')}, [navigate,path, isLoggedIn]);
+
 return (
     <>
       {isLoggedIn ? (
@@ -44,7 +50,7 @@ return (
           </Container>
           <CabbageBottom />
         </Background>
-      ) : ( <LoginPage />)}
+      ) : ( <Outlet/>)}
 </>
   );
 }
