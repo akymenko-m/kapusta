@@ -25,7 +25,10 @@ import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../hook/useAuth';
 
 
+
+
 // import { Summary } from 'components/Summary/Summary';
+
 
 
  const HomePage = () => {
@@ -80,7 +83,11 @@ import { useAuth } from '../../hook/useAuth';
           </CabbageTop>
         </Background>
       )}
+
+      
+
      
+
     </>
   );
 }
