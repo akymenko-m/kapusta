@@ -8,7 +8,7 @@ import {
 } from './HomePage.styled';
 import { TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import  LoginPage  from '../LoginPage/LoginPage';
+// import  LoginPage  from '../LoginPage/LoginPage';
 import { Container } from 'components/App.styled';
 import { Balance } from 'components/Balance/Balance';
 import { useLocation } from 'react-router-dom';
@@ -44,7 +44,7 @@ return (
           </Container>
           <CabbageBottom />
         </Background>
-      ) : ( <LoginPage />)}
+      ) : ( <Outlet/>)}
 </>
   );
 }

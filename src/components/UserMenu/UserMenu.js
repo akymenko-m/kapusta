@@ -3,12 +3,16 @@ import logo from '../../images/logo/logo.png';
 import { Logout } from '../Logout/Logout';
 import { useAuth } from '../../hook/useAuth';
 import { HeaderWrap } from './UserMenu.styled';
+// import { LoginPage } from '../../pages/LoginPage/LoginPage';
+
 
 export const UserMenu = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <HeaderWrap >
+    <HeaderWrap>
       <NavLink to="/expenses">{<img src={logo} alt="logo" />}</NavLink>
+
+      {/* {isLoggedIn ? <Logout /> : <LoginPage />} */}
 
       {isLoggedIn && <Logout />}
 
