@@ -91,16 +91,17 @@ export const TabsStyled = styled(Tabs)`
   }
 `;
 export const TabStyled = styled(Tab)`
+
   background-color: #f7741d;
 
   width: 50%;
   height: 53px;
   padding: 19px 12px;
   text-align: center;
-
+  transition: background-color 250ms ease;
+  
   @media (min-width: 768px) {
-    background-color: #fefefe;
-
+    background-color: #FEFEFE;
     padding: 13px 12px;
     width: 138px;
     height: 40px;
@@ -130,8 +131,10 @@ export const NavLinkStyled = styled(NavLink)`
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  transition: color 250ms ease;
+
   @media (min-width: 768px) {
     margin: 0px 25px;
-    color: #ff751d;
+    color: black;
   }
 `;

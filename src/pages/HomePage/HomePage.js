@@ -15,8 +15,10 @@ import { useLocation, useNavigate,  } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../hook/useAuth';
 import { useEffect } from 'react';
+import { useChangeColor } from 'helpers/changeColor';
 
 const HomePage = () => {
+  useChangeColor();
   const { isLoggedIn } = useAuth();
   const location = useLocation();
 const index = location.pathname === '/income' ? 1 : 0;
@@ -35,11 +37,11 @@ return (
               <Balance />
         <TabsStyled selectedIndex={index} onSelect={() => {}}>
                 <TabListStyled>
-                  <TabStyled>
-                    <NavLinkStyled to="expenses">Expenses</NavLinkStyled>
+                  <TabStyled className=" react-tabs__tab css-11la0xy expenseTab">
+                    <NavLinkStyled className="expenseTab" to="expenses">Expenses</NavLinkStyled>
                   </TabStyled>
-                  <TabStyled>
-                    <NavLinkStyled to="income">Income</NavLinkStyled>
+                  <TabStyled className="react-tabs__tab css-11la0xy incomeTab">
+                    <NavLinkStyled className="incomeTab" to="income">Income</NavLinkStyled>
                   </TabStyled>
                 </TabListStyled>
                 <TabPanel>{<Outlet />}</TabPanel>
