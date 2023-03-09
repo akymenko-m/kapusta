@@ -8,6 +8,8 @@ import {
   addIncomeTransaction,
   addExpenseTransaction,
   getPeriodData,
+  getTransactionIncomeMonthsStats,
+  getTransactionExpenseMonthsStats
 } from './TransactionsOperations';
 
 const initialState = {
@@ -65,16 +67,22 @@ const transactionsSlice = createSlice({
       })
       .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {
         state.items = [...payload.incomes].reverse();
-        state.monthsStats = payload.monthsStats;
         state.isLoading = false;
       })
       .addCase(getTransactionExpense.fulfilled, (state, { payload }) => {
         state.items = [...payload.expenses].reverse();
-        state.monthsStats = payload.monthsStats;
         state.isLoading = false;
       })
       .addCase(deleteTransacton.fulfilled, (state, { payload }) => {
         state.newBalance = payload.newBalance;
+        state.isLoading = false;
+      })
+      .addCase(getTransactionIncomeMonthsStats.fulfilled, (state, { payload }) => {
+        state.monthsStats = payload.monthsStats;
+        state.isLoading = false;
+      })
+      .addCase(getTransactionExpenseMonthsStats.fulfilled, (state, { payload }) => {
+        state.monthsStats = payload.monthsStats;
         state.isLoading = false;
       })
       .addMatcher(
@@ -83,7 +91,9 @@ const transactionsSlice = createSlice({
           getTransactionExpense.rejected,
           deleteTransacton.rejected,
           addIncomeTransaction.rejected,
-          addExpenseTransaction.rejected
+          addExpenseTransaction.rejected,
+          getTransactionIncomeMonthsStats.pending,
+          getTransactionExpenseMonthsStats.pending,
         ),
         (state, { payload }) => {
           state.isLoading = false;
@@ -96,7 +106,9 @@ const transactionsSlice = createSlice({
           getTransactionExpense.pending,
           deleteTransacton.pending,
           addIncomeTransaction.pending,
-          addExpenseTransaction.pending
+          addExpenseTransaction.pending,
+          getTransactionIncomeMonthsStats.pending,
+          getTransactionExpenseMonthsStats.pending,
         ),
         state => {
           state.isLoading = true;
