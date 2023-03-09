@@ -10,10 +10,13 @@ export const TransactionTable = styled.ul`
 
   @media (min-width: 768px) {
     width: 624px;
+    margin-top: 48px;
+    margin-bottom: 40px;
   }
 
   @media (min-width: 1280px) {
     margin-top:0;
+    margin-bottom: 0;
     width: 746px;
   }
 `;
@@ -183,6 +186,7 @@ export const Block = styled.div`
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-start;
+    gap: 3px;
   }
   @media (min-width: 768px) {
     display: flex;

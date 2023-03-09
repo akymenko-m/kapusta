@@ -17,7 +17,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate loading={null} persistor={persistor}>
         <Global styles={GlobalStyles} />
         <BrowserRouter >
-       
           <App />
         </BrowserRouter>
       </PersistGate>

@@ -8,7 +8,7 @@ export const Form = styled.form`
   column-gap: 10px;
   row-gap: 20px;
   margin-top: 24px;
-  background-color: #f6f7fc;
+  background-color: transparent;
   @media (min-width: 520px) {
     row-gap: 32px;
   }
