@@ -1,13 +1,23 @@
+
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux'; // useDispatch,
-// import { getTransactionIncome, getTransactionExpense } from 'redux/Transactions/TransactionsOperations';
-import { selectMonthsStats } from 'redux/Transactions/selectors'; // , getIsloading
+import { useSelector } from 'react-redux';
+import { selectMonthsStats, selectTransactions } from 'redux/Transactions/selectors';
 import { Container, Title, List, Item, Description } from './Summary.styled';
 
 export const Summary = () => {
-  const summaryMonth = 6;
+  const summaryMonth = 6; // Кількість місяцв які треба рендерить
 
   const stateMonts = useSelector(selectMonthsStats);
+
+  const stateIsLoading = useSelector(getIsloading);
+  const stateІtems = useSelector(selectTransactions);
+  const statenewBalance = useSelector(selectBalance);
+  const statereportsQuery = useSelector();
+  const statetransactionData = useSelector();
+  const stateexpenses = useSelector();
+  const stateincome = useSelector();
+  const statecurrentReport = useSelector();
+  
 
   const [listMonths, setlistMonths] = useState([]); // масив результатів
 
@@ -49,7 +59,7 @@ export const Summary = () => {
       .filter(e => e.value !== 'N/A').slice(0, summaryMonth);
 
     setlistMonths(result);
-  }, [stateMonts]);
+  }, [stateMonts, stateІtems]);
 
   return (
     <Container>
