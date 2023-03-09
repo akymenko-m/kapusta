@@ -5,8 +5,10 @@ import imgSalary from '../../images/incomesReport/Salary.png';
 import imgAddincome from '../../images/incomesReport/Add_income.png';
 import { IncomesReportElement } from 'components/IncomesReportElement/IncomesReportElement';
 import ChartReport from 'components/ChartReport/ChartReport';
+import { useState } from 'react';
 
 export const IncomesReport = () => {
+  const [transactions, setTransactions] = useState({});
   const incomesData = useSelector(selectTransactionDataIncomesData);
   //   console.log('incomesData', incomesData);
 
@@ -26,6 +28,15 @@ export const IncomesReport = () => {
     'Доп. доход': { label: 'Add. income', img: imgAddincome },
   };
 
+  const handleClick = categoryName => {
+    setTransactions(incomesData[categoryName]);
+  };
+
+  const sortedCategoryTransactions = Object.entries(transactions)
+    .filter(([key]) => key !== 'total')
+    .map(([key, value]) => ({ name: key, total: value }))
+    .sort((firstEl, secondEl) => secondEl.total - firstEl.total);
+
   return (
     <div>
       {Boolean(incomesData) ? (
@@ -38,12 +49,20 @@ export const IncomesReport = () => {
                   label={incomesDictionary[el.name].label}
                   total={el.total}
                   url={incomesDictionary[el.name].img}
+                  name={el.name}
+                  handleClick={handleClick}
                 />
               );
             })}
           </ul>
           {sortEntries.length ? (
-            <ChartReport sortEntries={sortEntries} />
+            <ChartReport
+              sortEntries={
+                sortedCategoryTransactions.length
+                  ? sortedCategoryTransactions
+                  : sortEntries
+              }
+            />
           ) : null}
         </>
       ) : (
