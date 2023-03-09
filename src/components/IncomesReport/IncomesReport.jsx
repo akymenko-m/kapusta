@@ -4,16 +4,14 @@ import { selectTransactionDataIncomesData } from 'redux/Transactions/selectors';
 import imgSalary from '../../images/incomesReport/Salary.png';
 import imgAddincome from '../../images/incomesReport/Add_income.png';
 import { IncomesReportElement } from 'components/IncomesReportElement/IncomesReportElement';
+import { IncomesContainer, IncomesList } from './IncomesReport.styled';
 import ChartReport from 'components/ChartReport/ChartReport';
 import { useState } from 'react';
 
 export const IncomesReport = () => {
   const [transactions, setTransactions] = useState({});
   const incomesData = useSelector(selectTransactionDataIncomesData);
-  //   console.log('incomesData', incomesData);
-
   const entries = Object.entries(incomesData ?? {});
-  //   console.log('entries', entries);
 
   const sortEntries = [...entries]
     .sort((firstEl, secondEl) => {
@@ -38,10 +36,10 @@ export const IncomesReport = () => {
     .sort((firstEl, secondEl) => secondEl.total - firstEl.total);
 
   return (
-    <div>
+    <IncomesContainer>
       {Boolean(incomesData) ? (
-        <>
-          <ul>
+        <div>
+          <IncomesList>
             {sortEntries.map(el => {
               return (
                 <IncomesReportElement
@@ -54,7 +52,7 @@ export const IncomesReport = () => {
                 />
               );
             })}
-          </ul>
+          </IncomesList>
           {sortEntries.length ? (
             <ChartReport
               sortEntries={
@@ -64,12 +62,12 @@ export const IncomesReport = () => {
               }
             />
           ) : null}
-        </>
+        </div>
       ) : (
         <div>
           <p>No data</p>
         </div>
       )}
-    </div>
+    </IncomesContainer>
   );
 };

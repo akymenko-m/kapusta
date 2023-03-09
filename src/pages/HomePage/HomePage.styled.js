@@ -21,12 +21,15 @@ export const CabbageBottom = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  background-image: url(${background});
+  // background-image: url(${background});
   background-repeat: repeat-x;
   background-size: contain;
   background-position: bottom;
-
   height: 300px;
+  @media (min-width: 1200px) {
+    background-image: url(${background});
+  };
+
 `;
 export const Background = styled.div`
   top: 0;
@@ -39,11 +42,13 @@ export const Background = styled.div`
   @media (min-width: 768px) {
     height: 526px;
     border-bottom-left-radius: 10%;
-  } ;
+    width: 100%
+
+  };
 `;
 
 export const Wrapper = styled.div`
-  @media (min-width: 769px) {
+  @media (min-width: 1200px) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,9 +59,18 @@ export const Wrapper = styled.div`
 export const Title = styled.img`
   z-index: 5;
   position: relative;
+  top: 30px;
+  // padding-top: 86px;
+  // padding-bottom:50px;
   width: 183px;
   height: 63px;
-  @media (min-width: 321px) {
+  // @media (min-width: 321px) {
+  //   width: 377px;
+  //   height: 139px;
+  //   margin-left: 135px;
+  // }
+  @media(min-width: 767px) {
+    margin-left: 135px;
     width: 377px;
     height: 139px;
   }
@@ -91,16 +105,17 @@ export const TabsStyled = styled(Tabs)`
   }
 `;
 export const TabStyled = styled(Tab)`
+
   background-color: #f7741d;
 
   width: 50%;
   height: 53px;
   padding: 19px 12px;
   text-align: center;
-
+  transition: background-color 250ms ease;
+  
   @media (min-width: 768px) {
-    background-color: #fefefe;
-
+    background-color: #FEFEFE;
     padding: 13px 12px;
     width: 138px;
     height: 40px;
@@ -130,8 +145,10 @@ export const NavLinkStyled = styled(NavLink)`
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  transition: color 250ms ease;
+
   @media (min-width: 768px) {
     margin: 0px 25px;
-    color: #ff751d;
+    color: black;
   }
 `;

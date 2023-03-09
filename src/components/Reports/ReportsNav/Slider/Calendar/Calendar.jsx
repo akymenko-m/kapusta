@@ -4,14 +4,12 @@ import { monthNames } from '../SliderUtils';
 import { ButtonsNextPrev } from '../ButtonsNextPrev/ButtonsNextPrev';
 import { Month, Year, CalendarBox, Backdrop } from './Calendar.styled';
 
-
 export const Calendar = ({
   onClose,
   currentMonth,
   currentYear,
   onChangeDate,
 }) => {
-
   const handleYear = name => {
     onChangeDate(name);
   };
@@ -22,14 +20,12 @@ export const Calendar = ({
     onChangeDate(name);
   };
 
-
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   });
-
 
   const handleBackdrop = event => {
     if (event.target === event.currentTarget) {
