@@ -1,16 +1,31 @@
 import { instance } from '../operations';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+<<<<<<< Updated upstream
+=======
+// const setAuthHeader = token => {
+//   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
+>>>>>>> Stashed changes
 export const balance = createAsyncThunk(
   'user/balance',
   async (balance, thunkAPI) => {
     try {
+<<<<<<< HEAD
+<<<<<<< Updated upstream
 
       const {data} = await instance.patch('/user/balance', balance);
       console.log('balance >>', data);
 
      
 
+=======
+      const data = await instance.patch('/user/balance', balance);
+>>>>>>> Stashed changes
+=======
+      const { data } = await instance.patch('/user/balance', balance);
+      console.log(data);
+>>>>>>> parent of bbd253d (Merge pull request #52 from YuliiaGagina/summary-6)
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -48,20 +63,21 @@ export const getPeriodData = createAsyncThunk(
       const { data } = await instance.get(
         `transaction/period-data?date=${periodData}`
       );
-      console.log('getPeriodData >>', data);
+      console.log(data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
   }
 );
+<<<<<<< Updated upstream
 
 export const getTransactionIncome = createAsyncThunk(
   '/transaction/getIncome',
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/income');
-      console.log('getTransactionIncome >>', res.data);
+      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -73,10 +89,6 @@ export const getTransactionExpense = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/expense');
-
-    
-
-
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -89,13 +101,14 @@ export const deleteTransacton = createAsyncThunk(
   async (transactionId, thunkAPI) => {
     try {
       const res = await instance.delete(`transaction/${transactionId}`);
-      console.log('deleteTransacton >>', res.data);
+      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+<<<<<<< HEAD
 
 export const getTransactionIncomeMonthsStats = createAsyncThunk(
   '/transaction/getIncomeMonthsStats',
@@ -121,3 +134,7 @@ export const getTransactionExpenseMonthsStats = createAsyncThunk(
     }
   }
 );
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> parent of bbd253d (Merge pull request #52 from YuliiaGagina/summary-6)

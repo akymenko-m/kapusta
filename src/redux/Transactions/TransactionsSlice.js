@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+=======
+import { createSlice } from '@reduxjs/toolkit';
+
+import { balance } from './TransactionsOperations';
+>>>>>>> Stashed changes
 
 import {
   balance,
@@ -8,10 +14,9 @@ import {
   addIncomeTransaction,
   addExpenseTransaction,
   getPeriodData,
-  getTransactionIncomeMonthsStats,
-  getTransactionExpenseMonthsStats
 } from './TransactionsOperations';
 
+<<<<<<< Updated upstream
 const initialState = {
   items: [],
   newBalance: 0,
@@ -23,11 +28,22 @@ const initialState = {
   error: null,
   isLoading: false,
   monthsStats: {},
+=======
+import { getPeriodData } from './TransactionsOperations';
+
+const initialState = {
+  items: [],
+  newBalance: 0,
+  transactionData: {},
+  expenses: [],
+  income: [],
+>>>>>>> Stashed changes
 };
 
 const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
+<<<<<<< Updated upstream
   reducers: {
     changeReportType(state) {
       state.currentReport =
@@ -41,11 +57,14 @@ const transactionsSlice = createSlice({
     },
   },
 
+=======
+>>>>>>> Stashed changes
   extraReducers: builder =>
     builder
       .addCase(balance.fulfilled, (state, { payload }) => {
         state.newBalance = payload.newBalance;
       })
+<<<<<<< Updated upstream
       .addCase(getPeriodData.pending, (state, action) => {
         state.isLoading = true;
       })
@@ -56,33 +75,32 @@ const transactionsSlice = createSlice({
       .addCase(getPeriodData.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
+=======
+      .addCase(getPeriodData.fulfilled, (state, action) => {
+        state.transactionData = action.payload;
+>>>>>>> Stashed changes
       })
       .addCase(addIncomeTransaction.fulfilled, (state, { payload }) => {
         state.items = [payload.transaction, ...state.items];
         state.isLoading = false;
       })
       .addCase(addExpenseTransaction.fulfilled, (state, { payload }) => {
+<<<<<<< Updated upstream
         state.items = [payload.transaction, ...state.items];
         state.isLoading = false;
       })
       .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {
         state.items = [...payload.incomes].reverse();
+        state.monthsStats = payload.monthsStats;
         state.isLoading = false;
       })
       .addCase(getTransactionExpense.fulfilled, (state, { payload }) => {
         state.items = [...payload.expenses].reverse();
+        state.monthsStats = payload.monthsStats;
         state.isLoading = false;
       })
       .addCase(deleteTransacton.fulfilled, (state, { payload }) => {
         state.newBalance = payload.newBalance;
-        state.isLoading = false;
-      })
-      .addCase(getTransactionIncomeMonthsStats.fulfilled, (state, { payload }) => {
-        state.monthsStats = payload.monthsStats;
-        state.isLoading = false;
-      })
-      .addCase(getTransactionExpenseMonthsStats.fulfilled, (state, { payload }) => {
-        state.monthsStats = payload.monthsStats;
         state.isLoading = false;
       })
       .addMatcher(
@@ -91,9 +109,7 @@ const transactionsSlice = createSlice({
           getTransactionExpense.rejected,
           deleteTransacton.rejected,
           addIncomeTransaction.rejected,
-          addExpenseTransaction.rejected,
-          getTransactionIncomeMonthsStats.pending,
-          getTransactionExpenseMonthsStats.pending,
+          addExpenseTransaction.rejected
         ),
         (state, { payload }) => {
           state.isLoading = false;
@@ -106,22 +122,28 @@ const transactionsSlice = createSlice({
           getTransactionExpense.pending,
           deleteTransacton.pending,
           addIncomeTransaction.pending,
-          addExpenseTransaction.pending,
-          getTransactionIncomeMonthsStats.pending,
-          getTransactionExpenseMonthsStats.pending,
+          addExpenseTransaction.pending
         ),
         state => {
           state.isLoading = true;
         }
       ),
+=======
+        state.expenses = [...payload];
+        // state.isLoading = false;
+      }),
+>>>>>>> Stashed changes
 });
 
 export const { deleteTransactionItem, changeReportType, setReportsQuery } =
   transactionsSlice.actions;
 export const transactionsReducer = transactionsSlice.reducer;
+<<<<<<< Updated upstream
 
 // const iconObj = {
 //   products: icon,
 //   alcohol: icon,
 // }
 // iconObj['products']
+=======
+>>>>>>> Stashed changes
