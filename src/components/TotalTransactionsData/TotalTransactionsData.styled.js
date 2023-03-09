@@ -23,7 +23,6 @@ export const TotalData = styled.div`
   width: calc((100%-1px) / 2);
   align-items: center;
   text-align: center;
-
   &:last-child::before {
     content: '';
     display: block;
@@ -44,18 +43,13 @@ export const TotalData = styled.div`
       height: 36px;
     }
   }
-
-  @media screen and (min-width: 1280px) {
-  }
 `;
 
 export const Type = styled.p`
   margin-bottom: 4px;
-  font-family: 'Roboto';
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  line-height: 16px;
+  line-height: calc(16 / 14);
   color: #52555f;
   @media screen and (min-width: 768px) {
     margin-bottom: 0px;
@@ -67,12 +61,9 @@ export const Type = styled.p`
 `;
 
 export const Total = styled.p`
-  font-family: 'Roboto';
-  font-style: normal;
   font-weight: 700;
   font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0.04em;
+  line-height: calc(16 / 14);
   color: ${({ typeReport }) =>
     typeReport === 'Expenses' ? '#E53935' : '#407946'};
 `;

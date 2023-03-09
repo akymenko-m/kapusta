@@ -5,11 +5,8 @@ export const balance = createAsyncThunk(
   'user/balance',
   async (balance, thunkAPI) => {
     try {
-
-      const {data} = await instance.patch('/user/balance', balance);
+      const { data } = await instance.patch('/user/balance', balance);
       console.log('balance >>', data);
-
-     
 
       return data;
     } catch (error) {
@@ -48,7 +45,7 @@ export const getPeriodData = createAsyncThunk(
       const { data } = await instance.get(
         `transaction/period-data?date=${periodData}`
       );
-      console.log('getPeriodData >>', data);
+
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -73,9 +70,6 @@ export const getTransactionExpense = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/expense');
-
-    
-
 
       return res.data;
     } catch (error) {

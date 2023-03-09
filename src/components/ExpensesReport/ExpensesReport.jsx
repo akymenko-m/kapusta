@@ -20,7 +20,6 @@ import { useState } from 'react';
 export const ExpensesReport = () => {
   const [transactions, setTransactions] = useState({});
   const expensesData = useSelector(selectTransactionDataExpensesData);
-
   const entries = Object.entries(expensesData ?? {});
 
   const sortEntries = [...entries]
@@ -60,7 +59,7 @@ export const ExpensesReport = () => {
   return (
     <div>
       {Boolean(expensesData) ? (
-        <>
+        <div>
           <ExpensesList>
             {sortEntries.map(el => {
               return (
@@ -70,8 +69,15 @@ export const ExpensesReport = () => {
                   total={el.total}
                   url={expensesDictionary[el.name].img}
                   handleClick={handleClick}
-                  name={el.name}
                 />
+                // <ExpensesReportElement
+                //   key={expensesDictionary[el.name].label}
+                //   label={expensesDictionary[el.name].label}
+                //   total={el.total}
+                //   url={expensesDictionary[el.name].img}
+                // >
+                //   {expensesDictionary[el.name].img}
+                // </ExpensesReportElement>
               );
             })}
           </ExpensesList>
@@ -84,7 +90,7 @@ export const ExpensesReport = () => {
               }
             />
           ) : null}
-        </>
+        </div>
       ) : (
         <div>
           <p>No data</p>
