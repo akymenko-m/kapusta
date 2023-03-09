@@ -5,7 +5,7 @@ export const balance = createAsyncThunk(
   'user/balance',
   async (balance, thunkAPI) => {
     try {
-      const {data} = await instance.patch('/user/balance', balance);
+      const { data } = await instance.patch('/user/balance', balance);
       console.log(data);
       return data;
     } catch (error) {
@@ -69,7 +69,6 @@ export const getTransactionExpense = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/expense');
-      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

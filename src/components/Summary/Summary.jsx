@@ -44,7 +44,6 @@ export const Summary = () => {
 
     const result = listKeyMonths
       .map(e => {
-        console.log(e);
         return { month: listMonthsEng[e], value: stateMonts[e] };
       })
       .filter(e => e.value !== 'N/A')
