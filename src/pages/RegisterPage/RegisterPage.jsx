@@ -1,9 +1,13 @@
+import { Wrapper, Title, Background,  CabbageTop } from 'pages/HomePage/HomePage.styled';
+import title from '../../images/title/title.png';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { register } from 'redux/user/userOperations';
-import { GoogleLogin } from '../components/LoginRegister/GoogleLogin/GoogleLogin';
-import { LoginRegisterText } from '../components/LoginRegister/LoginRegisterText/LoginRegisterText';
+import { GoogleLogin } from '../../components/LoginRegister/GoogleLogin/GoogleLogin';
+import { LoginRegisterText } from '../../components/LoginRegister/LoginRegisterText/LoginRegisterText';
+import { Container } from 'components/App.styled';
 import {
+
   RegisterPageWrapper,
   RegisterForm,
   RegisterFormLabel,
@@ -12,7 +16,7 @@ import {
   LoginNavLink
 } from './RegisterPage.styled';
 
-export function RegisterPage() {
+function RegisterPage() {
   const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
@@ -28,7 +32,16 @@ export function RegisterPage() {
   };
 
   return (
-    <RegisterPageWrapper>
+    <Background>
+    <CabbageTop>
+   
+    <Container>
+    <Wrapper>
+             <div>
+               <Title src={title} />
+            </div>
+            <div>
+            <RegisterPageWrapper>
       <GoogleLogin />
       <LoginRegisterText />
       <RegisterForm
@@ -60,5 +73,13 @@ export function RegisterPage() {
         </NavLink>
       </LoginNavLink>
     </RegisterPageWrapper>
+             </div>
+           </Wrapper>
+           </Container>
+       
+           </CabbageTop>
+           </Background>
   );
 }
+
+export default RegisterPage
