@@ -4,6 +4,7 @@ import { selectTransactionDataIncomesData } from 'redux/Transactions/selectors';
 import imgSalary from '../../images/incomesReport/Salary.png';
 import imgAddincome from '../../images/incomesReport/Add_income.png';
 import { IncomesReportElement } from 'components/IncomesReportElement/IncomesReportElement';
+import ChartReport from 'components/ChartReport/ChartReport';
 
 export const IncomesReport = () => {
   const incomesData = useSelector(selectTransactionDataIncomesData);
@@ -28,18 +29,23 @@ export const IncomesReport = () => {
   return (
     <div>
       {Boolean(incomesData) ? (
-        <ul>
-          {sortEntries.map(el => {
-            return (
-              <IncomesReportElement
-                key={incomesDictionary[el.name].label}
-                label={incomesDictionary[el.name].label}
-                total={el.total}
-                url={incomesDictionary[el.name].img}
-              />
-            );
-          })}
-        </ul>
+        <>
+          <ul>
+            {sortEntries.map(el => {
+              return (
+                <IncomesReportElement
+                  key={incomesDictionary[el.name].label}
+                  label={incomesDictionary[el.name].label}
+                  total={el.total}
+                  url={incomesDictionary[el.name].img}
+                />
+              );
+            })}
+          </ul>
+          {sortEntries.length ? (
+            <ChartReport sortEntries={sortEntries} />
+          ) : null}
+        </>
       ) : (
         <div>
           <p>No data</p>

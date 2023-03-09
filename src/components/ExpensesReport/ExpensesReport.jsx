@@ -14,6 +14,7 @@ import imgEducation from '../../images/expensesReport/Education.png';
 import imgOther from '../../images/expensesReport/Other.png';
 import { ExpensesReportElement } from 'components/ExpensesReportElement/ExpensesReportElement';
 import { ExpensesList } from './ExpensesReport.styled';
+import ChartReport from 'components/ChartReport/ChartReport';
 
 export const ExpensesReport = () => {
   const expensesData = useSelector(selectTransactionDataExpensesData);
@@ -48,18 +49,23 @@ export const ExpensesReport = () => {
   return (
     <div>
       {Boolean(expensesData) ? (
-        <ExpensesList>
-          {sortEntries.map(el => {
-            return (
-              <ExpensesReportElement
-                key={expensesDictionary[el.name].label}
-                label={expensesDictionary[el.name].label}
-                total={el.total}
-                url={expensesDictionary[el.name].img}
-              />
-            );
-          })}
-        </ExpensesList>
+        <>
+          <ExpensesList>
+            {sortEntries.map(el => {
+              return (
+                <ExpensesReportElement
+                  key={expensesDictionary[el.name].label}
+                  label={expensesDictionary[el.name].label}
+                  total={el.total}
+                  url={expensesDictionary[el.name].img}
+                />
+              );
+            })}
+          </ExpensesList>
+          {sortEntries.length ? (
+            <ChartReport sortEntries={sortEntries} />
+          ) : null}
+        </>
       ) : (
         <div>
           <p>No data</p>
