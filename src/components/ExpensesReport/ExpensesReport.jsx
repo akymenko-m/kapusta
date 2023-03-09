@@ -15,8 +15,10 @@ import imgOther from '../../images/expensesReport/Other.png';
 import { ExpensesReportElement } from 'components/ExpensesReportElement/ExpensesReportElement';
 import { ExpensesList } from './ExpensesReport.styled';
 import ChartReport from 'components/ChartReport/ChartReport';
+import { useState } from 'react';
 
 export const ExpensesReport = () => {
+  const [transactions, setTransactions] = useState({});
   const expensesData = useSelector(selectTransactionDataExpensesData);
 
   const entries = Object.entries(expensesData ?? {});
@@ -46,6 +48,15 @@ export const ExpensesReport = () => {
     Прочее: { label: 'Other', img: imgOther },
   };
 
+  const handleClick = categoryName => {
+    setTransactions(expensesData[categoryName]);
+  };
+
+  const sortedCategoryTransactions = Object.entries(transactions)
+    .filter(([key]) => key !== 'total')
+    .map(([key, value]) => ({ name: key, total: value }))
+    .sort((firstEl, secondEl) => secondEl.total - firstEl.total);
+
   return (
     <div>
       {Boolean(expensesData) ? (
@@ -58,12 +69,20 @@ export const ExpensesReport = () => {
                   label={expensesDictionary[el.name].label}
                   total={el.total}
                   url={expensesDictionary[el.name].img}
+                  handleClick={handleClick}
+                  name={el.name}
                 />
               );
             })}
           </ExpensesList>
           {sortEntries.length ? (
-            <ChartReport sortEntries={sortEntries} />
+            <ChartReport
+              sortEntries={
+                sortedCategoryTransactions.length
+                  ? sortedCategoryTransactions
+                  : sortEntries
+              }
+            />
           ) : null}
         </>
       ) : (
