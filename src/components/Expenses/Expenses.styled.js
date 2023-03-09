@@ -31,3 +31,16 @@ export const Block = styled.div`
     background-color: transparent;
   }
 `;
+
+export const CabbageImg = styled.img`
+display: none;
+@media (min-width: 768px){
+    display: block;
+    position: relative;
+    bottom: 68px;
+    left: 428px;
+}
+@media (min-width: 1280px){
+    display: none;  
+}
+`

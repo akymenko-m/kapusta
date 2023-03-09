@@ -11,7 +11,9 @@ import { register } from 'redux/user/userOperations';
 import { GoogleLogin } from '../../components/LoginRegister/GoogleLogin/GoogleLogin';
 import { LoginRegisterText } from '../../components/LoginRegister/LoginRegisterText/LoginRegisterText';
 import { Container } from 'components/App.styled';
+import { FooterImg } from 'components/Footer/Footer';
 import {
+
   RegisterPageWrapper,
   RegisterForm,
   RegisterFormLabel,
@@ -78,6 +80,7 @@ function RegisterPage() {
               </RegisterPageWrapper>
             </div>
           </Wrapper>
+          <FooterImg />
         </Container>
       </CabbageTop>
     </Background>
