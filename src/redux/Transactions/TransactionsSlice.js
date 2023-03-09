@@ -105,9 +105,3 @@ const transactionsSlice = createSlice({
 export const { deleteTransactionItem, changeReportType, setReportsQuery } =
   transactionsSlice.actions;
 export const transactionsReducer = transactionsSlice.reducer;
-
-// const iconObj = {
-//   products: icon,
-//   alcohol: icon,
-// }
-// iconObj['products']

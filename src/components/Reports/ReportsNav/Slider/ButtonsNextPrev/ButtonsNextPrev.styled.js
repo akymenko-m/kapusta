@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
 
-
 export const ButtonBox = styled.div`
-margin-top: 5px;
+  margin-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 export const Button = styled.button`
   background-color: transparent;
   border: transparent;
@@ -14,4 +13,4 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;

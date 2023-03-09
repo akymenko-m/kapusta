@@ -7,14 +7,13 @@ import {
   BtnReport,
   GrFormNextStyled,
   GrFormPreviousStyled,
+  ReportContainer,
   ReportName,
   ReportType,
 } from './ReportByCategories.styled';
 
 export const ReportByCategories = () => {
   const curReport = useSelector(selectCurrentReport);
-  // console.log(curReport);
-
   const dispatch = useDispatch();
 
   const toggleReportType = () => {
@@ -22,7 +21,7 @@ export const ReportByCategories = () => {
   };
 
   return (
-    <div>
+    <ReportContainer>
       <ReportType>
         <BtnReport onClick={toggleReportType}>
           <GrFormPreviousStyled />
@@ -34,6 +33,6 @@ export const ReportByCategories = () => {
       </ReportType>
 
       {curReport === 'Expenses' ? <ExpensesReport /> : <IncomesReport />}
-    </div>
+    </ReportContainer>
   );
 };

@@ -17,7 +17,6 @@ import { ExpensesList } from './ExpensesReport.styled';
 
 export const ExpensesReport = () => {
   const expensesData = useSelector(selectTransactionDataExpensesData);
-
   const entries = Object.entries(expensesData ?? {});
 
   const sortEntries = [...entries]
@@ -57,6 +56,14 @@ export const ExpensesReport = () => {
                 total={el.total}
                 url={expensesDictionary[el.name].img}
               />
+              // <ExpensesReportElement
+              //   key={expensesDictionary[el.name].label}
+              //   label={expensesDictionary[el.name].label}
+              //   total={el.total}
+              //   url={expensesDictionary[el.name].img}
+              // >
+              //   {expensesDictionary[el.name].img}
+              // </ExpensesReportElement>
             );
           })}
         </ExpensesList>

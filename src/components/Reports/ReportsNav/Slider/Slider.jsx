@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-// import { getReports } from 'redux/Transactions/TransactionsOperations';
 import { monthNames, getMonth, getYear } from './SliderUtils';
 import { Calendar } from './Calendar/Calendar';
-import { SliderBox, SliderText } from './Slider.styled';
+import { CurPeriod, SliderBox, SliderText } from './Slider.styled';
 import { ButtonsNextPrev } from './ButtonsNextPrev/ButtonsNextPrev';
-// import { reportsQueryAction } from 'redux/reportsQuery/reportsQuery.slice';
-// import { filteredDataAction } from 'redux/reportsQuery/reportsQuery.slice';
-import { useSearchParams } from 'react-router-dom';
 import { getPeriodData } from 'redux/Transactions/TransactionsOperations';
 import { setReportsQuery } from 'redux/Transactions/TransactionsSlice';
 
@@ -37,21 +34,18 @@ export const Slider = () => {
       monthString = monthNumber + 1;
     }
     const query = `${year}-${monthString}`;
-    // if (query !== '-01') dispatch(getReports(query));
+
     if (query === '-01') return;
-    console.log(query);
+
     setSearchParams({ date: query });
 
     dispatch(setReportsQuery(query));
     dispatch(getPeriodData(query));
-
-    // dispatch(reportsQueryAction(`${year}-${monthString}`));
   }, [monthNumber, year, dispatch, setSearchParams]);
 
   const handlerClick = name => {
     switch (name) {
       case 'decrement':
-        // dispatch(filteredDataAction([]));
         setMonthNumber(monthNumber - 1);
         if (monthNumber === 0) {
           setMonthNumber(11);
@@ -59,7 +53,6 @@ export const Slider = () => {
         }
         break;
       case 'increment':
-        // dispatch(filteredDataAction([]));
         setMonthNumber(monthNumber + 1);
         if (monthNumber === 11) {
           setMonthNumber(0);
@@ -92,7 +85,7 @@ export const Slider = () => {
 
   return (
     <SliderBox>
-      <p>Current period:</p>
+      <CurPeriod>Current period:</CurPeriod>
       <ButtonsNextPrev onButtonClick={handlerClick}>
         <SliderText onClick={handleModalCalendar}>
           {month} {year}

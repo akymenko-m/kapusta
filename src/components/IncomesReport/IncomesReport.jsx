@@ -4,13 +4,11 @@ import { selectTransactionDataIncomesData } from 'redux/Transactions/selectors';
 import imgSalary from '../../images/incomesReport/Salary.png';
 import imgAddincome from '../../images/incomesReport/Add_income.png';
 import { IncomesReportElement } from 'components/IncomesReportElement/IncomesReportElement';
+import { IncomesContainer, IncomesList } from './IncomesReport.styled';
 
 export const IncomesReport = () => {
   const incomesData = useSelector(selectTransactionDataIncomesData);
-  //   console.log('incomesData', incomesData);
-
   const entries = Object.entries(incomesData ?? {});
-  //   console.log('entries', entries);
 
   const sortEntries = [...entries]
     .sort((firstEl, secondEl) => {
@@ -26,9 +24,9 @@ export const IncomesReport = () => {
   };
 
   return (
-    <div>
+    <IncomesContainer>
       {Boolean(incomesData) ? (
-        <ul>
+        <IncomesList>
           {sortEntries.map(el => {
             return (
               <IncomesReportElement
@@ -39,12 +37,12 @@ export const IncomesReport = () => {
               />
             );
           })}
-        </ul>
+        </IncomesList>
       ) : (
         <div>
           <p>No data</p>
         </div>
       )}
-    </div>
+    </IncomesContainer>
   );
 };
