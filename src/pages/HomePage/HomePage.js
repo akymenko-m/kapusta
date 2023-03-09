@@ -18,10 +18,8 @@ import { useAuth } from '../../hook/useAuth';
 const HomePage = () => {
   const { isLoggedIn } = useAuth();
   const location = useLocation();
-
-  const index = location.pathname === '/income' ? 1 : 0;
-
-  return (
+const index = location.pathname === '/income' ? 1 : 0;
+return (
     <>
       {isLoggedIn ? (
         <Background>
@@ -29,9 +27,7 @@ const HomePage = () => {
             {' '}
             <div>
               <Balance />
-
-              
-              <TabsStyled selectedIndex={index} onSelect={() => {}}>
+        <TabsStyled selectedIndex={index} onSelect={() => {}}>
                 <TabListStyled>
                   <TabStyled>
                     <NavLinkStyled to="expenses">Expenses</NavLinkStyled>
