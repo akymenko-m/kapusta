@@ -21,7 +21,9 @@ const HomePage = () => {
   const location = useLocation();
 const index = location.pathname === '/income' ? 1 : 0;
 const navigate = useNavigate();
-useEffect(() =>{navigate(isLoggedIn?"/expenses": "/login");}, [navigate, isLoggedIn])
+const path = location.pathname === '/' ? '/expenses' : location.pathname;
+useEffect(() =>{
+    navigate( path || '/login')}, [navigate,path, isLoggedIn]);
 
 return (
     <>
