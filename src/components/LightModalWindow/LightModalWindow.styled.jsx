@@ -11,7 +11,10 @@ export const StyledModalWindow = styled.div`
 `;
 
 export const StyledContentDiv = styled.div`
-  padding: 50px 58px 60px;
+  padding: 50px 48px 60px;
+  @media screen and (min-width: 768px) {
+    padding: 50px 58px 60px;
+  }
 `;
 
 export const StyledText = styled.p`

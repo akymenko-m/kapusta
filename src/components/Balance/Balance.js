@@ -19,13 +19,11 @@ import { LightModalWindow } from 'components/LightModalWindow/LightModalWindow';
 export function Balance() {
   const [modalOpen, setModalOpen] = useState(false);
   const stateBalance = useSelector(state => state.transactions.newBalance);
+  const items = useSelector(state=>state.transactions.items);
   const form = useRef();
   const dispatch = useDispatch();
   let balance;
-  // const handleSubmit = evt => {
-  //   evt.preventDefault();
-  //   balance = evt.target.balance.value;
-  // };
+
 
   const [number, setNumber] = useState('');
   const formSubmit = e => {
@@ -82,7 +80,7 @@ export function Balance() {
             />
           </label>
           <BalanceBtn type="submit" className="btn" onClick={handleModalOpen}>Confirm</BalanceBtn>
-          {!stateBalance && <ModalWindow />}
+          {!stateBalance &&  !items.length && <ModalWindow /> }
           </BalanceForm>
           {modalOpen && (
         <LightModalWindow
