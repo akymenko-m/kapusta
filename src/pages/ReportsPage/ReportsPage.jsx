@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import ChartReport from 'components/ChartReport/ChartReport';
 import { selectIsRefreshing } from 'redux/user/selectors';
 
-export const ReportsPage = () => {
+ const ReportsPage = () => {
   // const isLoading = useSelector(getIsloading);
   const isRefreshing = useSelector(selectIsRefreshing);
 
@@ -28,3 +28,5 @@ export const ReportsPage = () => {
     </MainContainer>
   );
 };
+
+export default ReportsPage;
