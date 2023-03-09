@@ -44,30 +44,31 @@ export const Summary = () => {
 
     const result = listKeyMonths
       .map(e => {
+        console.log(e);
         return { month: listMonthsEng[e], value: stateMonts[e] };
       })
-      .filter(e => e.value !== 'N/A').slice(0, summaryMonth);
+      .filter(e => e.value !== 'N/A')
+      .slice(0, summaryMonth);
 
     setlistMonths(result);
   }, [stateMonts]);
 
   return (
     <Container>
-        <Title>SUMMARY</Title>
-        <List>
-          {listMonths.map(({ month, value }, edx) => (
-            <Item key={edx}>
-              <Description>{month}</Description>
-              <Description> {value} </Description>
-            </Item>
-          ))}
-        </List>
+      <Title>SUMMARY</Title>
+      <List>
+        {listMonths.map(({ month, value }, edx) => (
+          <Item key={edx}>
+            <Description>{month}</Description>
+            <Description> {value} </Description>
+          </Item>
+        ))}
+      </List>
     </Container>
   );
 };
 
 export default Summary;
-
 
 // import { Summary } from 'components/Summary/Summary';
 // <Summary />
