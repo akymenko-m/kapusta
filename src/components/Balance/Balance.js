@@ -85,7 +85,7 @@ export function Balance() {
                 required
               />
             </label>
-            <BalanceBtn type="submit" className="btn" onClick={handleModalOpen}>
+            <BalanceBtn type="button" className="btn" onClick={handleModalOpen}>
               Confirm
             </BalanceBtn>
             {!stateBalance && !items.length && <ModalWindow />}

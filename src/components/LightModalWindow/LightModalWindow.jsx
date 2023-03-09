@@ -66,6 +66,7 @@ export const LightModalWindow = ({
               dispatch={dispatch}
               closeModal={closeModal}
               changeBalance={changeBalance}
+              type="submit"
             >
               {text ? text : 'YES'}
             </OrangeButton>
