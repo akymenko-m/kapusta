@@ -7,8 +7,13 @@ import { useSelector } from 'react-redux';
 // import ChartReport from 'components/ChartReport/ChartReport';
 
 import { selectIsRefreshing } from 'redux/user/selectors';
+// import { Balance } from 'components/Balance/Balance';
 
 const ReportsPage = () => {
+
+
+  // const isLoading = useSelector(getIsloading);
+
   const isRefreshing = useSelector(selectIsRefreshing);
 
   return isRefreshing ? (
