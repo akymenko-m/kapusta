@@ -83,6 +83,7 @@ import { useAuth } from '../../hook/useAuth';
      
     </>
   );
-};
+
 
 export default HomePage;
+

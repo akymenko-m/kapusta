@@ -14,3 +14,18 @@ code {
     monospace;
 
   /* color: #989dac; */
+<<<<<<< HEAD
+div.react-datepicker__day.react-datepicker__day--selected.react-datepicker__day--today,
+div.react-datepicker__day.react-datepicker__day--selected {
+  background: #ff751d;
+}
+
+
+body {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    line-height: 1.17;
+    color: #52555F;
+}
