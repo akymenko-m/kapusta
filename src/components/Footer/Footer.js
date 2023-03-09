@@ -1,10 +1,9 @@
-import { Footer, Wrapper } from "./Footer.styled" 
+import { Footer } from "./Footer.styled" 
 
-export const FooterOfApp = () =>{
+export const FooterImg = () =>{
     return (
-        <Wrapper>
         <Footer></Footer>
-        </Wrapper>
+      
        
      
     )

@@ -8,6 +8,8 @@ import {
   addIncomeTransaction,
   addExpenseTransaction,
   getPeriodData,
+  getTransactionIncomeMonthsStats,
+  getTransactionExpenseMonthsStats
 } from './TransactionsOperations';
 
 const initialState = {
@@ -20,6 +22,7 @@ const initialState = {
   currentReport: 'Expenses',
   error: null,
   isLoading: false,
+  monthsStats: {},
 };
 
 const transactionsSlice = createSlice({
@@ -56,7 +59,6 @@ const transactionsSlice = createSlice({
       })
       .addCase(addIncomeTransaction.fulfilled, (state, { payload }) => {
         state.items = [payload.transaction, ...state.items];
-
         state.isLoading = false;
       })
       .addCase(addExpenseTransaction.fulfilled, (state, { payload }) => {
@@ -64,15 +66,23 @@ const transactionsSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {
-        state.items = [...payload].reverse();
+        state.items = [...payload.incomes].reverse();
         state.isLoading = false;
       })
       .addCase(getTransactionExpense.fulfilled, (state, { payload }) => {
-        state.items = [...payload].reverse();
+        state.items = [...payload.expenses].reverse();
         state.isLoading = false;
       })
       .addCase(deleteTransacton.fulfilled, (state, { payload }) => {
         state.newBalance = payload.newBalance;
+        state.isLoading = false;
+      })
+      .addCase(getTransactionIncomeMonthsStats.fulfilled, (state, { payload }) => {
+        state.monthsStats = payload.monthsStats;
+        state.isLoading = false;
+      })
+      .addCase(getTransactionExpenseMonthsStats.fulfilled, (state, { payload }) => {
+        state.monthsStats = payload.monthsStats;
         state.isLoading = false;
       })
       .addMatcher(
@@ -81,7 +91,9 @@ const transactionsSlice = createSlice({
           getTransactionExpense.rejected,
           deleteTransacton.rejected,
           addIncomeTransaction.rejected,
-          addExpenseTransaction.rejected
+          addExpenseTransaction.rejected,
+          getTransactionIncomeMonthsStats.pending,
+          getTransactionExpenseMonthsStats.pending,
         ),
         (state, { payload }) => {
           state.isLoading = false;
@@ -94,7 +106,9 @@ const transactionsSlice = createSlice({
           getTransactionExpense.pending,
           deleteTransacton.pending,
           addIncomeTransaction.pending,
-          addExpenseTransaction.pending
+          addExpenseTransaction.pending,
+          getTransactionIncomeMonthsStats.pending,
+          getTransactionExpenseMonthsStats.pending,
         ),
         state => {
           state.isLoading = true;

@@ -4,7 +4,8 @@ import { MainContainer } from './ReportsPage.styled';
 import { Slider } from 'components/Reports/ReportsNav/Slider/Slider';
 import { Loader } from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
-import ChartReport from 'components/ChartReport/ChartReport';
+// import ChartReport from 'components/ChartReport/ChartReport';
+
 import { selectIsRefreshing } from 'redux/user/selectors';
 
 const ReportsPage = () => {
@@ -18,7 +19,6 @@ const ReportsPage = () => {
 
       <TotalTransactionsData />
       <ReportByCategories />
-      <ChartReport />
     </MainContainer>
   );
 };

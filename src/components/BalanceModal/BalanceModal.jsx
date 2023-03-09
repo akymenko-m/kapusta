@@ -38,7 +38,7 @@ export default function ModalWindow() {
             Hello! To get started, enter the current balance of your account!
           </StyledModalTitle>
           <StyledModalText>
-            You can't spend money until you have it :)
+            You can't spend money until you have it 
           </StyledModalText>
         </StyledModalWindow>
       </StyledBackdrop>
