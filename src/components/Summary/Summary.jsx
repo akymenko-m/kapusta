@@ -1,25 +1,35 @@
-
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import {
+  getTransactionIncomeMonthsStats,
+  getTransactionExpenseMonthsStats,
+} from 'redux/Transactions/TransactionsOperations';
 import { selectMonthsStats, selectTransactions } from 'redux/Transactions/selectors';
 import { Container, Title, List, Item, Description } from './Summary.styled';
 
 export const Summary = () => {
   const summaryMonth = 6; // Кількість місяцв які треба рендерить
-
-  const stateMonts = useSelector(selectMonthsStats);
-
-  const stateIsLoading = useSelector(getIsloading);
-  const stateІtems = useSelector(selectTransactions);
-  const statenewBalance = useSelector(selectBalance);
-  const statereportsQuery = useSelector();
-  const statetransactionData = useSelector();
-  const stateexpenses = useSelector();
-  const stateincome = useSelector();
-  const statecurrentReport = useSelector();
-  
-
+  const stateMonts = useSelector(selectMonthsStats); // мої данні по місяцях
   const [listMonths, setlistMonths] = useState([]); // масив результатів
+
+  const dispatch = useDispatch();
+  const stateІtems = useSelector(selectTransactions); // слідкую за списком транзакцій
+
+  const { pathname } = useLocation();
+  const isIncomePage = pathname.includes('/income');
+  const isExpensePage = pathname.includes('/expense');
+
+  useEffect(() => {
+    if (isIncomePage) {
+      dispatch(getTransactionIncomeMonthsStats());
+    }
+    if (isExpensePage) {
+      dispatch(getTransactionExpenseMonthsStats());
+    }
+    return;
+  }, [stateІtems, dispatch, isExpensePage, isIncomePage, ]);
+
 
   useEffect(() => {
     const listKeyMonths = [
@@ -63,15 +73,15 @@ export const Summary = () => {
 
   return (
     <Container>
-        <Title>SUMMARY</Title>
-        <List>
-          {listMonths.map(({ month, value }, edx) => (
-            <Item key={edx}>
-              <Description>{month}</Description>
-              <Description> {value} </Description>
-            </Item>
-          ))}
-        </List>
+      <Title>SUMMARY</Title>
+      <List>
+        {listMonths.map(({ month, value }, edx) => (
+          <Item key={edx}>
+            <Description>{month}</Description>
+            <Description> {value} </Description>
+          </Item>
+        ))}
+      </List>
     </Container>
   );
 };
@@ -83,47 +93,13 @@ export default Summary;
 // <Summary />
 
 // ********** TransactionsOperations.js *змінити:
-// export const getTransactionIncome = createAsyncThunk(
-//   '/transaction/getIncome',
-//   async (_, thunkAPI) => {
-//     try {
-//       const res = await instance.get('transaction/income');
-//       console.log(res.data);
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 
-// export const getTransactionExpense = createAsyncThunk(
-//   '/transaction/getExpense',
-//   async (_, thunkAPI) => {
-//     try {
-//       const res = await instance.get('transaction/expense');
-//       console.log(res.data);
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 // ********** TransactionsSlice.js
 // *додати слайс
 // monthsStats: {}
 // *змінити:
-// .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {
-//   state.items = [...payload.incomes].reverse();
-//   state.monthsStats = payload.monthsStats;
-//   state.isLoading = false;
-// })
-// .addCase(getTransactionExpense.fulfilled, (state, { payload }) => {
-//   console.log('payload.expenses', payload.expenses);
-//   state.items = [...payload.expenses].reverse();
-//   state.monthsStats = payload.monthsStats;
-//   state.isLoading = false;
-// })
+
 
 // ********** selectors.js *додати:
 // export const selectMonthsStats = state => state.transactions.monthsStats;

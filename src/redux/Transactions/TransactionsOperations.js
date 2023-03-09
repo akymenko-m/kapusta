@@ -6,7 +6,7 @@ export const balance = createAsyncThunk(
   async (balance, thunkAPI) => {
     try {
       const {data} = await instance.patch('/user/balance', balance);
-      console.log(data);
+      console.log('balance >>', data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -44,7 +44,7 @@ export const getPeriodData = createAsyncThunk(
       const { data } = await instance.get(
         `transaction/period-data?date=${periodData}`
       );
-      console.log(data);
+      console.log('getPeriodData >>', data);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -57,7 +57,7 @@ export const getTransactionIncome = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/income');
-      console.log(res.data);
+      console.log('getTransactionIncome >>', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -69,7 +69,7 @@ export const getTransactionExpense = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/expense');
-      console.log(res.data);
+      console.log('getTransactionExpense >>', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -82,7 +82,32 @@ export const deleteTransacton = createAsyncThunk(
   async (transactionId, thunkAPI) => {
     try {
       const res = await instance.delete(`transaction/${transactionId}`);
-      console.log(res.data);
+      console.log('deleteTransacton >>', res.data);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getTransactionIncomeMonthsStats = createAsyncThunk(
+  '/transaction/getIncomeMonthsStats',
+  async (_, thunkAPI) => {
+    try {
+      const res = await instance.get('transaction/income');
+      console.log('getTransactionIncomeMonthsStats >>', res.data);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const getTransactionExpenseMonthsStats = createAsyncThunk(
+  '/transaction/getExpenseMonthsStats',
+  async (_, thunkAPI) => {
+    try {
+      const res = await instance.get('transaction/expense');
+      console.log('getTransactionExpenseMonthsStats >>', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
