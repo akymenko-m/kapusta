@@ -24,13 +24,13 @@ export function Balance() {
   const goBackLink = location?.state?.from ?? '/';
   const [modalOpen, setModalOpen] = useState(false);
   const stateBalance = useSelector(state => state.transactions.newBalance);
-  const items = useSelector(state => state.transactions.items);
   const form = useRef();
   const dispatch = useDispatch();
 
   const [number, setNumber] = useState('');
   const formSubmit = e => {
     e.preventDefault();
+    balance = e.target.balance.value;
   };
   const inputChange = event => {
     const { name, value } = event.target;
@@ -88,7 +88,7 @@ export function Balance() {
             <BalanceBtn type="button" className="btn" onClick={handleModalOpen}>
               Confirm
             </BalanceBtn>
-            {!stateBalance && !items.length && <ModalWindow />}
+            {!stateBalance  && <ModalWindow />}
           </BalanceForm>
           {modalOpen && (
             <LightModalWindow
