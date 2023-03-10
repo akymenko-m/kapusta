@@ -26,6 +26,15 @@ export const RegisterPageWrapper = styled.div`
   }
 `;
 
+export const Regtext = styled.div`
+  @media screen and (max-width: 767px) {
+    margin-bottom: 16px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+`;
+
 export const RegisterForm = styled.form`
   width: 100%;
   display: flex;
@@ -87,7 +96,13 @@ export const RegisterButton = styled.button`
   color: #fff;
   box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
   background-color: #ff751d;
-  
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.7);
+  }
   @media screen and (max-width: 767px) {
     margin-top: 20px;
   }
@@ -113,10 +128,17 @@ export const LoginNavLink = styled.div`
   position: absolute;
   text-transform: uppercase;
   cursor: pointer;
+  transition-property: box-shadow, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 1px 3px 5px rgba(82, 85, 95, 0.15);
   &:active {
     box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
     background-color: #ff751d;
+  }
+  &:hover,
+  &:focus {
+    box-shadow: 1px 3px 5px rgba(82, 85, 95, 0.7);
   }
   @media screen and (max-width: 767px) {
     bottom: 40px;
@@ -144,3 +166,5 @@ export const Title = styled.img`
     margin-top: 138px;
   }
 `;
+
+

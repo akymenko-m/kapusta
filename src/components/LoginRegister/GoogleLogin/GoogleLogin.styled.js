@@ -28,6 +28,14 @@ export const GoogleLoginBtn = styled.button`
   gap: 10px;
   max-width: 119px;
   box-shadow: 1px 2px 3px rgba(170, 178, 197, 0.2);
+  transition-property: box-shadow       ;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    box-shadow: 1px 3px 5px rgba(82, 85, 95, 0.6);
+  }
+
   @media screen and (max-width: 767px) {
     border-radius: 30px;
     margin-top: 16px;

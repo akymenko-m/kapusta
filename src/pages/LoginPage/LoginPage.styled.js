@@ -87,9 +87,14 @@ export const LoginButton = styled.button`
   text-transform: uppercase;
   box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
   background-color: #ff751d;
-  // @media screen and (max-width: 319px) {
-  //   width: 70px;
-  // }
+  cursor: pointer;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.7);
+  }
   @media screen and (max-width: 767px) {
     margin-top: 20px;
   }
@@ -115,7 +120,13 @@ export const RegisterNavLink = styled.div`
   position: absolute;
   text-transform: uppercase;
   cursor: pointer;
+  transition-property: box-shadow, background-color;
+  transition-duration: 250ms;
   box-shadow: 1px 3px 5px rgba(82, 85, 95, 0.15);
+  &:hover,
+  &:focus {
+    box-shadow: 1px 3px 5px rgba(82, 85, 95, 0.6);
+  }
   &:active {
     box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
     background-color: #ff751d;

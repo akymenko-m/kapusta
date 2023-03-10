@@ -7,8 +7,6 @@ import title from '../../images/title/title.png';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { register } from 'redux/user/userOperations';
-import { GoogleLogin } from '../../components/LoginRegister/GoogleLogin/GoogleLogin';
-import { LoginRegisterText } from '../../components/LoginRegister/LoginRegisterText/LoginRegisterText';
 import { Container } from 'components/App.styled';
 import { FooterImg } from 'components/Footer/Footer';
 import {
@@ -19,6 +17,7 @@ import {
   RegisterFormInput,
   RegisterButton,
   LoginNavLink,
+  Regtext,
 } from './RegisterPage.styled';
 
 
@@ -47,9 +46,8 @@ function RegisterPage() {
             </div>
             <div>
               <RegisterPageWrapper>
-                <GoogleLogin />
-                <LoginRegisterText />
-                <RegisterForm  onSubmit={handleSubmit}>
+                <Regtext>Enter your login and password to register</Regtext>
+                <RegisterForm onSubmit={handleSubmit}>
                   <RegisterFormLabel>
                     Email:
                     <RegisterFormInput
@@ -62,7 +60,7 @@ function RegisterPage() {
                   <RegisterFormLabel>
                     Password:
                     <RegisterFormInput
-                      type="text"
+                      type="password"
                       name="password"
                       placeholder="password"
                       required
