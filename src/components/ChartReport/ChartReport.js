@@ -47,6 +47,7 @@ export default function ChartReport({ dataArray }) {
   const { width: screenWidth } = useWindowDimensions();
 
   const renderCustomBarLabel = ({ x, y, width, value }) => {
+   
     if (screenWidth < 768) {
       return (
         <text
