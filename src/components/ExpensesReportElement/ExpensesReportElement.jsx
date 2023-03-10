@@ -11,19 +11,22 @@ export const ExpensesReportElement = ({
   label,
   total,
   url,
-  handleClick,
-  name,
+  // handleClick,
+  // name,
+  handleCurItem,
+  currentActive,
+  activeUrl,
 }) => {
   const numberWithSpaces = num => {
     return num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   };
 
   return (
-    <ExpensesItem>
+    <ExpensesItem onClick={() => handleCurItem(label)}>
       <Container>
         <Total>{numberWithSpaces(total)}</Total>
 
-        <Image src={url} alt={label} />
+        <Image src={currentActive === label ? activeUrl : url} alt={label} />
         <Label>{label}</Label>
       </Container>
     </ExpensesItem>
@@ -34,4 +37,9 @@ ExpensesReportElement.propTypes = {
   label: PropTypes.string.isRequired,
   total: PropTypes.number,
   url: PropTypes.string.isRequired,
+  // handleClick: PropTypes.func.isRequired,
+  // name: PropTypes.string.isRequired,
+  handleCurItem: PropTypes.func.isRequired,
+  currentActive: PropTypes.string.isRequired,
+  activeUrl: PropTypes.string.isRequired,
 };

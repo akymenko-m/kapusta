@@ -9,6 +9,7 @@ export const IncomesContainer = styled.div`
     padding: 0 160px;
   }
 `;
+
 export const IncomesList = styled.ul`
   margin-bottom: 20px;
   display: flex;
@@ -21,4 +22,12 @@ export const IncomesList = styled.ul`
 
   @media screen and (min-width: 1280px) {
   }
+`;
+
+export const Notify = styled.p`
+  line-height: calc(14 / 12);
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #52555f;
 `;
