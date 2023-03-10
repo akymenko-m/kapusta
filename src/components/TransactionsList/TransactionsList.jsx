@@ -46,7 +46,7 @@ export function TransactionsList() {
     (b, a) => new Date(a.date) - new Date(b.date)
   );
 
-  console.log(sortedItems);
+  // console.log(sortedItems);
   const handleDelete = _id => {
     dispatch(deleteTransacton(_id));
     dispatch(deleteTransactionItem(_id));

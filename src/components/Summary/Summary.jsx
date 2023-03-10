@@ -5,11 +5,13 @@ import {
   getTransactionIncomeMonthsStats,
   getTransactionExpenseMonthsStats,
 } from 'redux/Transactions/TransactionsOperations';
-import { selectMonthsStats, selectTransactions } from 'redux/Transactions/selectors';
+import {
+  selectMonthsStats,
+  selectTransactions,
+} from 'redux/Transactions/selectors';
 import { Container, Title, List, Item, Description } from './Summary.styled';
 
 export const Summary = () => {
-  const summaryMonth = 6; // Кількість місяцв які треба рендерить
   const stateMonts = useSelector(selectMonthsStats); // мої данні по місяцях
   const [listMonths, setlistMonths] = useState([]); // масив результатів
 
@@ -22,20 +24,24 @@ export const Summary = () => {
 
   // логіка відслідковування оновлень:
   useEffect(() => {
-    console.log('stateІtems *****>>', stateІtems);
-    if (isIncomePage) {
-        dispatch(getTransactionIncomeMonthsStats());
-    }
-    if (isExpensePage) {
-      setTimeout(() => {
+    let timeoutId;
+      timeoutId = setTimeout(() => {
+        if (isIncomePage) {
+          dispatch(getTransactionIncomeMonthsStats());
+        }
+        if (isExpensePage) {
         dispatch(getTransactionExpenseMonthsStats());
+      }
       }, 200);
-    }
-    return;
-  }, [stateІtems, dispatch, isExpensePage, isIncomePage, ]);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [stateІtems, dispatch, isExpensePage, isIncomePage]);
 
- // логіка побудови списку:
+  // логіка побудови списку:
   useEffect(() => {
+    const summaryMonth = 6; // Кількість місяцв які треба рендерить
+    // ключі бекенду, порядок в масиві визначає порядок видачі
     const listKeyMonths = [
       'Декабрь',
       'Ноябрь',
@@ -70,7 +76,8 @@ export const Summary = () => {
       .map(e => {
         return { month: listMonthsEng[e], value: stateMonts[e] };
       })
-      .filter(e => e.value !== 'N/A').slice(0, summaryMonth);
+      .filter(e => e.value !== 'N/A')
+      .slice(0, summaryMonth);
 
     setlistMonths(result);
   }, [stateMonts, stateІtems]);
@@ -92,18 +99,15 @@ export const Summary = () => {
 
 export default Summary;
 
-
 // import { Summary } from 'components/Summary/Summary';
 // <Summary />
 
 // ********** TransactionsOperations.js *змінити:
 
-
 // ********** TransactionsSlice.js
 // *додати слайс
 // monthsStats: {}
 // *змінити:
-
 
 // ********** selectors.js *додати:
 // export const selectMonthsStats = state => state.transactions.monthsStats;
