@@ -1,5 +1,8 @@
+import PropTypes from 'prop-types';
+
 import { useSelector } from 'react-redux';
 import { selectTransactionDataIncomesData } from 'redux/Transactions/selectors';
+
 import { useState } from 'react';
 
 import imgSalary from '../../images/incomesReport/salarys.png';
@@ -10,21 +13,24 @@ import { IncomesReportElement } from 'components/IncomesReportElement/IncomesRep
 import { IncomesContainer, IncomesList, Notify } from './IncomesReport.styled';
 // import ChartReport from 'components/ChartReport/ChartReport';
 
-export const IncomesReport = () => {
+export const IncomesReport = ({
+  sortEntries,
+  setCurrentCategoryTransactions,
+}) => {
   const [currentActive, setCurrentActive] = useState('');
 
   // const [transactions, setTransactions] = useState({});
   const incomesData = useSelector(selectTransactionDataIncomesData);
 
-  const entries = Object.entries(incomesData ?? {});
+  // const entries = Object.entries(incomesData ?? {});
 
-  const sortEntries = [...entries]
-    .sort((firstEl, secondEl) => {
-      return secondEl[1].total - firstEl[1].total;
-    })
-    .map(el => {
-      return { name: el[0], total: el[1].total };
-    });
+  // const sortEntries = [...entries]
+  //   .sort((firstEl, secondEl) => {
+  //     return secondEl[1].total - firstEl[1].total;
+  //   })
+  //   .map(el => {
+  //     return { name: el[0], total: el[1].total };
+  //   });
 
   const incomesDictionary = {
     'З/П': { label: 'Salary', img: imgSalary, curImg: imgActiveSalary },
@@ -35,18 +41,13 @@ export const IncomesReport = () => {
     },
   };
 
+  const handleClick = categoryName => {
+    setCurrentCategoryTransactions(categoryName);
+  };
+
   const handleCurItem = itemName => {
     setCurrentActive(itemName);
   };
-
-  // const handleClick = categoryName => {
-  //   setTransactions(incomesData[categoryName]);
-  // };
-
-  // const sortedCategoryTransactions = Object.entries(transactions)
-  //   .filter(([key]) => key !== 'total')
-  //   .map(([key, value]) => ({ name: key, total: value }))
-  //   .sort((firstEl, secondEl) => secondEl.total - firstEl.total);
 
   return (
     <IncomesContainer>
@@ -65,7 +66,7 @@ export const IncomesReport = () => {
                     url={incomesDictionary[el.name].img}
                     activeUrl={incomesDictionary[el.name].curImg}
                     name={el.name}
-                    // handleClick={handleClick}
+                    handleClick={handleClick}
                   />
                 );
               })}
@@ -73,17 +74,18 @@ export const IncomesReport = () => {
           ) : (
             <Notify>No data for this period</Notify>
           )}
-          {/* {sortEntries.length ? (
-            <ChartReport
-              sortEntries={
-                sortedCategoryTransactions.length
-                  ? sortedCategoryTransactions
-                  : sortEntries
-              }
-            />
-          ) : null} */}
         </div>
       )}
     </IncomesContainer>
   );
+};
+
+IncomesReport.propTypes = {
+  sortEntries: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      total: PropTypes.number.isRequired,
+    })
+  ),
+  setCurrentCategoryTransactions: PropTypes.func.isRequired,
 };

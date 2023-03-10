@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { selectTransactionDataExpensesData } from 'redux/Transactions/selectors';
@@ -14,10 +16,6 @@ import imgSports from '../../images/expensesReport/sports-hobbie.png';
 import imgEducation from '../../images/expensesReport/educations.png';
 import imgOther from '../../images/expensesReport/others.png';
 
-import { ExpensesReportElement } from 'components/ExpensesReportElement/ExpensesReportElement';
-import { ExpensesList } from './ExpensesReport.styled';
-// import ChartReport from 'components/ChartReport/ChartReport';
-
 import imgActiveProducts from '../../images/expensesReport/products-active.png';
 import imgActiveAlcohol from '../../images/expensesReport/alcohol-active.png';
 import imgActiveEntertainment from '../../images/expensesReport/entertainment-active.png';
@@ -30,20 +28,25 @@ import imgActiveSports from '../../images/expensesReport/sports-hobbies-active.p
 import imgActiveEducation from '../../images/expensesReport/education-active.png';
 import imgActiveOther from '../../images/expensesReport/other-active.png';
 import { Notify } from 'components/IncomesReport/IncomesReport.styled';
+import { ExpensesReportElement } from 'components/ExpensesReportElement/ExpensesReportElement';
+import { ExpensesList } from './ExpensesReport.styled';
 
-export const ExpensesReport = () => {
+export const ExpensesReport = ({
+  sortEntries,
+  setCurrentCategoryTransactions,
+}) => {
   // const [transactions, setTransactions] = useState({});
   const expensesData = useSelector(selectTransactionDataExpensesData);
-  const entries = Object.entries(expensesData ?? {});
+  // const entries = Object.entries(expensesData ?? {});
   const [currentActive, setCurrentActive] = useState('');
 
-  const sortEntries = [...entries]
-    .sort((firstEl, secondEl) => {
-      return secondEl[1].total - firstEl[1].total;
-    })
-    .map(el => {
-      return { name: el[0], total: el[1].total };
-    });
+  // const sortEntries = [...entries]
+  //   .sort((firstEl, secondEl) => {
+  //     return secondEl[1].total - firstEl[1].total;
+  //   })
+  //   .map(el => {
+  //     return { name: el[0], total: el[1].total };
+  //   });
 
   const expensesDictionary = {
     Продукты: {
@@ -91,18 +94,13 @@ export const ExpensesReport = () => {
     Прочее: { label: 'Other', img: imgOther, curImg: imgActiveOther },
   };
 
+  const handleClick = categoryName => {
+    setCurrentCategoryTransactions(categoryName);
+  };
+
   const handleCurItem = itemName => {
     setCurrentActive(itemName);
   };
-
-  // const handleClick = categoryName => {
-  //   setTransactions(expensesData[categoryName]);
-  // };
-
-  // const sortedCategoryTransactions = Object.entries(transactions)
-  //   .filter(([key]) => key !== 'total')
-  //   .map(([key, value]) => ({ name: key, total: value }))
-  //   .sort((firstEl, secondEl) => secondEl.total - firstEl.total);
 
   return (
     <div>
@@ -120,7 +118,8 @@ export const ExpensesReport = () => {
                     total={el.total}
                     url={expensesDictionary[el.name].img}
                     activeUrl={expensesDictionary[el.name].curImg}
-                    // handleClick={handleClick}
+                    handleClick={handleClick}
+                    name={el.name}
                   />
                 );
               })}
@@ -128,17 +127,18 @@ export const ExpensesReport = () => {
           ) : (
             <Notify>No data for this period</Notify>
           )}
-          {/* {sortEntries.length ? (
-            <ChartReport
-              sortEntries={
-                sortedCategoryTransactions.length
-                  ? sortedCategoryTransactions
-                  : sortEntries
-              }
-            />
-          ) : null} */}
         </div>
       )}
     </div>
   );
+};
+
+ExpensesReport.propTypes = {
+  sortEntries: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      total: PropTypes.number.isRequired,
+    })
+  ),
+  setCurrentCategoryTransactions: PropTypes.func.isRequired,
 };

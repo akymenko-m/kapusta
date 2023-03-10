@@ -10,8 +10,8 @@ export const IncomesReportElement = ({
   label,
   total,
   url,
-  // name,
-  // handleClick,
+  name,
+  handleClick,
   handleCurItem,
   currentActive,
   activeUrl,
@@ -21,7 +21,12 @@ export const IncomesReportElement = ({
   };
 
   return (
-    <IncomesItem onClick={() => handleCurItem(label)}>
+    <IncomesItem
+      onClick={() => {
+        handleClick(name);
+        handleCurItem(label);
+      }}
+    >
       <Container>
         <Total>{numberWithSpaces(total)}</Total>
 
@@ -37,8 +42,8 @@ IncomesReportElement.propTypes = {
   label: PropTypes.string.isRequired,
   total: PropTypes.number,
   url: PropTypes.string.isRequired,
-  // handleClick: PropTypes.func.isRequired,
-  // name: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
   handleCurItem: PropTypes.func.isRequired,
   currentActive: PropTypes.string.isRequired,
   activeUrl: PropTypes.string.isRequired,

@@ -15,8 +15,7 @@ export const Slider = () => {
   const [modalCalendar, setModalCalendar] = useState(false);
 
   const dispatch = useDispatch();
-  const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams);
+  const [, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     setMonthNumber(getMonth());

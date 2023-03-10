@@ -23,6 +23,7 @@ const initialState = {
   error: null,
   isLoading: false,
   monthsStats: {},
+  isActiveCategory: '',
 };
 
 const transactionsSlice = createSlice({
