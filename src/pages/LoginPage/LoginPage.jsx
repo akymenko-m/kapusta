@@ -20,7 +20,6 @@ import { Container } from 'components/App.styled';
 import { FooterImg } from 'components/Footer/Footer';
 
 
-
  function LoginPage() {
   const dispatch = useDispatch();
 

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { selectTransactionDataExpensesData } from 'redux/Transactions/selectors';
 
-import imgProducts from '../../images/expensesReport/products.png';
+import imgProducts from '../../images/expensesReport/product.png';
 import imgAlcohol from '../../images/expensesReport/alcohol.png';
 import imgEntertainment from '../../images/expensesReport/entertainment.png';
 import imgHealth from '../../images/expensesReport/health.png';
