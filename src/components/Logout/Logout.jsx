@@ -39,7 +39,7 @@ export function Logout() {
         )}
         <UserEmail>{user.email}</UserEmail>
       </UserWrapper>
-      <ExitButton onClick={handleLogout}>
+      <ExitButton >
         <ExitIcon src={exit} alt="Exit" onClick={handleModalOpen}/>
         <ExitText type="button" onClick={handleModalOpen}>Exit</ExitText>
       </ExitButton>
