@@ -12,7 +12,7 @@ import {
 import { selectCurrentReport } from 'redux/Transactions/selectors';
 import css from './ChartReport.module.css';
 
-export default function ChartReport({ sortEntries }) {
+export default function ChartReport({ dataArray }) {
   const curReport = useSelector(selectCurrentReport);
 
   const expensesDictionary = {
@@ -37,7 +37,7 @@ export default function ChartReport({ sortEntries }) {
   const thesaurus =
     curReport === 'Expenses' ? expensesDictionary : incomesDictionary;
 
-  const data = sortEntries.map(item => {
+  const data = dataArray.map(item => {
     if (thesaurus[item.name]) {
       return { ...item, name: thesaurus[item.name] };
     }

@@ -108,7 +108,6 @@ export const getTransactionExpenseMonthsStats = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/expense');
-      console.log('getTransactionExpenseMonthsStats >>', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

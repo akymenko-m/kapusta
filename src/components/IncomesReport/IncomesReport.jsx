@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useSelector } from 'react-redux';
 import { selectTransactionDataIncomesData } from 'redux/Transactions/selectors';
 
@@ -5,35 +7,21 @@ import imgSalary from '../../images/incomesReport/Salary.png';
 import imgAddincome from '../../images/incomesReport/Add_income.png';
 import { IncomesReportElement } from 'components/IncomesReportElement/IncomesReportElement';
 import { IncomesContainer, IncomesList } from './IncomesReport.styled';
-import ChartReport from 'components/ChartReport/ChartReport';
-import { useState } from 'react';
 
-export const IncomesReport = () => {
-  const [transactions, setTransactions] = useState({});
+export const IncomesReport = ({
+  sortEntries,
+  setCurrentCategoryTransactions,
+}) => {
   const incomesData = useSelector(selectTransactionDataIncomesData);
-  const entries = Object.entries(incomesData ?? {});
-
-  const sortEntries = [...entries]
-    .sort((firstEl, secondEl) => {
-      return secondEl[1].total - firstEl[1].total;
-    })
-    .map(el => {
-      return { name: el[0], total: el[1].total };
-    });
-
+  console.log(sortEntries);
   const incomesDictionary = {
     'З/П': { label: 'Salary', img: imgSalary },
     'Доп. доход': { label: 'Add. income', img: imgAddincome },
   };
 
   const handleClick = categoryName => {
-    setTransactions(incomesData[categoryName]);
+    setCurrentCategoryTransactions(categoryName);
   };
-
-  const sortedCategoryTransactions = Object.entries(transactions)
-    .filter(([key]) => key !== 'total')
-    .map(([key, value]) => ({ name: key, total: value }))
-    .sort((firstEl, secondEl) => secondEl.total - firstEl.total);
 
   return (
     <IncomesContainer>
@@ -53,15 +41,6 @@ export const IncomesReport = () => {
               );
             })}
           </IncomesList>
-          {sortEntries.length ? (
-            <ChartReport
-              sortEntries={
-                sortedCategoryTransactions.length
-                  ? sortedCategoryTransactions
-                  : sortEntries
-              }
-            />
-          ) : null}
         </div>
       ) : (
         <div>
@@ -70,4 +49,14 @@ export const IncomesReport = () => {
       )}
     </IncomesContainer>
   );
+};
+
+IncomesReport.propTypes = {
+  sortEntries: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      total: PropTypes.number.isRequired,
+    })
+  ),
+  setCurrentCategoryTransactions: PropTypes.func.isRequired,
 };

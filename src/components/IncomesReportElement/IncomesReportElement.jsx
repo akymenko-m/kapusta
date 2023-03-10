@@ -10,15 +10,19 @@ export const IncomesReportElement = ({
   label,
   total,
   url,
-  // name,
-  // handleClick,
+  name,
+  handleClick,
 }) => {
   const numberWithSpaces = num => {
     return num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   };
 
   return (
-    <IncomesItem>
+    <IncomesItem
+      onClick={() => {
+        handleClick(name);
+      }}
+    >
       <Container>
         <Total>{numberWithSpaces(total)}</Total>
         <Image src={url} alt={label} />
@@ -32,4 +36,6 @@ IncomesReportElement.propTypes = {
   label: PropTypes.string.isRequired,
   total: PropTypes.number,
   url: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useSelector } from 'react-redux';
 import { selectTransactionDataExpensesData } from 'redux/Transactions/selectors';
 
@@ -14,21 +16,12 @@ import imgEducation from '../../images/expensesReport/Education.png';
 import imgOther from '../../images/expensesReport/Other.png';
 import { ExpensesReportElement } from 'components/ExpensesReportElement/ExpensesReportElement';
 import { ExpensesList } from './ExpensesReport.styled';
-import ChartReport from 'components/ChartReport/ChartReport';
-import { useState } from 'react';
 
-export const ExpensesReport = () => {
-  const [transactions, setTransactions] = useState({});
+export const ExpensesReport = ({
+  sortEntries,
+  setCurrentCategoryTransactions,
+}) => {
   const expensesData = useSelector(selectTransactionDataExpensesData);
-  const entries = Object.entries(expensesData ?? {});
-
-  const sortEntries = [...entries]
-    .sort((firstEl, secondEl) => {
-      return secondEl[1].total - firstEl[1].total;
-    })
-    .map(el => {
-      return { name: el[0], total: el[1].total };
-    });
 
   const expensesDictionary = {
     Продукты: { label: 'Products', img: imgProducts },
@@ -48,13 +41,8 @@ export const ExpensesReport = () => {
   };
 
   const handleClick = categoryName => {
-    setTransactions(expensesData[categoryName]);
+    setCurrentCategoryTransactions(categoryName);
   };
-
-  const sortedCategoryTransactions = Object.entries(transactions)
-    .filter(([key]) => key !== 'total')
-    .map(([key, value]) => ({ name: key, total: value }))
-    .sort((firstEl, secondEl) => secondEl.total - firstEl.total);
 
   return (
     <div>
@@ -69,6 +57,7 @@ export const ExpensesReport = () => {
                   total={el.total}
                   url={expensesDictionary[el.name].img}
                   handleClick={handleClick}
+                  name={el.name}
                 />
                 // <ExpensesReportElement
                 //   key={expensesDictionary[el.name].label}
@@ -81,15 +70,6 @@ export const ExpensesReport = () => {
               );
             })}
           </ExpensesList>
-          {sortEntries.length ? (
-            <ChartReport
-              sortEntries={
-                sortedCategoryTransactions.length
-                  ? sortedCategoryTransactions
-                  : sortEntries
-              }
-            />
-          ) : null}
         </div>
       ) : (
         <div>
@@ -98,4 +78,14 @@ export const ExpensesReport = () => {
       )}
     </div>
   );
+};
+
+ExpensesReport.propTypes = {
+  sortEntries: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      total: PropTypes.number.isRequired,
+    })
+  ),
+  setCurrentCategoryTransactions: PropTypes.func.isRequired,
 };

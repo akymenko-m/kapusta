@@ -19,7 +19,11 @@ export const ExpensesReportElement = ({
   };
 
   return (
-    <ExpensesItem>
+    <ExpensesItem
+      onClick={() => {
+        handleClick(name);
+      }}
+    >
       <Container>
         <Total>{numberWithSpaces(total)}</Total>
 
@@ -34,4 +38,6 @@ ExpensesReportElement.propTypes = {
   label: PropTypes.string.isRequired,
   total: PropTypes.number,
   url: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
