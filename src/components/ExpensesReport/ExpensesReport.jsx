@@ -3,16 +3,16 @@ import { useState } from 'react';
 import { selectTransactionDataExpensesData } from 'redux/Transactions/selectors';
 
 import imgProducts from '../../images/expensesReport/product.png';
-import imgAlcohol from '../../images/expensesReport/alcohol.png';
-import imgEntertainment from '../../images/expensesReport/entertainment.png';
-import imgHealth from '../../images/expensesReport/health.png';
-import imgTransport from '../../images/expensesReport/transport.png';
-import imgHousing from '../../images/expensesReport/housing.png';
-import imgTechnique from '../../images/expensesReport/technique.png';
-import imgCommunal from '../../images/expensesReport/communal.png';
-import imgSports from '../../images/expensesReport/sports-hobbies.png';
-import imgEducation from '../../images/expensesReport/education.png';
-import imgOther from '../../images/expensesReport/other.png';
+import imgAlcohol from '../../images/expensesReport/alcohols.png';
+import imgEntertainment from '../../images/expensesReport/entertainments.png';
+import imgHealth from '../../images/expensesReport/healthe.png';
+import imgTransport from '../../images/expensesReport/transports.png';
+import imgHousing from '../../images/expensesReport/housings.png';
+import imgTechnique from '../../images/expensesReport/techniques.png';
+import imgCommunal from '../../images/expensesReport/communals.png';
+import imgSports from '../../images/expensesReport/sports-hobbie.png';
+import imgEducation from '../../images/expensesReport/educations.png';
+import imgOther from '../../images/expensesReport/others.png';
 
 import { ExpensesReportElement } from 'components/ExpensesReportElement/ExpensesReportElement';
 import { ExpensesList } from './ExpensesReport.styled';
