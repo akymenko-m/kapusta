@@ -13,12 +13,11 @@ import { userReducer } from './user/userSlice';
 import { transactionsReducer } from './Transactions/TransactionsSlice';
 import storage from 'redux-persist/lib/storage';
 
-
 const persistConfig = {
   key: 'user',
   version: 1,
   storage,
-  whitelist: ['token', 'refreshToken', 'sid', 'user'],
+  whitelist: ['token', 'refreshToken', 'sid', 'user', 'transactions'],
 };
 
 const persistedReducer = persistReducer(persistConfig, userReducer);
