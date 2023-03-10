@@ -83,9 +83,7 @@ export const BalanceInput = styled.input`
     text-transform: uppercase;
     color: #000000;
   }
-  &:focus {
-    background: green;
-  }
+
   @media screen and (min-width: 768px) {
     border-radius: 16px;
     width: 140px;
