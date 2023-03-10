@@ -37,8 +37,8 @@ display: none;
 @media (min-width: 768px){
     display: block;
     position: relative;
-    bottom: 68px;
-    left: 428px;
+    bottom: 188px;
+    left: 415px;
 }
 @media (min-width: 1280px){
     display: none;  
