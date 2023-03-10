@@ -15,6 +15,7 @@ export const SliderText = styled.button`
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
+  min-width: 100px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   padding: 0 5px;
