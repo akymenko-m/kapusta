@@ -9,6 +9,7 @@ export const Form = styled.form`
   row-gap: 20px;
   margin-top: 24px;
   background-color: transparent;
+  position: relative;
   @media (min-width: 520px) {
     row-gap: 32px;
   }
@@ -20,9 +21,15 @@ export const Form = styled.form`
   }
 `;
 export const CalendarBox = styled.div`
+  padding-top: 3px;
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-right: auto;
+  @media (min-width: 520px) {
+    margin-right: 0;
+    padding-top: 0;
+  }
 `;
 export const InputBox = styled.div`
   border: none;
@@ -51,8 +58,10 @@ export const DescInput = styled.input`
   padding: 2px 20px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  transition: background-color 250ms ease;
+
   @media (min-width: 520px) {
-    border-top-right-radius: none;
+    border-top-right-radius: 0px;
     border: none;
     background-color: #fff;
     height: 100%;
@@ -60,6 +69,10 @@ export const DescInput = styled.input`
   }
   @media (min-width: 768px) {
     max-width: 160px;
+    &:hover,
+    &:focus {
+      background-color: #f5f6fb;
+    }
   }
   @media (min-width: 1280px) {
     max-width: 260px;
@@ -84,9 +97,11 @@ export const CategorySelect = styled.select`
   height: 40px;
   width: 100%;
   padding: 2px 20px;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
+  transition: background-color 250ms ease;
 
   @media (min-width: 520px) {
+    margin-bottom: 32px;
     border: none;
     border-bottom: none;
     border-right: 2px solid #f6f7fc;
@@ -98,6 +113,10 @@ export const CategorySelect = styled.select`
   }
   @media (min-width: 768px) {
     max-width: 186px;
+    &:hover,
+    &:focus {
+      background-color: #f5f6fb;
+    }
   }
   @media (min-width: 1280px) {
     max-width: 180px;
@@ -110,19 +129,32 @@ export const CategorySelect = styled.select`
 `;
 
 export const AmountLabelBox = styled.label`
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   align-items: center;
-  padding-right: 20px;
+  /* padding-right: 20px; */
   height: 40px;
   border: 2px solid #fff;
   width: 130px;
   border-radius: 22px;
   margin: 0 auto;
+  transition: background-color 250ms ease;
+
   @media (min-width: 520px) {
-    /* margin: 0; */
+    overflow: visible;
+    position: static;
     height: auto;
     border: none;
     border-radius: none;
+  }
+  @media (min-width: 768px) {
+    &:hover,
+    &:focus {
+      background-color: #f5f6fb;
+    }
   }
 `;
 export const AmountInput = styled.input`
@@ -136,6 +168,7 @@ export const AmountInput = styled.input`
   border: none;
   max-width: 74px;
   padding: 2px 20px;
+  transition: background-color 250ms ease;
 
   @media (min-width: 520px) {
     background-color: #fff;
@@ -143,6 +176,9 @@ export const AmountInput = styled.input`
   }
   @media (min-width: 768px) {
     max-width: 74px;
+    &:hover {
+      background-color: #f5f6fb;
+    }
   }
   @media (min-width: 1280px) {
     max-width: 90px;
@@ -167,10 +203,14 @@ export const CgCalculatorStyled = styled(CgCalculator)`
   width: 28px;
   color: #52555f;
   padding-left: 10px;
+  border-left: 2px solid #fff;
+  transition: box-shadow 250ms ease;
+
   @media (min-width: 520px) {
     height: 20px;
     width: 20px;
     padding-left: 0;
+    border-left: none;
   }
 `;
 export const ButtonBox = styled.div`
@@ -181,7 +221,7 @@ export const ButtonBox = styled.div`
 export const InputButton = styled.button`
   width: 110px;
   height: 44px;
-  background: #ff751d;
+  background-color: #ff751d;
   border-radius: 16px;
   text-transform: uppercase;
   color: #fff;
@@ -189,9 +229,13 @@ export const InputButton = styled.button`
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
-
+  transition: background-color 250ms ease;
   @media (min-width: 768px) {
     width: 136px;
+  }
+  &:hover,
+  &:focus {
+    background-color: #df651a;
   }
 `;
 export const ClearButton = styled.button`
@@ -199,14 +243,22 @@ export const ClearButton = styled.button`
   height: 44px;
   background-color: #fff;
   color: #52555f;
-  border: 2px solid #f6f7fc;
+  border: 2px solid #fff;
   border-radius: 16px;
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  transition: background-color border 250ms ease;
+
   @media (min-width: 768px) {
     width: 136px;
+    border: 2px solid #f6f7fc;
+    &:hover,
+    &:focus {
+      background-color: #f5f6fb;
+      border: 2px solid #f6f7fc;
+    }
   }
 `;

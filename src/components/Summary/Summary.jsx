@@ -5,7 +5,10 @@ import {
   getTransactionIncomeMonthsStats,
   getTransactionExpenseMonthsStats,
 } from 'redux/Transactions/TransactionsOperations';
-import { selectMonthsStats, selectTransactions } from 'redux/Transactions/selectors';
+import {
+  selectMonthsStats,
+  selectTransactions,
+} from 'redux/Transactions/selectors';
 import { Container, Title, List, Item, Description } from './Summary.styled';
 
 export const Summary = () => {
@@ -28,8 +31,7 @@ export const Summary = () => {
       dispatch(getTransactionExpenseMonthsStats());
     }
     return;
-  }, [stateІtems, dispatch, isExpensePage, isIncomePage, ]);
-
+  }, [stateІtems, dispatch, isExpensePage, isIncomePage]);
 
   useEffect(() => {
     const listKeyMonths = [
@@ -94,12 +96,10 @@ export default Summary;
 
 // ********** TransactionsOperations.js *змінити:
 
-
 // ********** TransactionsSlice.js
 // *додати слайс
 // monthsStats: {}
 // *змінити:
-
 
 // ********** selectors.js *додати:
 // export const selectMonthsStats = state => state.transactions.monthsStats;

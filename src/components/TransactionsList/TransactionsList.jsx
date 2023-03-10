@@ -23,6 +23,7 @@ import {
 } from './TransactionsList.styled';
 import { deleteTransactionItem } from 'redux/Transactions/TransactionsSlice';
 import { translateCategory } from 'helpers/translateCategory';
+import { format } from 'date-fns';
 
 export function TransactionsList() {
   const { pathname } = useLocation();
@@ -67,7 +68,9 @@ export function TransactionsList() {
             {items.map(item => (
               <TableRow key={item._id}>
                 <Block>
-                  <TableData className="dataTable">{item.date}</TableData>
+                  <TableData className="dataTable">
+                    {format(new Date(item.date), 'dd.MM.yyyy')}
+                  </TableData>
                   <TableData className="descriptionTable">
                     {item.description}
                   </TableData>
