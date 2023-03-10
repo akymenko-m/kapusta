@@ -39,18 +39,21 @@ export function Balance() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   const location = useLocation();
-  const isReportPage = location.pathname.includes('transaction');
+  const isReportPage = location.pathname.includes('expenses')
+    ? // ||
+      // location.pathname.startsWidth('income')
+      true
+    : false;
   const goBackLink = location?.state?.from ?? '/';
   const [modalOpen, setModalOpen] = useState(false);
   const stateBalance = useSelector(state => state.transactions.newBalance);
-  // const items = useSelector(state => state.transactions.items);
+  const items = useSelector(state => state.transactions.items);
   const form = useRef();
   const dispatch = useDispatch();
 
   const [number, setNumber] = useState('');
   const formSubmit = e => {
     e.preventDefault();
-    balance = e.target.balance.value;
   };
   const inputChange = event => {
     const { name, value } = event.target;
@@ -80,7 +83,7 @@ export function Balance() {
 
   return (
     <BG>
-      {isReportPage && (
+      {!isReportPage && (
         <BalanceLink to={goBackLink}>
           <img width="24" height="24" src={back} alt="back"></img>
           {windowSize.width >= 768 && (
@@ -89,9 +92,9 @@ export function Balance() {
         </BalanceLink>
       )}
 
-      {isReportPage && <Slider />}
+      {!isReportPage && <Slider />}
       <Wrap>
-        {!isReportPage && (
+        {isReportPage && (
           <BalanceWrap to="/transaction/period-data">
             Reports
             <FiBarChart2 />
@@ -99,7 +102,7 @@ export function Balance() {
         )}
         <BalanceContainer>
           <BalanceTitle className="title">Balance:</BalanceTitle>
-          {!isReportPage ? (
+          {isReportPage ? (
             <BalanceForm onSubmit={formSubmit} ref={form}>
               <label>
                 <BalanceInput
@@ -121,7 +124,7 @@ export function Balance() {
               >
                 Confirm
               </BalanceBtn>
-              {!stateBalance && <ModalWindow />}
+              {!stateBalance && !items.length && <ModalWindow />}
             </BalanceForm>
           ) : (
             <Input
@@ -137,6 +140,7 @@ export function Balance() {
               changeBalance="true"
               closeModal={handleModalClose}
               dispatch={handleClick}
+              text="SURE"
               balance={balance}
             >
               Are you sure?
