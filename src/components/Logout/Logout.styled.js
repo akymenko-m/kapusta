@@ -1,10 +1,17 @@
 import styled from '@emotion/styled';
 
 export const HederUserWrapper = styled.div`
+  display: flex;
+  @media screen and (max-width: 767px) {
     background-color: #ffffff;
-    display: flex;
-    gap: 16px;
+    gap: 8px;
     align-items: center;
+  }
+  @media screen and (min-width: 767px) {
+    background-color: #ffffff;
+    gap: 8px;
+    align-items: center;
+  }
 `;
 
 export const UserIcon = styled.div`
@@ -26,8 +33,9 @@ export const UserWrapper = styled.div`
     padding-right: 0;
     border: none;
   }
-  padding-right: 20px;
-  border-right: 1px solid #e0e5eb;
+  @media screen and (min-width: 768px) {
+    border-right: 1px solid #e0e5eb;
+  }
   @media (min-width: 1280px) {
     gap: 12px;
   }
@@ -45,27 +53,28 @@ export const UserEmail = styled.p`
   }
 `;
 
-export const ExitButton = styled.div`
+export const ExitButton = styled.button`
   @media screen and (min-width: 768px) {
+    background-color: #fff;
     text-decoration: underline;
-    cursor:pointer;
-  }
-  margin-left: 20px;
-  @media screen and (min-width: 1280px) {
+    cursor: pointer;
+    margin: 0;
   }
 `;
 
 export const ExitText = styled.span`
- display:none;
+  display: none;
   @media screen and (min-width: 768px) {
-display:flex;
-padding:15px;
+  display: flex;
+  padding: 8px 0 8px 12px;
   }
 `;
 
 export const ExitIcon = styled.img`
   @media screen and (max-width: 767px) {
+    background-color: #fff;
     display: flex;
+    padding:8px 0 8px 8px;
   }
   @media (min-width: 768px) {
     display: none;
