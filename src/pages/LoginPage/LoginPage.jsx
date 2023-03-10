@@ -87,47 +87,6 @@ import 'animate.css';
          </Container>
        </CabbageTop>
      </Background>
-//    );
-    
-//     </div>
-//     <div>
-//     <LoginPageWrapper>
-//       <GoogleLogin />
-//       <LoginRegisterText />
-//       <LoginForm onSubmit={handleSubmit}>
-//         <LoginFormLabel>
-//           Email:
-//           <LoginFormInput
-//             type="text"
-//             name="email"
-//             placeholder="your@mail.com"
-//             requred
-//           />
-//         </LoginFormLabel>
-//         <LoginFormLabel>
-//           Password:
-//           <LoginFormInput
-//             type="password"
-//             name="password"
-//             placeholder="password"
-//             requred
-//           />
-//         </LoginFormLabel>
-//         <LoginButton  type="submit">Log in</LoginButton>
-//       </LoginForm>
-//       <RegisterNavLink>
-//         <NavLink to="/register" style={{ padding: '12px 14px' }}>
-//           Registration
-//         </NavLink>
-//       </RegisterNavLink>
-//     </LoginPageWrapper>
-//     </div>
-//   </Wrapper>
-//   <FooterImg/>
-//   </Container>
-//   </CabbageTop>
-//   </Background>
-    
   );
 }
 
