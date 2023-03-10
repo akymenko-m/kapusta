@@ -68,7 +68,7 @@ export const BalanceForm = styled.form`
 `;
 export const BalanceInput = styled.input`
   padding: 0 10px;
-  width: 80px;
+  width: 102px;
   min-height: 44px;
   border: 2px solid #ffffff;
   border-radius: 22px 0px 0px 22px;
@@ -92,7 +92,7 @@ export const BalanceInput = styled.input`
   }
 `;
 export const BalanceBtn = styled.button`
-  width: 80px;
+  width: 100px;
   min-height: 44px;
   border-radius: 0px 22px 22px 0px;
   background: #f5f6fb;

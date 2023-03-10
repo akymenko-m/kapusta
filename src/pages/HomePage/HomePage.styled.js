@@ -80,6 +80,9 @@ export const Title = styled.img`
 export const TabsStyled = styled(Tabs)`
   margin: 0 auto;
   background-color: transparent;
+  & .react-tabs__tab{
+    padding-top: 16px
+  }
 
   @media (min-width: 768px) {
     max-width: 704px;
