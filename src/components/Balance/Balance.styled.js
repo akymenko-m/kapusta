@@ -12,6 +12,7 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  flex-direction: row-reverse;
   @media screen and (min-width: 768px) {
     width: 100%;
     flex-direction: row;
@@ -57,7 +58,7 @@ export const BalanceTitle = styled.p`
 `;
 export const BalanceForm = styled.form`
   display: flex;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 768px) {
@@ -108,13 +109,14 @@ export const BalanceBtn = styled.button`
   }
 `;
 export const BalanceLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding-top: 20px;
-  font-weight: 700;
-  font-size: 10px;
-  line-height: calc(12 / 10);
+display: none;
+  // display: flex;
+  // align-items: center;
+  // gap: 7px;
+  // padding-top: 20px;
+  // font-weight: 700;
+  // font-size: 10px;
+  // line-height: calc(12 / 10);
   @media screen and (min-width: 768px) {
     display: none;
   }
