@@ -16,6 +16,7 @@ export const Slider = () => {
 
   const dispatch = useDispatch();
   const [, setSearchParams] = useSearchParams();
+
   useEffect(() => {
     setMonthNumber(getMonth());
     setMonth(monthNames[getMonth()]);

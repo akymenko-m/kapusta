@@ -1,19 +1,33 @@
 import PropTypes from 'prop-types';
 
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { selectTransactionDataExpensesData } from 'redux/Transactions/selectors';
 
-import imgProducts from '../../images/expensesReport/Products.png';
-import imgAlcohol from '../../images/expensesReport/Alcohol.png';
-import imgEntertainment from '../../images/expensesReport/Entertainment.png';
-import imgHealth from '../../images/expensesReport/Health.png';
-import imgTransport from '../../images/expensesReport/Transport.png';
-import imgHousing from '../../images/expensesReport/Housing.png';
-import imgTechnique from '../../images/expensesReport/Technique.png';
-import imgCommunal from '../../images/expensesReport/Communal_communication.png';
-import imgSports from '../../images/expensesReport/Sports_hobbies.png';
-import imgEducation from '../../images/expensesReport/Education.png';
-import imgOther from '../../images/expensesReport/Other.png';
+import imgProducts from '../../images/expensesReport/product.png';
+import imgAlcohol from '../../images/expensesReport/alcohols.png';
+import imgEntertainment from '../../images/expensesReport/entertainments.png';
+import imgHealth from '../../images/expensesReport/healthe.png';
+import imgTransport from '../../images/expensesReport/transports.png';
+import imgHousing from '../../images/expensesReport/housings.png';
+import imgTechnique from '../../images/expensesReport/techniques.png';
+import imgCommunal from '../../images/expensesReport/communals.png';
+import imgSports from '../../images/expensesReport/sports-hobbie.png';
+import imgEducation from '../../images/expensesReport/educations.png';
+import imgOther from '../../images/expensesReport/others.png';
+
+import imgActiveProducts from '../../images/expensesReport/products-active.png';
+import imgActiveAlcohol from '../../images/expensesReport/alcohol-active.png';
+import imgActiveEntertainment from '../../images/expensesReport/entertainment-active.png';
+import imgActiveHealth from '../../images/expensesReport/health-active.png';
+import imgActiveTransport from '../../images/expensesReport/transport-active.png';
+import imgActiveHousing from '../../images/expensesReport/housing-active.png';
+import imgActiveTechnique from '../../images/expensesReport/technique-active.png';
+import imgActiveCommunal from '../../images/expensesReport/communal-active.png';
+import imgActiveSports from '../../images/expensesReport/sports-hobbies-active.png';
+import imgActiveEducation from '../../images/expensesReport/education-active.png';
+import imgActiveOther from '../../images/expensesReport/other-active.png';
+import { Notify } from 'components/IncomesReport/IncomesReport.styled';
 import { ExpensesReportElement } from 'components/ExpensesReportElement/ExpensesReportElement';
 import { ExpensesList } from './ExpensesReport.styled';
 
@@ -21,59 +35,98 @@ export const ExpensesReport = ({
   sortEntries,
   setCurrentCategoryTransactions,
 }) => {
+  // const [transactions, setTransactions] = useState({});
   const expensesData = useSelector(selectTransactionDataExpensesData);
+  // const entries = Object.entries(expensesData ?? {});
+  const [currentActive, setCurrentActive] = useState('');
+
+  // const sortEntries = [...entries]
+  //   .sort((firstEl, secondEl) => {
+  //     return secondEl[1].total - firstEl[1].total;
+  //   })
+  //   .map(el => {
+  //     return { name: el[0], total: el[1].total };
+  //   });
 
   const expensesDictionary = {
-    Продукты: { label: 'Products', img: imgProducts },
-    Алкоголь: { label: 'Alcohol', img: imgAlcohol },
-    Развлечения: { label: 'Entertainment', img: imgEntertainment },
-    Здоровье: { label: 'Health', img: imgHealth },
-    Транспорт: { label: 'Transport', img: imgTransport },
-    'Всё для дома': { label: 'Housing', img: imgHousing },
-    Техника: { label: 'Technique', img: imgTechnique },
+    Продукты: {
+      label: 'Products',
+      img: imgProducts,
+      curImg: imgActiveProducts,
+    },
+    Алкоголь: { label: 'Alcohol', img: imgAlcohol, curImg: imgActiveAlcohol },
+    Развлечения: {
+      label: 'Entertainment',
+      img: imgEntertainment,
+      curImg: imgActiveEntertainment,
+    },
+    Здоровье: { label: 'Health', img: imgHealth, curImg: imgActiveHealth },
+    Транспорт: {
+      label: 'Transport',
+      img: imgTransport,
+      curImg: imgActiveTransport,
+    },
+    'Всё для дома': {
+      label: 'Housing',
+      img: imgHousing,
+      curImg: imgActiveHousing,
+    },
+    Техника: {
+      label: 'Technique',
+      img: imgTechnique,
+      curImg: imgActiveTechnique,
+    },
     'Коммуналка и связь': {
       label: 'Communal, communication',
       img: imgCommunal,
+      curImg: imgActiveCommunal,
     },
-    'Спорт и хобби': { label: 'Sports, hobbies', img: imgSports },
-    Образование: { label: 'Education', img: imgEducation },
-    Прочее: { label: 'Other', img: imgOther },
+    'Спорт и хобби': {
+      label: 'Sports, hobbies',
+      img: imgSports,
+      curImg: imgActiveSports,
+    },
+    Образование: {
+      label: 'Education',
+      img: imgEducation,
+      curImg: imgActiveEducation,
+    },
+    Прочее: { label: 'Other', img: imgOther, curImg: imgActiveOther },
   };
 
   const handleClick = categoryName => {
     setCurrentCategoryTransactions(categoryName);
   };
 
+  const handleCurItem = itemName => {
+    setCurrentActive(itemName);
+  };
+
   return (
     <div>
-      {Boolean(expensesData) ? (
+      {Boolean(expensesData) && (
         <div>
-          <ExpensesList>
-            {sortEntries.map(el => {
-              return (
-                <ExpensesReportElement
-                  key={expensesDictionary[el.name].label}
-                  label={expensesDictionary[el.name].label}
-                  total={el.total}
-                  url={expensesDictionary[el.name].img}
-                  handleClick={handleClick}
-                  name={el.name}
-                />
-                // <ExpensesReportElement
-                //   key={expensesDictionary[el.name].label}
-                //   label={expensesDictionary[el.name].label}
-                //   total={el.total}
-                //   url={expensesDictionary[el.name].img}
-                // >
-                //   {expensesDictionary[el.name].img}
-                // </ExpensesReportElement>
-              );
-            })}
-          </ExpensesList>
-        </div>
-      ) : (
-        <div>
-          <p>No data</p>
+          {sortEntries.length > 0 ? (
+            <ExpensesList>
+              {sortEntries.map(el => {
+                return (
+                  <ExpensesReportElement
+                    currentActive={currentActive}
+                    handleCurItem={handleCurItem}
+                    key={expensesDictionary[el.name].label}
+                    label={expensesDictionary[el.name].label}
+                    total={el.total}
+                    url={expensesDictionary[el.name].img}
+                    activeUrl={expensesDictionary[el.name].curImg}
+                    handleClick={handleClick}
+                    name={el.name}
+                  />
+                );
+              })}
+            </ExpensesList>
+          ) : (
+            <Notify>No data for this period</Notify>
+          )}
         </div>
       )}
     </div>

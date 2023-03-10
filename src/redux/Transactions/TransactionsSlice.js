@@ -60,10 +60,12 @@ const transactionsSlice = createSlice({
       })
       .addCase(addIncomeTransaction.fulfilled, (state, { payload }) => {
         state.items = [payload.transaction, ...state.items];
+        state.newBalance += payload.transaction.amount;
         state.isLoading = false;
       })
       .addCase(addExpenseTransaction.fulfilled, (state, { payload }) => {
         state.items = [payload.transaction, ...state.items];
+        state.newBalance -= payload.transaction.amount;
         state.isLoading = false;
       })
       .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {

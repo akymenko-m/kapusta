@@ -8,7 +8,6 @@ export const Container = styled.div`
   justify-content: center;
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 20px;
-  position: relative;
   @media screen and (min-width: 768px) {
     height: 50px;
     padding: 15px 134px;

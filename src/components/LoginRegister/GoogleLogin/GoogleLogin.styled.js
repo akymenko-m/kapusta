@@ -1,29 +1,23 @@
 import styled from '@emotion/styled';
 
 export const GoogleLoginWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   @media (min-width: 321px) {
-    width:222px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
+    width: 222px;
     letter-spacing: 0.04em;
-    color: #52555F;
-}
-  @media screen and (min-width: 768px) {
-     width:248px;
+    color: #52555f;
   }
-
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
+    width: 248px;
   }
 `;
 
-
 export const GoogleLoginBtn = styled.button`
-  background: #f6f7fb;
-  border-radius: 26px;
-  max-width: 122px;
   display: flex;
+  background: #f6f7fb;
   font-weight: 500;
   font-size: 14px;
   align-items: center;
@@ -32,10 +26,16 @@ export const GoogleLoginBtn = styled.button`
   color: #000000;
   padding: 10px 20px;
   gap: 10px;
-  margin-top: 16px;
-  margin-bottom: 32px;
+  max-width: 119px;
+  box-shadow: 1px 2px 3px rgba(170, 178, 197, 0.2);
+  @media screen and (max-width: 767px) {
+    border-radius: 30px;
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
   @media screen and (min-width: 768px) {
-    max-width: 119px;
     margin-top: 20px;
+    border-radius: 26px;
+    margin-bottom: 32px;
   }
 `;

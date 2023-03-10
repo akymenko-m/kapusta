@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { balance } from 'redux/Transactions/TransactionsOperations';
 import back from 'images/array-to-back.svg';
 import {
+  BG,
   BalanceBackText,
   BalanceBtn,
   BalanceContainer,
@@ -12,15 +13,19 @@ import {
   BalanceLink,
   BalanceTitle,
   BalanceWrap,
+  Input,
+  StyledLink,
   Wrap,
 } from './Balance.styled';
 
 import ModalWindow from '../BalanceModal/BalanceModal';
 import { LightModalWindow } from 'components/LightModalWindow/LightModalWindow';
 import { useLocation } from 'react-router-dom';
+import { Slider } from 'components/Reports/ReportsNav/Slider/Slider';
 
 export function Balance() {
   const location = useLocation();
+  const isReportPage = location.pathname.includes('expenses') ? true : false;
   const goBackLink = location?.state?.from ?? '/';
   const [modalOpen, setModalOpen] = useState(false);
   const stateBalance = useSelector(state => state.transactions.newBalance);
@@ -31,6 +36,7 @@ export function Balance() {
   const [number, setNumber] = useState('');
   const formSubmit = e => {
     e.preventDefault();
+    balance = e.target.balance.value;
   };
   const inputChange = event => {
     const { name, value } = event.target;
@@ -45,7 +51,7 @@ export function Balance() {
 
   // Handle update users balance
   const handleClick = () => {
-    dispatch(balance({ newBalance: number }));
+    dispatch(balance({ newBalance: Number(number.replace(/\s+/g, '')) }));
     form.current.reset();
   };
   // Open modal window
@@ -58,44 +64,67 @@ export function Balance() {
   };
 
   return (
-    <>
-      <BalanceLink to={goBackLink}>
-        <img width="24" height="24" src={back} alt="back"></img>
-        <BalanceBackText>TO TRANSACTION</BalanceBackText>
-      </BalanceLink>
+    <BG>
+      {isReportPage ? (
+        <BalanceLink to={goBackLink}>
+          <img width="24" height="24" src={back} alt="back"></img>
+          <BalanceBackText>TO TRANSACTION</BalanceBackText>
+        </BalanceLink>
+      ) : (
+        <StyledLink to={goBackLink}>
+          {' '}
+          <img width="24" height="24" src={back} alt="back"></img>
+        </StyledLink>
+      )}
 
+      {!isReportPage && <Slider />}
       <Wrap>
-        <BalanceWrap to="/transaction/period-data">
-          Reports
-          <FiBarChart2 />
-        </BalanceWrap>
+        {isReportPage && (
+          <BalanceWrap to="/transaction/period-data">
+            Reports
+            <FiBarChart2 />
+          </BalanceWrap>
+        )}
         <BalanceContainer>
           <BalanceTitle className="title">Balance:</BalanceTitle>
-          <BalanceForm onSubmit={formSubmit} ref={form}>
-            <label>
-              <BalanceInput
-                className="inputTag"
-                type="text"
-                name="number"
-                title="Please, enter your balance"
-                pattern="[0-9, .UAH]*"
-                value={number}
-                onChange={inputChange}
-                placeholder={`${stateBalance}.00 UAH`}
-                required
-              />
-            </label>
-            <BalanceBtn type="button" className="btn" onClick={handleModalOpen}>
-              Confirm
-            </BalanceBtn>
-            {!stateBalance && !items.length && <ModalWindow />}
-          </BalanceForm>
+          {isReportPage ? (
+            <BalanceForm onSubmit={formSubmit} ref={form}>
+              <label>
+                <BalanceInput
+                  className="inputTag"
+                  type="text"
+                  name="number"
+                  title="Please, enter your balance"
+                  pattern="[0-9, .UAH]*"
+                  value={number}
+                  onChange={inputChange}
+                  placeholder={`${stateBalance}.00 UAH`}
+                  required
+                />
+              </label>
+              <BalanceBtn
+                type="button"
+                className="btn"
+                onClick={handleModalOpen}
+              >
+                Confirm
+              </BalanceBtn>
+              {!stateBalance && <ModalWindow />}
+            </BalanceForm>
+          ) : (
+            <Input
+              type="text"
+              name="number"
+              onChange={inputChange}
+              value={stateBalance}
+            />
+          )}
+
           {modalOpen && (
             <LightModalWindow
               changeBalance="true"
               closeModal={handleModalClose}
               dispatch={handleClick}
-              text="SURE"
               balance={balance}
             >
               Are you sure?
@@ -103,6 +132,6 @@ export function Balance() {
           )}
         </BalanceContainer>
       </Wrap>
-    </>
+    </BG>
   );
 }
