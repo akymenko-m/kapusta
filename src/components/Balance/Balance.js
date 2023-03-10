@@ -95,7 +95,7 @@ export function Balance() {
                   name="number"
                   title="Please, enter your balance"
                   pattern="[0-9, .UAH]*"
-                  value={number}
+                  value={stateBalance}
                   onChange={inputChange}
                   placeholder={`${stateBalance}.00 UAH`}
                   required
