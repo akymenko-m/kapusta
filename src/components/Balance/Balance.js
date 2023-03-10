@@ -39,11 +39,7 @@ export function Balance() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   const location = useLocation();
-  const isReportPage = location.pathname.includes('expenses')
-    ? // ||
-      // location.pathname.startsWidth('income')
-      true
-    : false;
+  const isReportPage = location.pathname.includes('expenses');
   const goBackLink = location?.state?.from ?? '/';
   const [modalOpen, setModalOpen] = useState(false);
   const stateBalance = useSelector(state => state.transactions.newBalance);
