@@ -18,7 +18,7 @@ import { Wrapper, Title, CabbageTop, } from 'pages/HomePage/HomePage.styled';
 import title from '../../images/title/title.png';
 import { Container } from 'components/App.styled';
 import { FooterImg } from 'components/Footer/Footer';
-// import 'animate.css'; // консоль ругалась, нічого не рендерело, я закоментуваа. Тома.
+import 'animate.css';
 
 
 
