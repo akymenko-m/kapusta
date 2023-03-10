@@ -22,7 +22,6 @@ const userSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(register.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.user = payload.userData;
         state.token = payload.accessToken;
         state.refreshToken = payload.refreshToken;
@@ -30,7 +29,6 @@ const userSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
-        // console.log('refreshUser - ' + payload.newAccessToken);
         state.token = payload.newAccessToken;
         state.refreshToken = payload.newRefreshToken;
         state.sid = payload.newSid;
@@ -38,7 +36,6 @@ const userSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(login.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.user = payload.userData;
         state.token = payload.accessToken;
         state.refreshToken = payload.refreshToken;
@@ -46,7 +43,6 @@ const userSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(getUserInfo.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.user = payload;
         state.isLoggedIn = true;
       })

@@ -1,16 +1,18 @@
 import styled from '@emotion/styled';
 
 export const LoginPageWrapper = styled.div`
-  @media (min-width: 320px) {
+  background-color: #ffffff;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border-radius: 30px;
+  position: relative;
+  @media screen (max-width: 319px) {
+    width: 250px;
+  }
+  @media (max-width: 767px) {
     width: 280px;
-    color: #52555f;
-    background-color: #ffffff;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 30px;
     padding: 40px 20px;
     position: relative;
     margin-top: 50px;
@@ -22,91 +24,107 @@ export const LoginPageWrapper = styled.div`
     margin-top: 80px;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   }
-
-  @media screen and (min-width: 1280px) {
-  }
 `;
 
 export const LoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+   width: 100%;
+   align-items: start;
+  @media screen and (max-width: 319px) {
+    gap: 10px;
+  }
   @media (min-width: 320px) {
     width: 240px;
-    display: flex;
-    flex-direction: column;
     gap: 20px;
   }
   @media screen and (min-width: 768px) {
     width: 259px;
     gap: 32px;
-  }
-
-  @media screen and (min-width: 1280px) {
-  }
 `;
 
 export const LoginFormLabel = styled.label`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    font-style: normal;
+  color: #000000;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  @media screen and (max-width: 767px) {
     font-size: 10px;
-    line-height: 12px;
-    /* identical to box height */
-
-    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    line-height: 1.17;
+  }
 `;
 
 export const LoginFormInput = styled.input`
-  
-    background-color: #f6f7fb;
-    color: #a6abb9;
-    font-size: 14px;
-    line-height: 16px;
-    padding: 17px 19px;
-    border-radius: 30px;
-    border: none;
- 
+  background-color: #f6f7fb;
+  color: #a6abb9;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 17px 19px;
+  border-radius: 30px;
+  border: none;
 `;
 
 export const LoginButton = styled.button`
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    letter-spacing: 0.02em;
-    width: 116px;
-    padding: 12px 14px;
-    background-color: #f5f6fb;
-    color: ##52555f;
-    font-size: 12px;
-    line-height: 14px;
-    border-radius: 16px;
-    border: none;
-    margin-top: 40px;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  width: 116px;
+  padding: 12px 14px;
+  background-color: #f5f6fb;
+  font-size: 12px;
+  line-height: 14px;
+  border-radius: 16px;
+  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+  background-color: #ff751d;
+  // @media screen and (max-width: 319px) {
+  //   width: 70px;
+  // }
+  @media screen and (max-width: 767px) {
+    margin-top: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 8px;
+  }
 `;
 
 export const RegisterNavLink = styled.div`
-  @media (min-width: 321px) {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    letter-spacing: 0.02em;
-    width: 116px;
-    // padding: 12px 14px;
-    background-color: #f5f6fb;
-    color: ##52555f;
-    font-size: 12px;
-    line-height: 14px;
-    border-radius: 16px;
-    border: none;
-    position: absolute;
-    margin-top: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  width: 116px;
+  font-weight: 700;
+  // padding: 12px 14px;
+  background-color: #f5f6fb;
+  font-size: 12px;
+  line-height: 14px;
+  border-radius: 16px;
+  border: none;
+  position: absolute;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 1px 3px 5px rgba(82, 85, 95, 0.15);
+  &:active {
+    box-shadow: 1px 3px 5px rgba(255, 107, 8, 0.35);
+    background-color: #ff751d;
+  }
+  @media screen and (max-width: 767px) {
     bottom: 40px;
     right: 20px;
-    // cursor:pointer;
   }
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     bottom: 56px;
     right: 83px;
   }

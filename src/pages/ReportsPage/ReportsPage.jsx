@@ -7,6 +7,7 @@ import { Slider } from 'components/Reports/ReportsNav/Slider/Slider';
 import { Loader } from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 import { selectIsRefreshing } from 'redux/user/selectors';
+import { Balance } from 'components/Balance/Balance';
 
 const ReportsPage = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -16,7 +17,7 @@ const ReportsPage = () => {
   ) : (
     <MainContainer>
       <Slider />
-
+      <Balance />
       <TotalTransactionsData />
       <ReportByCategories />
     </MainContainer>

@@ -9,7 +9,7 @@ import {
   addExpenseTransaction,
   getPeriodData,
   getTransactionIncomeMonthsStats,
-  getTransactionExpenseMonthsStats
+  getTransactionExpenseMonthsStats,
 } from './TransactionsOperations';
 
 const initialState = {
@@ -59,10 +59,12 @@ const transactionsSlice = createSlice({
       })
       .addCase(addIncomeTransaction.fulfilled, (state, { payload }) => {
         state.items = [payload.transaction, ...state.items];
+        state.newBalance += payload.transaction.amount;
         state.isLoading = false;
       })
       .addCase(addExpenseTransaction.fulfilled, (state, { payload }) => {
         state.items = [payload.transaction, ...state.items];
+        state.newBalance -= payload.transaction.amount;
         state.isLoading = false;
       })
       .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {
@@ -77,14 +79,20 @@ const transactionsSlice = createSlice({
         state.newBalance = payload.newBalance;
         state.isLoading = false;
       })
-      .addCase(getTransactionIncomeMonthsStats.fulfilled, (state, { payload }) => {
-        state.monthsStats = payload.monthsStats;
-        state.isLoading = false;
-      })
-      .addCase(getTransactionExpenseMonthsStats.fulfilled, (state, { payload }) => {
-        state.monthsStats = payload.monthsStats;
-        state.isLoading = false;
-      })
+      .addCase(
+        getTransactionIncomeMonthsStats.fulfilled,
+        (state, { payload }) => {
+          state.monthsStats = payload.monthsStats;
+          state.isLoading = false;
+        }
+      )
+      .addCase(
+        getTransactionExpenseMonthsStats.fulfilled,
+        (state, { payload }) => {
+          state.monthsStats = payload.monthsStats;
+          state.isLoading = false;
+        }
+      )
       .addMatcher(
         isAnyOf(
           getTransactionIncome.rejected,
@@ -93,7 +101,7 @@ const transactionsSlice = createSlice({
           addIncomeTransaction.rejected,
           addExpenseTransaction.rejected,
           getTransactionIncomeMonthsStats.pending,
-          getTransactionExpenseMonthsStats.pending,
+          getTransactionExpenseMonthsStats.pending
         ),
         (state, { payload }) => {
           state.isLoading = false;
@@ -108,7 +116,7 @@ const transactionsSlice = createSlice({
           addIncomeTransaction.pending,
           addExpenseTransaction.pending,
           getTransactionIncomeMonthsStats.pending,
-          getTransactionExpenseMonthsStats.pending,
+          getTransactionExpenseMonthsStats.pending
         ),
         state => {
           state.isLoading = true;
