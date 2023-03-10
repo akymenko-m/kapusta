@@ -39,7 +39,7 @@ export function Balance() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   const location = useLocation();
-  const isReportPage = location.pathname.includes('expenses');
+  const isReportPage = location.pathname.includes('transaction');
   const goBackLink = location?.state?.from ?? '/';
   const [modalOpen, setModalOpen] = useState(false);
   const stateBalance = useSelector(state => state.transactions.newBalance);
@@ -79,7 +79,7 @@ export function Balance() {
 
   return (
     <BG>
-      {!isReportPage && (
+      {isReportPage && (
         <BalanceLink to={goBackLink}>
           <img width="24" height="24" src={back} alt="back"></img>
           {windowSize.width >= 768 && (
@@ -88,9 +88,9 @@ export function Balance() {
         </BalanceLink>
       )}
 
-      {!isReportPage && <Slider />}
+      {isReportPage && <Slider />}
       <Wrap>
-        {isReportPage && (
+        {!isReportPage && (
           <BalanceWrap to="/transaction/period-data">
             Reports
             <FiBarChart2 />
@@ -98,7 +98,7 @@ export function Balance() {
         )}
         <BalanceContainer>
           <BalanceTitle className="title">Balance:</BalanceTitle>
-          {isReportPage ? (
+          {!isReportPage ? (
             <BalanceForm onSubmit={formSubmit} ref={form}>
               <label>
                 <BalanceInput
