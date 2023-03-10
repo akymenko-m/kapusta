@@ -36,6 +36,7 @@ export function Balance() {
   const [number, setNumber] = useState('');
   const formSubmit = e => {
     e.preventDefault();
+    balance = e.target.balance.value;
   };
   const inputChange = event => {
     const { name, value } = event.target;
@@ -108,7 +109,7 @@ export function Balance() {
               >
                 Confirm
               </BalanceBtn>
-              {!stateBalance && !items.length && <ModalWindow />}
+              {!stateBalance && <ModalWindow />}
             </BalanceForm>
           ) : (
             <Input
@@ -124,7 +125,6 @@ export function Balance() {
               changeBalance="true"
               closeModal={handleModalClose}
               dispatch={handleClick}
-              text="SURE"
               balance={balance}
             >
               Are you sure?
