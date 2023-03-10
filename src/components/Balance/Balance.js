@@ -29,7 +29,7 @@ export function Balance() {
   const goBackLink = location?.state?.from ?? '/';
   const [modalOpen, setModalOpen] = useState(false);
   const stateBalance = useSelector(state => state.transactions.newBalance);
-  const items = useSelector(state => state.transactions.items);
+  // const items = useSelector(state => state.transactions.items);
   const form = useRef();
   const dispatch = useDispatch();
 
