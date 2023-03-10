@@ -18,6 +18,7 @@ import { Wrapper, Title, CabbageTop, } from 'pages/HomePage/HomePage.styled';
 import title from '../../images/title/title.png';
 import { Container } from 'components/App.styled';
 import { FooterImg } from 'components/Footer/Footer';
+import 'animate.css';
 
 
 
@@ -44,10 +45,11 @@ import { FooterImg } from 'components/Footer/Footer';
          <Container>
            <Wrapper>
              <div>
-               <Title src={title} />
+               <Title className='animate__animated animate__hinge' src={title} />
+               <Title className='animate__animated animate__fadeInUpBig animate__delay-2s' src={title} />
              </div>
              <div>
-               <LoginPageWrapper>
+               <LoginPageWrapper className='animate__animated animate__flip' >
                  <GoogleLogin />
 
 

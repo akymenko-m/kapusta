@@ -3,10 +3,9 @@ import { GoTrashcan } from 'react-icons/go';
 
 export const TransactionTable = styled.ul`
   border-collapse: collapse;
-
   margin-top: 53px;
   font-family: 'Roboto';
-  width: 280px;
+  
 
   @media (min-width: 768px) {
     width: 624px;
@@ -62,10 +61,8 @@ export const TableTitle = styled.h2`
   }
 `;
 export const TableBody = styled.div`
-  height: 122px;
-  display: block;
-  overflow-y: auto;
-  overflow-x: hidden;
+  height: 200px;
+ 
   &::-webkit-scrollbar {
     width: 6px;
     background-color: #f5f6fb;
@@ -76,6 +73,9 @@ export const TableBody = styled.div`
   }
   @media (min-width: 768px) {
     height: 344px;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 `;
 

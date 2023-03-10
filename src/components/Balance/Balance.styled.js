@@ -10,9 +10,8 @@ export const BG = styled.div`
 `;
 export const Wrap = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   @media screen and (min-width: 768px) {
     width: 100%;
     flex-direction: row;

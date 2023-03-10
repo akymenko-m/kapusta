@@ -1,6 +1,5 @@
 import {
   Wrapper,
-  Title,
   Background,
   CabbageTop,
 } from 'pages/HomePage/HomePage.styled';
@@ -13,7 +12,7 @@ import { LoginRegisterText } from '../../components/LoginRegister/LoginRegisterT
 import { Container } from 'components/App.styled';
 import { FooterImg } from 'components/Footer/Footer';
 import {
-
+  Title,
   RegisterPageWrapper,
   RegisterForm,
   RegisterFormLabel,
@@ -21,6 +20,7 @@ import {
   RegisterButton,
   LoginNavLink,
 } from './RegisterPage.styled';
+
 
 function RegisterPage() {
   const dispatch = useDispatch();
@@ -49,7 +49,7 @@ function RegisterPage() {
               <RegisterPageWrapper>
                 <GoogleLogin />
                 <LoginRegisterText />
-                <RegisterForm onSubmit={handleSubmit}>
+                <RegisterForm  onSubmit={handleSubmit}>
                   <RegisterFormLabel>
                     Email:
                     <RegisterFormInput
