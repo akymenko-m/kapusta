@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { FiBarChart2 } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux';
 import { balance } from 'redux/Transactions/TransactionsOperations';
@@ -14,7 +14,6 @@ import {
   BalanceTitle,
   BalanceWrap,
   Input,
-  StyledLink,
   Wrap,
 } from './Balance.styled';
 
@@ -24,6 +23,21 @@ import { useLocation } from 'react-router-dom';
 import { Slider } from 'components/Reports/ReportsNav/Slider/Slider';
 
 export function Balance() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const location = useLocation();
   const isReportPage = location.pathname.includes('expenses') ? true : false;
   const goBackLink = location?.state?.from ?? '/';
@@ -39,6 +53,7 @@ export function Balance() {
   };
   const inputChange = event => {
     const { name, value } = event.target;
+
     switch (name) {
       case 'number':
         setNumber(value);
@@ -64,16 +79,13 @@ export function Balance() {
 
   return (
     <BG>
-      {isReportPage ? (
+      {!isReportPage && (
         <BalanceLink to={goBackLink}>
           <img width="24" height="24" src={back} alt="back"></img>
-          <BalanceBackText>TO TRANSACTION</BalanceBackText>
+          {windowSize.width >= 768 && (
+            <BalanceBackText>Main page</BalanceBackText>
+          )}
         </BalanceLink>
-      ) : (
-        <StyledLink to={goBackLink}>
-          {' '}
-          <img width="24" height="24" src={back} alt="back"></img>
-        </StyledLink>
       )}
 
       {!isReportPage && <Slider />}
