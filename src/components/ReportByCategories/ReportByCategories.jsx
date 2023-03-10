@@ -1,7 +1,11 @@
 import { ExpensesReport } from 'components/ExpensesReport/ExpensesReport';
 import { IncomesReport } from 'components/IncomesReport/IncomesReport';
+import { Loader } from 'components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentReport } from 'redux/Transactions/selectors';
+import {
+  getIsloading,
+  selectCurrentReport,
+} from 'redux/Transactions/selectors';
 import { changeReportType } from 'redux/Transactions/TransactionsSlice';
 import {
   BtnReport,
@@ -15,6 +19,7 @@ import {
 export const ReportByCategories = () => {
   const curReport = useSelector(selectCurrentReport);
   const dispatch = useDispatch();
+  const isLoading = useSelector(getIsloading);
 
   const toggleReportType = () => {
     dispatch(changeReportType(curReport));
@@ -22,6 +27,7 @@ export const ReportByCategories = () => {
 
   return (
     <ReportContainer>
+      {isLoading && <Loader />}
       <ReportType>
         <BtnReport onClick={toggleReportType}>
           <GrFormPreviousStyled />

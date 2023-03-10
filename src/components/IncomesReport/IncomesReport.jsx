@@ -1,16 +1,21 @@
 import { useSelector } from 'react-redux';
 import { selectTransactionDataIncomesData } from 'redux/Transactions/selectors';
-
-import imgSalary from '../../images/incomesReport/Salary.png';
-import imgAddincome from '../../images/incomesReport/Add_income.png';
-import { IncomesReportElement } from 'components/IncomesReportElement/IncomesReportElement';
-import { IncomesContainer, IncomesList } from './IncomesReport.styled';
-import ChartReport from 'components/ChartReport/ChartReport';
 import { useState } from 'react';
 
+import imgSalary from '../../images/incomesReport/salary.png';
+import imgAddincome from '../../images/incomesReport/add-income.png';
+import imgActiveSalary from '../../images/incomesReport/salary-active.png';
+import imgActiveAddincome from '../../images/incomesReport/add-income-active.png';
+import { IncomesReportElement } from 'components/IncomesReportElement/IncomesReportElement';
+import { IncomesContainer, IncomesList, Notify } from './IncomesReport.styled';
+// import ChartReport from 'components/ChartReport/ChartReport';
+
 export const IncomesReport = () => {
-  const [transactions, setTransactions] = useState({});
+  const [currentActive, setCurrentActive] = useState('');
+
+  // const [transactions, setTransactions] = useState({});
   const incomesData = useSelector(selectTransactionDataIncomesData);
+
   const entries = Object.entries(incomesData ?? {});
 
   const sortEntries = [...entries]
@@ -22,38 +27,53 @@ export const IncomesReport = () => {
     });
 
   const incomesDictionary = {
-    'З/П': { label: 'Salary', img: imgSalary },
-    'Доп. доход': { label: 'Add. income', img: imgAddincome },
+    'З/П': { label: 'Salary', img: imgSalary, curImg: imgActiveSalary },
+    'Доп. доход': {
+      label: 'Add. income',
+      img: imgAddincome,
+      curImg: imgActiveAddincome,
+    },
   };
 
-  const handleClick = categoryName => {
-    setTransactions(incomesData[categoryName]);
+  const handleCurItem = itemName => {
+    setCurrentActive(itemName);
   };
 
-  const sortedCategoryTransactions = Object.entries(transactions)
-    .filter(([key]) => key !== 'total')
-    .map(([key, value]) => ({ name: key, total: value }))
-    .sort((firstEl, secondEl) => secondEl.total - firstEl.total);
+  // const handleClick = categoryName => {
+  //   setTransactions(incomesData[categoryName]);
+  // };
+
+  // const sortedCategoryTransactions = Object.entries(transactions)
+  //   .filter(([key]) => key !== 'total')
+  //   .map(([key, value]) => ({ name: key, total: value }))
+  //   .sort((firstEl, secondEl) => secondEl.total - firstEl.total);
 
   return (
     <IncomesContainer>
-      {Boolean(incomesData) ? (
+      {Boolean(incomesData) && (
         <div>
-          <IncomesList>
-            {sortEntries.map(el => {
-              return (
-                <IncomesReportElement
-                  key={incomesDictionary[el.name].label}
-                  label={incomesDictionary[el.name].label}
-                  total={el.total}
-                  url={incomesDictionary[el.name].img}
-                  name={el.name}
-                  handleClick={handleClick}
-                />
-              );
-            })}
-          </IncomesList>
-          {sortEntries.length ? (
+          {sortEntries.length > 0 ? (
+            <IncomesList>
+              {sortEntries.map(el => {
+                return (
+                  <IncomesReportElement
+                    currentActive={currentActive}
+                    handleCurItem={handleCurItem}
+                    key={incomesDictionary[el.name].label}
+                    label={incomesDictionary[el.name].label}
+                    total={el.total}
+                    url={incomesDictionary[el.name].img}
+                    activeUrl={incomesDictionary[el.name].curImg}
+                    name={el.name}
+                    // handleClick={handleClick}
+                  />
+                );
+              })}
+            </IncomesList>
+          ) : (
+            <Notify>No data for this period</Notify>
+          )}
+          {/* {sortEntries.length ? (
             <ChartReport
               sortEntries={
                 sortedCategoryTransactions.length
@@ -61,11 +81,7 @@ export const IncomesReport = () => {
                   : sortEntries
               }
             />
-          ) : null}
-        </div>
-      ) : (
-        <div>
-          <p>No data</p>
+          ) : null} */}
         </div>
       )}
     </IncomesContainer>
