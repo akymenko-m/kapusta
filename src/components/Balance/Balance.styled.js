@@ -12,6 +12,7 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  flex-direction: row-reverse;
   @media screen and (min-width: 768px) {
     width: 100%;
     flex-direction: row;
@@ -57,7 +58,7 @@ export const BalanceTitle = styled.p`
 `;
 export const BalanceForm = styled.form`
   display: flex;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
   justify-content: center;
   align-items: center;
   @media screen and (min-width: 768px) {
@@ -73,6 +74,7 @@ export const BalanceInput = styled.input`
   border-radius: 22px 0px 0px 22px;
   background: #f5f6fb;
   color: #000000;
+  outline: none;
   &::placeholder {
     font-weight: 700;
     display: flex;
@@ -81,6 +83,7 @@ export const BalanceInput = styled.input`
     text-transform: uppercase;
     color: #000000;
   }
+
   @media screen and (min-width: 768px) {
     border-radius: 16px;
     width: 140px;
@@ -108,35 +111,41 @@ export const BalanceBtn = styled.button`
   }
 `;
 export const BalanceLink = styled(Link)`
-  display: flex;
+
+display: none;
+  // display: flex;
+  // align-items: center;
+  // gap: 7px;
+  // padding-top: 20px;
+  // font-weight: 700;
+  // font-size: 10px;
+  // line-height: calc(12 / 10);
+
+
   align-items: center;
-  gap: 7px;
+  gap: 10px;
   padding-top: 20px;
   font-weight: 700;
   font-size: 10px;
   line-height: calc(12 / 10);
+
   @media screen and (min-width: 768px) {
-    display: none;
-  }
-`;
-export const StyledLink = styled(Link)`
-  padding-top: 20px;
-  @media screen and (min-width: 768px) {
-    padding: 0;
-    margin-right: 250px;
+    padding-top: 0;
+    margin-right: 220px;
   }
   @media screen and (min-width: 1000px) {
     padding: 0;
-    margin-right: 350px;
+    margin-right: 320px;
   }
   @media screen and (min-width: 1280px) {
     padding: 0;
     margin-right: 0;
   }
 `;
+
 export const BalanceBackText = styled.p`
-  color: black;
-  text-transform: uppercase;
+  color: rgba(82, 85, 95, 0.7);
+  min-width: 60px;
 `;
 export const Input = styled.input`
   text-align: center;

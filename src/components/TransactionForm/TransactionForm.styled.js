@@ -7,11 +7,12 @@ export const Form = styled.form`
   justify-content: center;
   column-gap: 10px;
   row-gap: 20px;
-  margin-top: 24px;
+  
   background-color: transparent;
   position: relative;
   @media (min-width: 520px) {
     row-gap: 32px;
+    margin-top: 24px;
   }
   @media (min-width: 768px) {
     padding-top: 32px;

@@ -62,7 +62,9 @@ export const TableTitle = styled.h2`
 `;
 export const TableBody = styled.div`
   height: 200px;
- 
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
   &::-webkit-scrollbar {
     width: 6px;
     background-color: #f5f6fb;
@@ -73,9 +75,7 @@ export const TableBody = styled.div`
   }
   @media (min-width: 768px) {
     height: 344px;
-    display: block;
-    overflow-y: auto;
-    overflow-x: hidden;
+    
   }
 `;
 

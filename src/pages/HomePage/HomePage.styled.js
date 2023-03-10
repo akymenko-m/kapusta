@@ -34,11 +34,10 @@ export const CabbageBottom = styled.div`
 export const Background = styled.div`
   top: 0;
   left: 0;
-  height: 296px;
   background-color: #f5f6fb;
   border-bottom-left-radius: 30%;
   width: 100%;
-  height: 416px;
+  height: 330px;
   @media (min-width: 768px) {
     height: 526px;
     border-bottom-left-radius: 10%;

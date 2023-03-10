@@ -20,7 +20,7 @@ width: 90px;
   }
   @media(min-width: 1200px){
     position: relative;
-    bottom: 70px;
+    bottom: 35px;
     left: 230px;
     width: 183px;
 }
