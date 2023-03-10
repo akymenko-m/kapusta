@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux';
 import { selectTransactionDataIncomesData } from 'redux/Transactions/selectors';
 import { useState } from 'react';
 
-import imgSalary from '../../images/incomesReport/salary.png';
-import imgAddincome from '../../images/incomesReport/add-income.png';
-import imgActiveSalary from '../../images/incomesReport/salary-active.png';
-import imgActiveAddincome from '../../images/incomesReport/add-income-active.png';
+import imgSalary from '../../images/incomesReport/salarys.png';
+import imgAddincome from '../../images/incomesReport/add-incomes.png';
+import imgActiveSalary from '../../images/incomesReport/salary-actives.png';
+import imgActiveAddincome from '../../images/incomesReport/add-income-actives.png';
 import { IncomesReportElement } from 'components/IncomesReportElement/IncomesReportElement';
 import { IncomesContainer, IncomesList, Notify } from './IncomesReport.styled';
 // import ChartReport from 'components/ChartReport/ChartReport';
