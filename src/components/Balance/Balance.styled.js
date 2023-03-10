@@ -1,19 +1,22 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-
+export const BG = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+`;
 export const Wrap = styled.div`
-  background: #f5f6fb;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   @media screen and (min-width: 768px) {
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
-    padding: 32px;
-  }
-
-  @media screen and (min-width: 1280px) {
   }
 `;
 export const BalanceContainer = styled.div`
@@ -117,7 +120,37 @@ export const BalanceLink = styled(Link)`
     display: none;
   }
 `;
+export const StyledLink = styled(Link)`
+  padding-top: 20px;
+  @media screen and (min-width: 768px) {
+    padding: 0;
+    margin-right: 250px;
+  }
+  @media screen and (min-width: 1000px) {
+    padding: 0;
+    margin-right: 350px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 0;
+    margin-right: 0;
+  }
+`;
 export const BalanceBackText = styled.p`
   color: black;
   text-transform: uppercase;
+`;
+export const Input = styled.input`
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 0 10px;
+  width: 183px;
+  min-height: 44px;
+  border: 2px solid #ffffff;
+  border-radius: 22px;
+  background: #f5f6fb;
+  color: #000000;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    width: 125px;
+  }
 `;

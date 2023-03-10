@@ -7,6 +7,7 @@ export const SliderBox = styled.div`
   position: relative;
   @media (min-width: 768px) {
     padding-top: 0;
+    order: 3;
   }
 `;
 
