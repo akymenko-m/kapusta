@@ -17,15 +17,25 @@ const persistConfig = {
   key: 'user',
   version: 1,
   storage,
-  whitelist: ['token', 'refreshToken', 'sid', 'user', 'transactions'],
+  whitelist: ['token', 'refreshToken', 'sid', 'user'],
+};
+const persistConfigTransitions = {
+  key: 'transactions',
+  version: 1,
+  storage,
+  whitelist: ['newBalance'],
 };
 
 const persistedReducer = persistReducer(persistConfig, userReducer);
+const persistedReducerTransitions = persistReducer(
+  persistConfigTransitions,
+  transactionsReducer
+);
 
 export const store = configureStore({
   reducer: {
     user: persistedReducer,
-    transactions: transactionsReducer,
+    transactions: persistedReducerTransitions,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
