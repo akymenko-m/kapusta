@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 export const Wrap = styled.div`
   background: #f5f6fb;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;

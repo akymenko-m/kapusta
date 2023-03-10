@@ -127,3 +127,20 @@ export const LoginNavLink = styled.div`
     left: 83px;
   }
 `;
+export const Title = styled.img`
+  z-index: 5;
+  position: relative;
+  top: 30px;
+
+  width: 183px;
+  height: 63px;
+ 
+  @media(min-width: 767px) {
+    margin-left: 135px;
+    width: 377px;
+    height: 139px;
+  }
+  @media (min-width: 1280px) {
+    margin-top: 138px;
+  }
+`;

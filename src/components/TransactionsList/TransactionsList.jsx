@@ -41,7 +41,11 @@ export function TransactionsList() {
   }, [dispatch, isExpensePage, isIncomePage]);
 
   const items = useSelector(selectTransactions);
+  const sortedItems = [...items].sort(
+    (b, a) => new Date(a.date) - new Date(b.date)
+  );
 
+  console.log(sortedItems);
   const handleDelete = _id => {
     dispatch(deleteTransacton(_id));
     dispatch(deleteTransactionItem(_id));
@@ -63,8 +67,8 @@ export function TransactionsList() {
             <TableTitle className="headerSum">Sum</TableTitle>
             <TableTitle className="headerBtn"></TableTitle>
           </TableHead>
-          <TableBody>
-            {items.map(item => (
+          <TableBody className="tableBody">
+            {sortedItems.map(item => (
               <TableRow key={item._id}>
                 <Block>
                   <TableData className="dataTable">{item.date}</TableData>
