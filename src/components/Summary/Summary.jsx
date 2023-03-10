@@ -5,10 +5,7 @@ import {
   getTransactionIncomeMonthsStats,
   getTransactionExpenseMonthsStats,
 } from 'redux/Transactions/TransactionsOperations';
-import {
-  selectMonthsStats,
-  selectTransactions,
-} from 'redux/Transactions/selectors';
+import { selectMonthsStats, selectTransactions } from 'redux/Transactions/selectors';
 import { Container, Title, List, Item, Description } from './Summary.styled';
 
 export const Summary = () => {
@@ -23,16 +20,21 @@ export const Summary = () => {
   const isIncomePage = pathname.includes('/income');
   const isExpensePage = pathname.includes('/expense');
 
+  // логіка відслідковування оновлень:
   useEffect(() => {
+    console.log('stateІtems *****>>', stateІtems);
     if (isIncomePage) {
-      dispatch(getTransactionIncomeMonthsStats());
+        dispatch(getTransactionIncomeMonthsStats());
     }
     if (isExpensePage) {
-      dispatch(getTransactionExpenseMonthsStats());
+      setTimeout(() => {
+        dispatch(getTransactionExpenseMonthsStats());
+      }, 200);
     }
     return;
-  }, [stateІtems, dispatch, isExpensePage, isIncomePage]);
+  }, [stateІtems, dispatch, isExpensePage, isIncomePage, ]);
 
+ // логіка побудови списку:
   useEffect(() => {
     const listKeyMonths = [
       'Декабрь',
@@ -68,8 +70,7 @@ export const Summary = () => {
       .map(e => {
         return { month: listMonthsEng[e], value: stateMonts[e] };
       })
-      .filter(e => e.value !== 'N/A')
-      .slice(0, summaryMonth);
+      .filter(e => e.value !== 'N/A').slice(0, summaryMonth);
 
     setlistMonths(result);
   }, [stateMonts, stateІtems]);
@@ -91,15 +92,18 @@ export const Summary = () => {
 
 export default Summary;
 
+
 // import { Summary } from 'components/Summary/Summary';
 // <Summary />
 
 // ********** TransactionsOperations.js *змінити:
 
+
 // ********** TransactionsSlice.js
 // *додати слайс
 // monthsStats: {}
 // *змінити:
+
 
 // ********** selectors.js *додати:
 // export const selectMonthsStats = state => state.transactions.monthsStats;
