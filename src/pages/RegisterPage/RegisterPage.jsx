@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { register } from 'redux/user/userOperations';
 import { Container } from 'components/App.styled';
-import { FooterImg } from 'components/Footer/Footer';
+import { FooterImg } from './RegisterPage.styled'; 
 import {
   Title,
   RegisterPageWrapper,

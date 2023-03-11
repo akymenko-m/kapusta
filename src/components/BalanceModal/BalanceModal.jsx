@@ -13,7 +13,7 @@ const body = document.querySelector('body');
 
 export default function ModalWindow() {
   const [isModalOpen, setIsModalOpen] = useState(true);
-
+  
   const handleModalClose = () => {
     setIsModalOpen(false);
     body.classList.remove('no-scroll');

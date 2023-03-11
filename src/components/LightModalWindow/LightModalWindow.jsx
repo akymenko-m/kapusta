@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import {
@@ -13,6 +14,11 @@ import { OrangeButton } from 'components/Buttons/OrangeButton';
 import { WhiteButton } from 'components/Buttons/WhiteButton';
 import close from '../../images/close.svg';
 
+
+
+
+
+
 // Query selectors
 const modalRoot = document.getElementById('modal-root');
 const body = document.querySelector('body');
@@ -25,6 +31,9 @@ export const LightModalWindow = ({
   changeBalance,
   text,
 }) => {
+
+
+
   // Close on Esc button
   const handleEscapeClose = event => {
     if (event.code === 'Escape') {
@@ -70,7 +79,7 @@ export const LightModalWindow = ({
             >
               {text ? text : 'YES'}
             </OrangeButton>
-            <WhiteButton closeModal={closeModal}>NO</WhiteButton>
+            <WhiteButton  closeModal={closeModal}>NO</WhiteButton>
           </StyledDivWithButtons>
         </StyledContentDiv>
       </StyledModalWindow>
