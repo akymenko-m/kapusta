@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { format } from 'date-fns';
+import PropTypes from 'prop-types';
 
 import Example from 'components/DatePicker/DatePicker';
 import { GoCalendar } from 'react-icons/go';
@@ -118,4 +119,7 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
   );
 };
 
-// export default TransactionForm;
+Example.TransactionForm = {
+  onSubmit: PropTypes.func.isRequired,
+  isExpenseForm: PropTypes.bool,
+};
