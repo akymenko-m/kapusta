@@ -16,7 +16,7 @@ const ReportsPage = () => {
 const location = useLocation();
 
 
-const path = location.pathname === '/' ?? `/transaction/period-data${location.search}`;
+const path = location.pathname === '/' ? `/transaction/period-data${location.search}`: location.pathname;
 
 const navigate = useNavigate();
 useEffect(() =>{
