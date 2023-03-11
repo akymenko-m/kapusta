@@ -5,37 +5,88 @@ import {
   getTransactionIncomeMonthsStats,
   getTransactionExpenseMonthsStats,
 } from 'redux/Transactions/TransactionsOperations';
-import { selectMonthsStats, selectTransactions } from 'redux/Transactions/selectors';
-import { Container, Title, List, Item, Description } from './Summary.styled';
+import {
+  selectMonthsStats,
+  selectTransactions,
+  getIsloadingMonthsStats,
+} from 'redux/Transactions/selectors';
+import { Loader } from 'components/Loader/LoaderMin';
+import {
+  Container,
+  Title,
+  List,
+  Item,
+  Description,
+  LoaderBox,
+} from './Summary.styled';
 
 export const Summary = () => {
-  const summaryMonth = 6; // Кількість місяцв які треба рендерить
-  const stateMonts = useSelector(selectMonthsStats); // мої данні по місяцях
-  const [listMonths, setlistMonths] = useState([]); // масив результатів
+  const [listMonthsState, setlistMonthsState] = useState([]); // масив результатів
+  const [isLoadingState, setisLoadingState] = useState(false);
+
+  const ІtemsStore = useSelector(selectTransactions); // слідкую за списком транзакцій
+  const isLoadingStore = useSelector(getIsloadingMonthsStats);
+
+  // * Відтермінування лоудера
+  useEffect(() => {
+    let timeoutId;
+    if (isLoadingStore) {
+      timeoutId = setTimeout(() => {
+        setisLoadingState(isLoadingStore);
+      }, 500);
+    }
+    if (!isLoadingStore) {
+      setisLoadingState(isLoadingStore);
+      clearTimeout(timeoutId);
+    }
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [isLoadingStore]);
 
   const dispatch = useDispatch();
   const stateItems = useSelector(selectTransactions); // слідкую за списком транзакцій
 
+
+  // * Логіка відслідковування оновлень:
+  const dispatch = useDispatch();
+  // поточна сторінка
   const { pathname } = useLocation();
   const isIncomePage = pathname.includes('/income');
   const isExpensePage = pathname.includes('/expense');
-
-  // логіка відслідковування оновлень:
+  // запт за данними
   useEffect(() => {
+
+    let timeoutId;
+    timeoutId = setTimeout(() => {
+      if (isIncomePage) {
+
     console.log('stateІtems *****>>', stateItems);
     if (isIncomePage) {
+
         dispatch(getTransactionIncomeMonthsStats());
-    }
-    if (isExpensePage) {
-      setTimeout(() => {
+      }
+      if (isExpensePage) {
         dispatch(getTransactionExpenseMonthsStats());
+
+      }
+    }, 200);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [ІtemsStore, dispatch, isExpensePage, isIncomePage]);
+
       }, 0);
     }
     return;
   }, [stateItems, dispatch, isExpensePage, isIncomePage, ]);
 
- // логіка побудови списку:
+
+  // * Логіка побудови списку:
+  const montsStore = useSelector(selectMonthsStats); // місячна статистика з бекенду
   useEffect(() => {
+    const summaryMonth = 6; // кількість місяцв які треба рендерить
+    // ключі бекенду, порядок в масиві визначає порядок видачі
     const listKeyMonths = [
       'Декабрь',
       'Ноябрь',
@@ -68,18 +119,29 @@ export const Summary = () => {
 
     const result = listKeyMonths
       .map(e => {
-        return { month: listMonthsEng[e], value: stateMonts[e] };
+        return { month: listMonthsEng[e], value: montsStore[e] };
       })
-      .filter(e => e.value !== 'N/A').slice(0, summaryMonth);
+      .filter(e => e.value !== 'N/A')
+      .slice(0, summaryMonth);
+
+
+    setlistMonthsState(result);
+  }, [montsStore, ІtemsStore]);
 
     setlistMonths(result);
   }, [stateMonts, stateItems]);
 
+
   return (
     <Container>
       <Title>SUMMARY</Title>
+      {isLoadingState && (
+        <LoaderBox>
+          <Loader />
+        </LoaderBox>
+      )}
       <List>
-        {listMonths.map(({ month, value }, edx) => (
+        {listMonthsState.map(({ month, value }, edx) => (
           <Item key={edx}>
             <Description>{month}</Description>
             <Description> {value} </Description>
@@ -91,19 +153,3 @@ export const Summary = () => {
 };
 
 export default Summary;
-
-
-// import { Summary } from 'components/Summary/Summary';
-// <Summary />
-
-// ********** TransactionsOperations.js *змінити:
-
-
-// ********** TransactionsSlice.js
-// *додати слайс
-// monthsStats: {}
-// *змінити:
-
-
-// ********** selectors.js *додати:
-// export const selectMonthsStats = state => state.transactions.monthsStats;
