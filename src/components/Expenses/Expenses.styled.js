@@ -6,7 +6,6 @@ export const TransactionContainer = styled.div`
     padding: 0px 40px;
   }
   @media (min-width: 1280px) {
-  
     max-width: 1098px;
     padding: 0px 32px;
   }
@@ -14,8 +13,6 @@ export const TransactionContainer = styled.div`
 export const Block = styled.div`
   margin: 0 auto;
   max-width: 280px;
-  
-  
 
   @media (min-width: 768px) {
     max-width: 624px;
@@ -33,14 +30,14 @@ export const Block = styled.div`
 `;
 
 export const CabbageImg = styled.img`
-display: none;
-@media (min-width: 768px){
+  display: none;
+  @media (min-width: 768px) {
     display: block;
     position: relative;
     bottom: 188px;
     left: 415px;
-}
-@media (min-width: 1280px){
-    display: none;  
-}
-`
+  }
+  @media (min-width: 1280px) {
+    display: none;
+  }
+`;

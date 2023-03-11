@@ -7,7 +7,7 @@ export const Form = styled.form`
   justify-content: center;
   column-gap: 10px;
   row-gap: 20px;
-  
+
   background-color: transparent;
   position: relative;
   @media (min-width: 520px) {
