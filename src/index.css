@@ -27,21 +27,20 @@ body {
   letter-spacing: 0.04em;
   line-height: 1.17;
   color: #52555f;
-  /* background-color: #fae2d5; */
+  /* background-color: rgb(255, 117, 29); */
 }
 /* img.animate__animated.animate__hinge.css-2qe138{
   position: relative;
 
 } */
 
-img.animate__animated.animate__hinge.css-2qe138{
+img.animate__animated.animate__hinge.css-2qe138 {
   position: relative;
   z-index: 0;
 }
-.expenseTab.css-1yvxzsh{
+.expenseTab.css-1yvxzsh {
   padding: 15px 14px 8px 3px;
 }
-.incomeTab.css-1yvxzsh{
+.incomeTab.css-1yvxzsh {
   padding: 16px 24px 10px 4px;
 }
-
