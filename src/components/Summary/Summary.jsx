@@ -108,7 +108,6 @@ export const Summary = () => {
       .filter(e => e.value !== 'N/A')
       .slice(0, summaryMonth);
 
-
     setlistMonthsState(result);
   }, [montsStore, ІtemsStore]);
 
