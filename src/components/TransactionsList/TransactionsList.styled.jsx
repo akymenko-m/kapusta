@@ -5,12 +5,13 @@ export const TransactionTable = styled.ul`
   border-collapse: collapse;
   margin-top: 53px;
   font-family: 'Roboto';
-  
 
   @media (min-width: 768px) {
     width: 624px;
     margin-top: 48px;
     margin-bottom: 40px;
+    box-shadow: 0 10px 10px -12px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
   }
 
   @media (min-width: 1280px) {
@@ -65,6 +66,13 @@ export const TableBody = styled.div`
   display: block;
   overflow-y: auto;
   overflow-x: hidden;
+
+  background-image: repeating-linear-gradient(
+    #ffffff 0px,
+    #ffffff 38px,
+    #f5f6fb 40px
+  );
+
   &::-webkit-scrollbar {
     width: 6px;
     background-color: #f5f6fb;
@@ -74,30 +82,33 @@ export const TableBody = styled.div`
     border-radius: 2px;
   }
   @media (min-width: 768px) {
-    height: 344px;
-    
+    height: 360px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-left: 2px solid #f5f6fb;
+    border-right: 2px solid #f5f6fb;
   }
 `;
 
 export const TableRow = styled.li`
   height: 35px;
-  border-bottom: 2px solid #f5f6fb;
+  // border-bottom: 2px solid #f5f6fb;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
   padding-left: 5px;
   padding-right: 5px;
+  
   @media (min-width: 768px) {
     height: 40px;
     padding-left: 20px;
     padding-right: 20px;
-    border-left: 2px solid #f5f6fb;
-    border-right: 2px solid #f5f6fb;
-    &:last-child {
-      border-bottom-right-radius: 30px;
-      border-bottom-left-radius: 30px;
-    }
+
+    // &:last-child {
+    //   border-bottom-right-radius: 30px;
+    //   border-bottom-left-radius: 30px;
+    // }
   }
 `;
 
