@@ -23,6 +23,7 @@ const initialState = {
   error: null,
   isLoading: false,
   monthsStats: {},
+  isLoadingMonthsStats: false,
   isActiveCategory: '',
 };
 
@@ -80,20 +81,6 @@ const transactionsSlice = createSlice({
         state.newBalance = payload.newBalance;
         state.isLoading = false;
       })
-      .addCase(
-        getTransactionIncomeMonthsStats.fulfilled,
-        (state, { payload }) => {
-          state.monthsStats = payload.monthsStats;
-          state.isLoading = false;
-        }
-      )
-      .addCase(
-        getTransactionExpenseMonthsStats.fulfilled,
-        (state, { payload }) => {
-          state.monthsStats = payload.monthsStats;
-          state.isLoading = false;
-        }
-      )
       .addMatcher(
         isAnyOf(
           getTransactionIncome.rejected,
@@ -101,8 +88,6 @@ const transactionsSlice = createSlice({
           deleteTransacton.rejected,
           addIncomeTransaction.rejected,
           addExpenseTransaction.rejected,
-          getTransactionIncomeMonthsStats.pending,
-          getTransactionExpenseMonthsStats.pending
         ),
         (state, { payload }) => {
           state.isLoading = false;
@@ -116,13 +101,41 @@ const transactionsSlice = createSlice({
           deleteTransacton.pending,
           addIncomeTransaction.pending,
           addExpenseTransaction.pending,
-          getTransactionIncomeMonthsStats.pending,
-          getTransactionExpenseMonthsStats.pending
         ),
         state => {
           state.isLoading = true;
         }
-      ),
+      )
+      // MonthsStats
+      .addMatcher(
+        isAnyOf(
+          getTransactionIncomeMonthsStats.fulfilled,
+          getTransactionExpenseMonthsStats.fulfilled,
+        ),
+        (state, { payload }) => {
+          state.monthsStats = payload.monthsStats;
+          state.isLoadingMonthsStats = false;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          getTransactionIncomeMonthsStats.pending,
+          getTransactionExpenseMonthsStats.pending,
+        ),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          getTransactionIncomeMonthsStats.pending,
+          getTransactionExpenseMonthsStats.pending
+        ),
+        state => {
+          state.isLoadingMonthsStats = true;
+        }
+      )
 });
 
 export const { deleteTransactionItem, changeReportType, setReportsQuery } =

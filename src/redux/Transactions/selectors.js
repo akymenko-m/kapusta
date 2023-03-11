@@ -15,3 +15,4 @@ export const getIsloading = state => state.transactions.isLoading;
 export const selectTransactions = state => state.transactions.items;
 
 export const selectMonthsStats = state => state.transactions.monthsStats;
+export const getIsloadingMonthsStats = state => state.transactions.isLoadingMonthsStats;

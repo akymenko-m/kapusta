@@ -8,8 +8,10 @@ import {
 import {
   selectMonthsStats,
   selectTransactions,
+  getIsloadingMonthsStats,
 } from 'redux/Transactions/selectors';
-import { Container, Title, List, Item, Description } from './Summary.styled';
+import { Loader } from 'components/Loader/LoaderMin';
+import { Container, Title, List, Item, Description, LoaderBox } from './Summary.styled';
 
 export const Summary = () => {
   const stateMonts = useSelector(selectMonthsStats); // мої данні по місяцях
@@ -82,9 +84,16 @@ export const Summary = () => {
     setlistMonths(result);
   }, [stateMonts, stateІtems]);
 
+
+  const isLoading = useSelector(getIsloadingMonthsStats);
+
+
+
+
   return (
     <Container>
       <Title>SUMMARY</Title>
+      {isLoading && <LoaderBox><Loader /></LoaderBox>}
       <List>
         {listMonths.map(({ month, value }, edx) => (
           <Item key={edx}>
@@ -99,15 +108,3 @@ export const Summary = () => {
 
 export default Summary;
 
-// import { Summary } from 'components/Summary/Summary';
-// <Summary />
-
-// ********** TransactionsOperations.js *змінити:
-
-// ********** TransactionsSlice.js
-// *додати слайс
-// monthsStats: {}
-// *змінити:
-
-// ********** selectors.js *додати:
-// export const selectMonthsStats = state => state.transactions.monthsStats;

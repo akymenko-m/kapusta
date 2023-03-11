@@ -1,13 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  position: relative;
   width: 230px;
   height: 278px;
   @media (max-width: 767px) {
     display: none;
   }
 `;
-
+export const LoaderBox = styled.div`
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+zIndex: '2',
+background: 'rgba(0, 0, 0, 0.1)',
+`;
 export const Title = styled.h3`
   display: flex;
   align-items: center;
