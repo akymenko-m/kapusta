@@ -11,38 +11,65 @@ import {
   getIsloadingMonthsStats,
 } from 'redux/Transactions/selectors';
 import { Loader } from 'components/Loader/LoaderMin';
-import { Container, Title, List, Item, Description, LoaderBox } from './Summary.styled';
+import {
+  Container,
+  Title,
+  List,
+  Item,
+  Description,
+  LoaderBox,
+} from './Summary.styled';
 
 export const Summary = () => {
-  const stateMonts = useSelector(selectMonthsStats); // мої данні по місяцях
-  const [listMonths, setlistMonths] = useState([]); // масив результатів
+  const [listMonthsState, setlistMonthsState] = useState([]); // масив результатів
+  const [isLoadingState, setisLoadingState] = useState(false);
 
-  const dispatch = useDispatch();
-  const stateІtems = useSelector(selectTransactions); // слідкую за списком транзакцій
+  const ІtemsStore = useSelector(selectTransactions); // слідкую за списком транзакцій
+  const isLoadingStore = useSelector(getIsloadingMonthsStats);
 
-  const { pathname } = useLocation();
-  const isIncomePage = pathname.includes('/income');
-  const isExpensePage = pathname.includes('/expense');
-
-  // логіка відслідковування оновлень:
+  // * Відтермінування лоудера
   useEffect(() => {
     let timeoutId;
+    if (isLoadingStore) {
       timeoutId = setTimeout(() => {
-        if (isIncomePage) {
-          dispatch(getTransactionIncomeMonthsStats());
-        }
-        if (isExpensePage) {
-        dispatch(getTransactionExpenseMonthsStats());
-      }
-      }, 200);
+        setisLoadingState(isLoadingStore);
+      }, 500);
+    }
+    if (!isLoadingStore) {
+      setisLoadingState(isLoadingStore);
+      clearTimeout(timeoutId);
+    }
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [stateІtems, dispatch, isExpensePage, isIncomePage]);
+  }, [isLoadingStore]);
 
-  // логіка побудови списку:
+  // * Логіка відслідковування оновлень:
+  const dispatch = useDispatch();
+  // поточна сторінка
+  const { pathname } = useLocation();
+  const isIncomePage = pathname.includes('/income');
+  const isExpensePage = pathname.includes('/expense');
+  // запт за данними
   useEffect(() => {
-    const summaryMonth = 6; // Кількість місяцв які треба рендерить
+    let timeoutId;
+    timeoutId = setTimeout(() => {
+      if (isIncomePage) {
+        dispatch(getTransactionIncomeMonthsStats());
+      }
+      if (isExpensePage) {
+        dispatch(getTransactionExpenseMonthsStats());
+      }
+    }, 200);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [ІtemsStore, dispatch, isExpensePage, isIncomePage]);
+
+  // * Логіка побудови списку:
+  const montsStore = useSelector(selectMonthsStats); // місячна статистика з бекенду
+  useEffect(() => {
+    const summaryMonth = 6; // кількість місяцв які треба рендерить
     // ключі бекенду, порядок в масиві визначає порядок видачі
     const listKeyMonths = [
       'Декабрь',
@@ -76,26 +103,24 @@ export const Summary = () => {
 
     const result = listKeyMonths
       .map(e => {
-        return { month: listMonthsEng[e], value: stateMonts[e] };
+        return { month: listMonthsEng[e], value: montsStore[e] };
       })
       .filter(e => e.value !== 'N/A')
       .slice(0, summaryMonth);
 
-    setlistMonths(result);
-  }, [stateMonts, stateІtems]);
-
-
-  const isLoading = useSelector(getIsloadingMonthsStats);
-
-
-
+    setlistMonthsState(result);
+  }, [montsStore, ІtemsStore]);
 
   return (
     <Container>
       <Title>SUMMARY</Title>
-      {isLoading && <LoaderBox><Loader /></LoaderBox>}
+      {isLoadingState && (
+        <LoaderBox>
+          <Loader />
+        </LoaderBox>
+      )}
       <List>
-        {listMonths.map(({ month, value }, edx) => (
+        {listMonthsState.map(({ month, value }, edx) => (
           <Item key={edx}>
             <Description>{month}</Description>
             <Description> {value} </Description>
@@ -107,4 +132,3 @@ export const Summary = () => {
 };
 
 export default Summary;
-
