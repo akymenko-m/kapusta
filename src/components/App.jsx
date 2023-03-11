@@ -36,8 +36,9 @@ export const App = () => {
           <Route path="/income" element={<PrivateRoute redirectTo="/login" component={<Income />} />} />
           <Route path="/login" element={ <RestrictedRoute redirectTo="/expenses" component={<LoginPage />} />} />
           <Route path="/register" element={ <RestrictedRoute redirectTo="/expenses" component={<RegisterPage />} />} />
+         
        </Route>
-      <Route path="/transaction/period-data" element={<PrivateRoute redirectTo="/login" component={<ReportsPage />} />} />
+       <Route path="/transaction/period-data" element={<PrivateRoute redirectTo="/login" component={<ReportsPage />} />} />
 
         <Route path="*" element={<Navigate to="/" replace={true} />} />
       </Routes>

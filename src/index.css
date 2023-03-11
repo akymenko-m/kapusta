@@ -38,4 +38,10 @@ img.animate__animated.animate__hinge.css-2qe138{
   position: relative;
   z-index: 0;
 }
+.expenseTab.css-1yvxzsh{
+  padding: 15px 14px 8px 3px;
+}
+.incomeTab.css-1yvxzsh{
+  padding: 16px 24px 10px 4px;
+}
 
