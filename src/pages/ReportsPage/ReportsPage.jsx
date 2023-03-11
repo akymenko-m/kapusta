@@ -8,8 +8,22 @@ import { Loader } from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 import { selectIsRefreshing } from 'redux/user/selectors';
 import { Balance } from 'components/Balance/Balance';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 
 const ReportsPage = () => {
+const location = useLocation();
+
+
+const path = location.pathname === '/' ?? `/transaction/period-data${location.search}`;
+
+const navigate = useNavigate();
+useEffect(() =>{
+navigate(path);
+}, [navigate, path])
+
+
   const isRefreshing = useSelector(selectIsRefreshing);
 
   return isRefreshing ? (

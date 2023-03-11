@@ -14,7 +14,7 @@ export const Summary = () => {
   const [listMonths, setlistMonths] = useState([]); // масив результатів
 
   const dispatch = useDispatch();
-  const stateІtems = useSelector(selectTransactions); // слідкую за списком транзакцій
+  const stateItems = useSelector(selectTransactions); // слідкую за списком транзакцій
 
   const { pathname } = useLocation();
   const isIncomePage = pathname.includes('/income');
@@ -22,17 +22,17 @@ export const Summary = () => {
 
   // логіка відслідковування оновлень:
   useEffect(() => {
-    console.log('stateІtems *****>>', stateІtems);
+    console.log('stateІtems *****>>', stateItems);
     if (isIncomePage) {
         dispatch(getTransactionIncomeMonthsStats());
     }
     if (isExpensePage) {
       setTimeout(() => {
         dispatch(getTransactionExpenseMonthsStats());
-      }, 200);
+      }, 0);
     }
     return;
-  }, [stateІtems, dispatch, isExpensePage, isIncomePage, ]);
+  }, [stateItems, dispatch, isExpensePage, isIncomePage, ]);
 
  // логіка побудови списку:
   useEffect(() => {
@@ -73,7 +73,7 @@ export const Summary = () => {
       .filter(e => e.value !== 'N/A').slice(0, summaryMonth);
 
     setlistMonths(result);
-  }, [stateMonts, stateІtems]);
+  }, [stateMonts, stateItems]);
 
   return (
     <Container>
