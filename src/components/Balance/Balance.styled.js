@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 export const BG = styled.div`
   @media screen and (min-width: 768px) {
+    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;

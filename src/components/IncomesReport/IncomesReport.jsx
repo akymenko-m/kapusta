@@ -11,7 +11,6 @@ import imgActiveSalary from '../../images/incomesReport/salary-actives.png';
 import imgActiveAddincome from '../../images/incomesReport/add-income-actives.png';
 import { IncomesReportElement } from 'components/IncomesReportElement/IncomesReportElement';
 import { IncomesContainer, IncomesList, Notify } from './IncomesReport.styled';
-// import ChartReport from 'components/ChartReport/ChartReport';
 
 export const IncomesReport = ({
   sortEntries,
@@ -19,18 +18,8 @@ export const IncomesReport = ({
 }) => {
   const [currentActive, setCurrentActive] = useState('');
 
-  // const [transactions, setTransactions] = useState({});
   const incomesData = useSelector(selectTransactionDataIncomesData);
 
-  // const entries = Object.entries(incomesData ?? {});
-
-  // const sortEntries = [...entries]
-  //   .sort((firstEl, secondEl) => {
-  //     return secondEl[1].total - firstEl[1].total;
-  //   })
-  //   .map(el => {
-  //     return { name: el[0], total: el[1].total };
-  //   });
 
   const incomesDictionary = {
     'З/П': { label: 'Salary', img: imgSalary, curImg: imgActiveSalary },

@@ -53,9 +53,9 @@ export const LightModalWindow = ({
       className="modal-backdrop"
       onClick={handleBackdropClose}
     >
-      {/* Modal window */}
+     
       <StyledModalWindow>
-        {/* Close button img X */}
+     
         <StyledCloseButton onClick={closeModal}>
           <img src={close} alt="close" />
         </StyledCloseButton>

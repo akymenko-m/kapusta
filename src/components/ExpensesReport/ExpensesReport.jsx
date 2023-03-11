@@ -35,18 +35,12 @@ export const ExpensesReport = ({
   sortEntries,
   setCurrentCategoryTransactions,
 }) => {
-  // const [transactions, setTransactions] = useState({});
+ 
   const expensesData = useSelector(selectTransactionDataExpensesData);
-  // const entries = Object.entries(expensesData ?? {});
+  
   const [currentActive, setCurrentActive] = useState('');
 
-  // const sortEntries = [...entries]
-  //   .sort((firstEl, secondEl) => {
-  //     return secondEl[1].total - firstEl[1].total;
-  //   })
-  //   .map(el => {
-  //     return { name: el[0], total: el[1].total };
-  //   });
+  
 
   const expensesDictionary = {
     Продукты: {

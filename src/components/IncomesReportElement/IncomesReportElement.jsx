@@ -31,7 +31,7 @@ export const IncomesReportElement = ({
         <Total>{numberWithSpaces(total)}</Total>
 
         <Image src={currentActive === label ? activeUrl : url} alt={label} />
-        {/* <Image src={url} alt={label} /> */}
+       
         <Label>{label}</Label>
       </Container>
     </IncomesItem>

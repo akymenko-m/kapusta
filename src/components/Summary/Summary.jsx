@@ -44,8 +44,8 @@ export const Summary = () => {
     };
   }, [isLoadingStore]);
 
-  const dispatch = useDispatch();
-  const stateItems = useSelector(selectTransactions); // слідкую за списком транзакцій
+ 
+  // const stateItems = useSelector(selectTransactions); // слідкую за списком транзакцій
 
 
   // * Логіка відслідковування оновлень:
@@ -56,13 +56,12 @@ export const Summary = () => {
   const isExpensePage = pathname.includes('/expense');
   // запт за данними
   useEffect(() => {
-
     let timeoutId;
     timeoutId = setTimeout(() => {
       if (isIncomePage) {
 
-    console.log('stateІtems *****>>', stateItems);
-    if (isIncomePage) {
+    // console.log('stateІtems *****>>', stateItems);
+    // if (isIncomePage) {
 
         dispatch(getTransactionIncomeMonthsStats());
       }
@@ -76,10 +75,11 @@ export const Summary = () => {
     };
   }, [ІtemsStore, dispatch, isExpensePage, isIncomePage]);
 
-      }, 0);
-    }
-    return;
-  }, [stateItems, dispatch, isExpensePage, isIncomePage, ]);
+      // }, 0);
+
+    // }
+  //   return;
+  // }, [stateItems, dispatch, isExpensePage, isIncomePage, ]);
 
 
   // * Логіка побудови списку:
@@ -128,8 +128,8 @@ export const Summary = () => {
     setlistMonthsState(result);
   }, [montsStore, ІtemsStore]);
 
-    setlistMonths(result);
-  }, [stateMonts, stateItems]);
+  //   setlistMonths(result);
+  // }, [stateMonts, stateItems]);
 
 
   return (

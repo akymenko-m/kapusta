@@ -24,6 +24,7 @@ const HomePage = () => {
   const index = location.pathname === '/income' ? 1 : 0;
   const navigate = useNavigate();
   const path = location.pathname === '/' ? '/expenses' : location.pathname;
+  
   useEffect(() => {
     navigate(path || '/login');
   }, [navigate, path, isLoggedIn]);
@@ -33,10 +34,10 @@ const HomePage = () => {
       {isLoggedIn ? (
         <Background>
           <Container>
-            {' '}
+         
             <div>
               <Balance />
-              <TabsStyled selectedIndex={index} onSelect={() => {}}>
+              <TabsStyled selectedIndex={index} onSelect={()=>{}}>
                 <TabListStyled>
                   <TabStyled className=" react-tabs__tab css-11la0xy expenseTab">
                     <NavLinkStyled className="expenseTab" to="expenses">
@@ -51,6 +52,7 @@ const HomePage = () => {
                 </TabListStyled>
                 <TabPanel>{<Outlet />}</TabPanel>
                 <TabPanel>{<Outlet />}</TabPanel>
+                
               </TabsStyled>
             </div>
           </Container>

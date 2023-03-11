@@ -20,7 +20,7 @@ const path = location.pathname === '/' ? `/transaction/period-data${location.sea
 
 const navigate = useNavigate();
 useEffect(() =>{
-navigate(path);
+navigate(path || '/transaction/period-data');
 }, [navigate, path])
 
 
