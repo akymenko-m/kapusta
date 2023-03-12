@@ -71,7 +71,7 @@ export function Balance() {
   const handleClick = () => {
     dispatch(balance({ newBalance: Number(number.replace(/\s+/g, '')) }));
     form.current.reset();
-    setButtonDisabled(true);
+    // setButtonDisabled(true);
   };
   // Open modal window
   const handleModalOpen = () => {
