@@ -39,6 +39,7 @@ export const Slider = () => {
     setSearchParams({ date: query });
 
     dispatch(setReportsQuery(query));
+
     dispatch(getPeriodData(query));
   }, [monthNumber, year, dispatch, setSearchParams]);
 

@@ -42,7 +42,6 @@ ExpensesReportElement.propTypes = {
   label: PropTypes.string.isRequired,
   total: PropTypes.number,
   url: PropTypes.string.isRequired,
-
   handleClick: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   handleCurItem: PropTypes.func.isRequired,

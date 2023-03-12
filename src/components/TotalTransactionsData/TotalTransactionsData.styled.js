@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+  position: relative;
   height: 85px;
   margin-bottom: 32px;
   padding: 20px 10px 25px 10px;
@@ -8,6 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 20px;
+  background-color: #ffffff;
   @media screen and (min-width: 768px) {
     height: 50px;
     padding: 15px 134px;
@@ -28,7 +30,7 @@ export const TotalData = styled.div`
     width: 1px;
     height: 70px;
     position: absolute;
-    bottom: 4px;
+    top: 8px;
     background-color: #e0e5eb;
   }
   @media screen and (min-width: 768px) {

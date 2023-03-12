@@ -35,12 +35,9 @@ export const ExpensesReport = ({
   sortEntries,
   setCurrentCategoryTransactions,
 }) => {
- 
   const expensesData = useSelector(selectTransactionDataExpensesData);
-  
-  const [currentActive, setCurrentActive] = useState('');
 
-  
+  const [currentActive, setCurrentActive] = useState('');
 
   const expensesDictionary = {
     Продукты: {

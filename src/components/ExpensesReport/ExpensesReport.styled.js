@@ -9,6 +9,5 @@ export const ExpensesList = styled.ul`
   @media screen and (min-width: 768px) {
     justify-content: center;
     row-gap: 40px;
-    column-gap: 15px;
   }
 `;
