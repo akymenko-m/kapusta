@@ -17,12 +17,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate loading={null} persistor={persistor}>
         <Global styles={GlobalStyles} />
 
-        <BrowserRouter>
+        <BrowserRouter basename="/kapusta/">
           <App />
         </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>
 );
-
-// basename = '/kapusta/';
