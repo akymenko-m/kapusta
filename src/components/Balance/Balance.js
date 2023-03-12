@@ -46,10 +46,12 @@ export function Balance() {
   const items = useSelector(state => state.transactions.items);
   const form = useRef();
   const dispatch = useDispatch();
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const [number, setNumber] = useState('');
   const formSubmit = e => {
     e.preventDefault();
+    setButtonDisabled(true);
   };
   const inputChange = event => {
     const { name, value } = event.target;
@@ -67,6 +69,7 @@ export function Balance() {
   const handleClick = () => {
     dispatch(balance({ newBalance: Number(number.replace(/\s+/g, '')) }));
     form.current.reset();
+    setButtonDisabled(true);
   };
   // Open modal window
   const handleModalOpen = () => {
@@ -117,6 +120,7 @@ export function Balance() {
                 type="button"
                 className="btn"
                 onClick={handleModalOpen}
+                disabled={buttonDisabled} 
               >
                 Confirm
               </BalanceBtn>
