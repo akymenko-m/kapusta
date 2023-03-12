@@ -64,12 +64,22 @@ const userSlice = createSlice({
         state.errorRegisterMessage = null;
       })
       .addCase(login.rejected, (state, { payload }) => {
-        console.log(payload);
+        // console.log(payload);
         state.errorLoginMessage = payload;
+        state.errorRegisterMessage = null; 
       })
       .addCase(register.rejected, (state, { payload }) => {
-        console.log(payload);
+        // console.log(payload);
         state.errorRegisterMessage = payload;
+         state.errorLoginMessage = null; 
+      })
+      .addCase(login.pending, (state, { payload }) => {
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
+      })
+      .addCase(register.pending, (state, { payload }) => {
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       })
       .addCase(getUserInfo.pending, (state, { payload }) => {
         state.isRefreshing = true;
@@ -87,7 +97,8 @@ const userSlice = createSlice({
         state.errorLoginMessage = null;
         state.errorRegisterMessage = null;
       })
-      .addCase(refreshUser.rejected, state => {
+      .addCase(refreshUser.rejected, (state, { payload }) => {
+        // console.log(payload);
         state.isRefreshing = false;
         state.errorLoginMessage = null;
         state.errorRegisterMessage = null;
