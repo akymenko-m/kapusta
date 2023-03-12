@@ -1,10 +1,8 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ChartReport from 'components/ChartReport/ChartReport';
 import { ExpensesReport } from 'components/ExpensesReport/ExpensesReport';
 import { IncomesReport } from 'components/IncomesReport/IncomesReport';
-
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
 import {
   selectCurrentReport,
   selectTransactionDataExpensesData,
@@ -87,6 +85,7 @@ export const ReportByCategories = () => {
           />
         )}
       </ReportContainer>
+
       {sortEntries.length ? (
         <ChartReport
           dataArray={

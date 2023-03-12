@@ -48,7 +48,7 @@ const transactionsSlice = createSlice({
       .addCase(balance.fulfilled, (state, { payload }) => {
         state.newBalance = payload.newBalance;
       })
-      .addCase(getPeriodData.pending, (state, action) => {
+      .addCase(getPeriodData.pending, state => {
         state.isLoading = true;
       })
       .addCase(getPeriodData.fulfilled, (state, action) => {
@@ -87,7 +87,7 @@ const transactionsSlice = createSlice({
           getTransactionExpense.rejected,
           deleteTransacton.rejected,
           addIncomeTransaction.rejected,
-          addExpenseTransaction.rejected,
+          addExpenseTransaction.rejected
         ),
         (state, { payload }) => {
           state.isLoading = false;
@@ -100,7 +100,7 @@ const transactionsSlice = createSlice({
           getTransactionExpense.pending,
           deleteTransacton.pending,
           addIncomeTransaction.pending,
-          addExpenseTransaction.pending,
+          addExpenseTransaction.pending
         ),
         state => {
           state.isLoading = true;
@@ -110,7 +110,7 @@ const transactionsSlice = createSlice({
       .addMatcher(
         isAnyOf(
           getTransactionIncomeMonthsStats.fulfilled,
-          getTransactionExpenseMonthsStats.fulfilled,
+          getTransactionExpenseMonthsStats.fulfilled
         ),
         (state, { payload }) => {
           state.monthsStats = payload.monthsStats;
@@ -120,7 +120,7 @@ const transactionsSlice = createSlice({
       .addMatcher(
         isAnyOf(
           getTransactionIncomeMonthsStats.pending,
-          getTransactionExpenseMonthsStats.pending,
+          getTransactionExpenseMonthsStats.pending
         ),
         (state, { payload }) => {
           state.isLoading = false;
@@ -135,7 +135,7 @@ const transactionsSlice = createSlice({
         state => {
           state.isLoadingMonthsStats = true;
         }
-      )
+      ),
 });
 
 export const { deleteTransactionItem, changeReportType, setReportsQuery } =
