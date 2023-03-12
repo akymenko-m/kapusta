@@ -25,6 +25,7 @@ const initialState = {
   monthsStats: {},
   isLoadingMonthsStats: false,
   isActiveCategory: '',
+ 
 };
 
 const transactionsSlice = createSlice({
