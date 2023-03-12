@@ -14,6 +14,8 @@ const initialState = {
   sid: null,
   isLoggedIn: false,
   isRefreshing: false,
+  errorLoginMessage: null,
+  errorRegisterMessage: null,
 };
 
 const userSlice = createSlice({
@@ -27,6 +29,8 @@ const userSlice = createSlice({
         state.refreshToken = payload.refreshToken;
         state.sid = payload.sid;
         state.isLoggedIn = true;
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
         state.token = payload.newAccessToken;
@@ -34,6 +38,8 @@ const userSlice = createSlice({
         state.sid = payload.newSid;
         state.isLoggedIn = true;
         state.isRefreshing = false;
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       })
       .addCase(login.fulfilled, (state, { payload }) => {
         state.user = payload.userData;
@@ -41,28 +47,61 @@ const userSlice = createSlice({
         state.refreshToken = payload.refreshToken;
         state.sid = payload.sid;
         state.isLoggedIn = true;
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       })
       .addCase(getUserInfo.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isLoggedIn = true;
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       })
       .addCase(logOut.fulfilled, state => {
         state.user = { email: null };
         state.token = null;
         state.isLoggedIn = false;
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
+      })
+      .addCase(login.rejected, (state, { payload }) => {
+        // console.log(payload);
+        state.errorLoginMessage = payload;
+        state.errorRegisterMessage = null; 
+      })
+      .addCase(register.rejected, (state, { payload }) => {
+        // console.log(payload);
+        state.errorRegisterMessage = payload;
+         state.errorLoginMessage = null; 
+      })
+      .addCase(login.pending, (state, { payload }) => {
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
+      })
+      .addCase(register.pending, (state, { payload }) => {
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       })
       .addCase(getUserInfo.pending, (state, { payload }) => {
         state.isRefreshing = true;
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       })
       .addCase(getUserInfo.rejected, (state, { payload }) => {
         state.isRefreshing = false;
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       })
 
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       })
-      .addCase(refreshUser.rejected, state => {
+      .addCase(refreshUser.rejected, (state, { payload }) => {
+        // console.log(payload);
         state.isRefreshing = false;
+        state.errorLoginMessage = null;
+        state.errorRegisterMessage = null;
       }),
 });
 

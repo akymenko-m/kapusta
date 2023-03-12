@@ -190,3 +190,12 @@ width: 90px;
     width: 183px;
 }
 `;
+
+export const Notification = styled.p`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 8px;
+  color: red;
+`;

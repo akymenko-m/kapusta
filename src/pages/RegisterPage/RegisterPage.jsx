@@ -18,10 +18,15 @@ import {
   RegisterButton,
   LoginNavLink,
   Regtext,
+  Notification,
 } from './RegisterPage.styled';
+import { useAuth } from 'hook/useAuth';
+
+
 
 
 function RegisterPage() {
+   const {isRefreshing, errorRegisterMessage } = useAuth();
   const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
@@ -33,7 +38,7 @@ function RegisterPage() {
       password: password.value,
     };
     dispatch(register(user));
-    event.target.reset();
+    // event.target.reset();
   };
 
   return (
@@ -56,6 +61,9 @@ function RegisterPage() {
                       placeholder="your@email.com"
                       required
                     />
+                    {errorRegisterMessage && (
+                      <Notification>{errorRegisterMessage}</Notification>
+                    )}
                   </RegisterFormLabel>
                   <RegisterFormLabel>
                     Password:
