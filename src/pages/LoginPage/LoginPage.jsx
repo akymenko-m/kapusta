@@ -11,18 +11,21 @@ import {
   LoginFormInput,
   LoginButton,
   RegisterNavLink,
-  Background
- 
+  Background,
+  Notification,
 } from './LoginPage.styled';
 import { Wrapper, Title, CabbageTop, } from 'pages/HomePage/HomePage.styled';
 import title from '../../images/title/title.png';
 import { Container } from 'components/App.styled';
 import { FooterImg } from 'components/Footer/Footer';
 import 'animate.css';
+import { useAuth } from 'hook/useAuth';
 
 
 
- function LoginPage() {
+function LoginPage() {
+  let { errorLoginMessage } = useAuth();
+  
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
@@ -34,10 +37,17 @@ import 'animate.css';
       email: email.value,
       password: password.value,
     };
-
     dispatch(login(user));
-    event.target.reset();
   };
+
+  let errorType = null;
+  if (errorLoginMessage) {
+    if (errorLoginMessage.indexOf('email doesn') !== -1) {
+      errorType = 'email';
+    } else if (errorLoginMessage.indexOf('Password') !== -1) {
+      errorType = 'password';
+    }
+  }
 
    return (
      <Background>
@@ -45,13 +55,18 @@ import 'animate.css';
          <Container>
            <Wrapper>
              <div>
-               <Title className='animate__animated animate__hinge' src={title} />
-               <Title className='animate__animated animate__fadeInUpBig animate__delay-2s' src={title} />
+               <Title
+                 className="animate__animated animate__hinge"
+                 src={title}
+               />
+               <Title
+                 className="animate__animated animate__fadeInUpBig animate__delay-2s"
+                 src={title}
+               />
              </div>
              <div>
-               <LoginPageWrapper className='animate__animated animate__flip' >
+               <LoginPageWrapper className="animate__animated animate__flip">
                  <GoogleLogin />
-
 
                  <LoginRegisterText />
                  <LoginForm onSubmit={handleSubmit}>
@@ -64,6 +79,9 @@ import 'animate.css';
                        required
                      />
                    </LoginFormLabel>
+                   {errorLoginMessage && errorType === 'email' && (
+                     <Notification>{errorLoginMessage}</Notification>
+                   )}
                    <LoginFormLabel>
                      Password:
                      <LoginFormInput
@@ -73,6 +91,9 @@ import 'animate.css';
                        required
                      />
                    </LoginFormLabel>
+                   {errorLoginMessage && errorType === 'password' && (
+                     <Notification>{errorLoginMessage}</Notification>
+                   )}
                    <LoginButton type="submit">Log in</LoginButton>
                  </LoginForm>
                  <RegisterNavLink>
@@ -87,7 +108,7 @@ import 'animate.css';
          </Container>
        </CabbageTop>
      </Background>
-  );
+   );
 }
 
 export default LoginPage;
