@@ -11,13 +11,14 @@ export const BG = styled.div`
 `;
 export const Wrap = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: raw-reverse;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   @media screen and (min-width: 768px) {
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 `;
 export const BalanceContainer = styled.div`
@@ -69,7 +70,7 @@ export const BalanceForm = styled.form`
 `;
 export const BalanceInput = styled.input`
   padding: 0 10px;
-  width: 102px;
+  width: 110px;
   min-height: 44px;
   border: 2px solid #ffffff;
   border-radius: 22px 0px 0px 22px;

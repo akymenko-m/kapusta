@@ -4,13 +4,19 @@ import { useDispatch } from 'react-redux';
 import { addExpenseTransaction } from 'redux/Transactions/TransactionsOperations';
 import { Summary } from 'components/Summary/Summary';
 import { TransactionContainer, Block, CabbageImg } from './Expenses.styled';
-import cabbage from "../../images/backgronds/cabbage-down.png";
+import cabbage from '../../images/backgronds/cabbage-down.png';
+import Notiflix from 'notiflix';
 
 export const Expenses = () => {
   const dispatch = useDispatch();
 
   const handlePostExpense = formData => {
-    dispatch(addExpenseTransaction(formData));
+    if (formData.category === 'DEFAULT') {
+      Notiflix.Notify.warning('Please select a category');
+      return;
+    } else {
+      dispatch(addExpenseTransaction(formData));
+    }
   };
   return (
     <>
@@ -21,7 +27,7 @@ export const Expenses = () => {
         <TransactionsList />
         <Summary />
       </Block>
-      <CabbageImg src={cabbage} alt="cabbagetwo"/>
+      <CabbageImg src={cabbage} alt="cabbagetwo" />
     </>
   );
 };
