@@ -2,16 +2,17 @@ import styled from '@emotion/styled';
 
 export const SliderBox = styled.div`
   margin-bottom: 32px;
-  padding-top: 16px;
+  margin-top: 16px;
   text-align: center;
   position: relative;
   @media (min-width: 768px) {
-    padding-top: 0;
+    margin: 0;
     order: 3;
   }
 `;
 
 export const SliderText = styled.button`
+  width: max-content;
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
