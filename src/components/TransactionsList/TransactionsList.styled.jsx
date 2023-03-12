@@ -61,7 +61,7 @@ export const TableTitle = styled.h2`
   }
 `;
 export const TableBody = styled.div`
-  height: 200px;
+  max-height: 200px;
   display: block;
   overflow-y: auto;
   overflow-x: hidden;
@@ -74,8 +74,7 @@ export const TableBody = styled.div`
     border-radius: 2px;
   }
   @media (min-width: 768px) {
-    height: 344px;
-    
+    max-height: 344px;
   }
 `;
 
