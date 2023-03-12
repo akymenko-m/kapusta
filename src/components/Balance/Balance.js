@@ -47,13 +47,13 @@ export function Balance() {
   const form = useRef();
   const dispatch = useDispatch();
   const [buttonDisabled, setButtonDisabled] = useState(false);
-  
-  console.log(buttonDisabled);
+
+
 
   const [number, setNumber] = useState('');
   const formSubmit = e => {
     e.preventDefault();
-    // setButtonDisabled(true);
+    setButtonDisabled(true);
   };
   const inputChange = event => {
     const { name, value } = event.target;
@@ -122,7 +122,7 @@ export function Balance() {
                 type="button"
                 className="btn"
                 onClick={handleModalOpen}
-                disabled={number} 
+                disabled={buttonDisabled} 
               >
                 Confirm
               </BalanceBtn>
