@@ -67,7 +67,6 @@ export function Balance() {
   const handleClick = () => {
     dispatch(balance({ newBalance: Number(number.replace(/\s+/g, '')) }));
     form.current.reset();
-  
   };
   // Open modal window
   const handleModalOpen = () => {
@@ -128,7 +127,9 @@ export function Balance() {
               type="text"
               name="number"
               onChange={inputChange}
-              value={stateBalance}
+              placeholder={`${stateBalance}.00 UAH`}
+              pattern="[0-9, .UAH]*"
+              readOnly
             />
           )}
 
