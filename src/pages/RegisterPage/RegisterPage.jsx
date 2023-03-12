@@ -26,7 +26,7 @@ import { useAuth } from 'hook/useAuth';
 
 
 function RegisterPage() {
-   const {isRefreshing, errorRegisterMessage } = useAuth();
+   const { errorRegisterMessage } = useAuth();
   const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
