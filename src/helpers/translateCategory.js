@@ -27,6 +27,6 @@ export const translateCategory = category => {
     case 'Доп. доход':
       return 'Add.income';
     default:
-      throw new Error(`Unsupported category value - ${category}`);
+      return `${category}`;
   }
 };
