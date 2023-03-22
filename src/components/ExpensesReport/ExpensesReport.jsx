@@ -40,51 +40,51 @@ export const ExpensesReport = ({
   const [currentActive, setCurrentActive] = useState('');
 
   const expensesDictionary = {
-    Продукты: {
+    Products: {
       label: 'Products',
       img: imgProducts,
       curImg: imgActiveProducts,
     },
-    Алкоголь: { label: 'Alcohol', img: imgAlcohol, curImg: imgActiveAlcohol },
-    Развлечения: {
+    Alcohol: { label: 'Alcohol', img: imgAlcohol, curImg: imgActiveAlcohol },
+    Entertainment: {
       label: 'Entertainment',
       img: imgEntertainment,
       curImg: imgActiveEntertainment,
     },
-    Здоровье: { label: 'Health', img: imgHealth, curImg: imgActiveHealth },
-    Транспорт: {
+    Health: { label: 'Health', img: imgHealth, curImg: imgActiveHealth },
+    Transport: {
       label: 'Transport',
       img: imgTransport,
       curImg: imgActiveTransport,
     },
-    'Всё для дома': {
+    'For home': {
       label: 'Housing',
       img: imgHousing,
       curImg: imgActiveHousing,
     },
-    Техника: {
+    Technics: {
       label: 'Technique',
       img: imgTechnique,
       curImg: imgActiveTechnique,
     },
-    'Коммуналка и связь': {
+    Utilities: {
       label: 'Communal, communication',
       img: imgCommunal,
       curImg: imgActiveCommunal,
     },
-    'Спорт и хобби': {
+    'Sports and hobby': {
       label: 'Sports, hobbies',
       img: imgSports,
       curImg: imgActiveSports,
     },
-    Образование: {
+    Education: {
       label: 'Education',
       img: imgEducation,
       curImg: imgActiveEducation,
     },
-    Прочее: { label: 'Other', img: imgOther, curImg: imgActiveOther },
+    Other: { label: 'Other', img: imgOther, curImg: imgActiveOther },
   };
-
+ 
   const handleClick = categoryName => {
     setCurrentCategoryTransactions(categoryName);
   };

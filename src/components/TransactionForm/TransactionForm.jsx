@@ -74,27 +74,28 @@ export const TransactionForm = ({ onSubmit, isExpenseForm = false }) => {
                 <option value="DEFAULT" disabled defaultValue="">
                   Product category
                 </option>
-                <option value="Продукты">Products</option>
-                <option value="Алкоголь">Alcohol</option>
-                <option value="Развлечения">Entertainment</option>
-                <option value="Здоровье">Health</option>
-                <option value="Транспорт">Transport</option>
-                <option value="Всё для дома">Housing</option>
-                <option value="Техника">Technique</option>
-                <option value="Коммуналка и связь">
+                <option value="Products">Products</option>
+                <option value="Alcohol">Alcohol</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Health">Health</option>
+                <option value="Transport">Transport</option>
+                <option value="For home">Housing</option>
+                <option value="Technics">Technique</option>
+                <option value="Utilities">
                   Communal, communication
                 </option>
-                <option value="Спорт и хобби">Sports, hobbies</option>
-                <option value="Образование">Education</option>
-                <option value="Прочее">Other</option>
+                <option value="Sports and hobby">Sports, hobbies</option>
+                <option value="Education">Education</option>
+                <option value="Other">Other</option>
+                
               </>
             ) : (
               <>
                 <option value="DEFAULT" disabled defaultValue="">
                   Income category
                 </option>
-                <option value="З/П">Salary</option>
-                <option value="Доп. доход">Add.income</option>
+                <option value="Salary">Salary</option>
+                <option value="Additional income">Add.income</option>
               </>
             )}
           </CategorySelect>

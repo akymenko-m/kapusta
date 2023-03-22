@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Global styles={GlobalStyles} />
 
         <BrowserRouter  basename="/kapusta/" >
-    
+       
           <App />
         </BrowserRouter>
       </PersistGate>

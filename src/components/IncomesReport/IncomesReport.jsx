@@ -22,8 +22,8 @@ export const IncomesReport = ({
 
 
   const incomesDictionary = {
-    'З/П': { label: 'Salary', img: imgSalary, curImg: imgActiveSalary },
-    'Доп. доход': {
+    'Salary': { label: 'Salary', img: imgSalary, curImg: imgActiveSalary },
+    'Additional income': {
       label: 'Add. income',
       img: imgAddincome,
       curImg: imgActiveAddincome,
