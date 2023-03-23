@@ -59,7 +59,7 @@ export const getTransactionIncome = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/income');
-      console.log('getTransactionIncome >>', res.data);
+      // console.log('getTransactionIncome >>', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -71,7 +71,7 @@ export const getTransactionExpense = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/expense');
-      console.log('getExpense >>', res.data);
+      // console.log('getExpense >>', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
