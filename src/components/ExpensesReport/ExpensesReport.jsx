@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { selectTransactionDataExpensesData } from 'redux/Transactions/selectors';

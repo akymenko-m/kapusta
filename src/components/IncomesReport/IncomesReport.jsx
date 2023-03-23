@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
-
 import { useSelector } from 'react-redux';
 import { selectTransactionDataIncomesData } from 'redux/Transactions/selectors';
-
 import { useState } from 'react';
 
 import imgSalary from '../../images/incomesReport/salarys.png';
@@ -19,7 +17,6 @@ export const IncomesReport = ({
   const [currentActive, setCurrentActive] = useState('');
 
   const incomesData = useSelector(selectTransactionDataIncomesData);
-
 
   const incomesDictionary = {
     'З/П': { label: 'Salary', img: imgSalary, curImg: imgActiveSalary },

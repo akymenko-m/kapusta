@@ -8,7 +8,6 @@ import {
 } from './HomePage.styled';
 import { TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-// import  LoginPage  from '../LoginPage/LoginPage';
 import { Container } from 'components/App.styled';
 import { Balance } from 'components/Balance/Balance';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -65,21 +64,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-// <Background>
-//   <CabbageTop>
-//     <Container>
-//       {' '}
-//       <Wrapper>
-//         <div>
-//           <Title src={title} />
-//         </div>
-//         <div>
-//           <LoginPage />
-//           <RegisterPage />
-//         </div>
-//       </Wrapper>
-//       <FooterOfApp />
-//     </Container>
-//   </CabbageTop>
-// </Background>

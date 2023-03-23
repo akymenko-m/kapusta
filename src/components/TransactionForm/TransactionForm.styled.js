@@ -7,7 +7,6 @@ export const Form = styled.form`
   justify-content: center;
   column-gap: 10px;
   row-gap: 20px;
-
   background-color: transparent;
   position: relative;
   @media (min-width: 520px) {
@@ -21,6 +20,7 @@ export const Form = styled.form`
     justify-content: space-between;
   }
 `;
+
 export const CalendarBox = styled.div`
   padding-top: 3px;
   display: flex;
@@ -32,6 +32,7 @@ export const CalendarBox = styled.div`
     padding-top: 0;
   }
 `;
+
 export const InputBox = styled.div`
   border: none;
   background-color: transparent;
@@ -46,6 +47,7 @@ export const InputBox = styled.div`
     border-radius: 16px 16px 16px 0px;
   }
 `;
+
 export const DescInput = styled.input`
   font-weight: 400;
   font-size: 12px;
@@ -84,6 +86,7 @@ export const DescInput = styled.input`
     outline: none;
   }
 `;
+
 export const CategorySelect = styled.select`
   font-weight: 400;
   font-size: 12px;
@@ -98,7 +101,6 @@ export const CategorySelect = styled.select`
   height: 40px;
   width: 100%;
   padding: 2px 20px;
-  /* margin-bottom: 32px; */
   transition: background-color 250ms ease;
 
   @media (min-width: 520px) {
@@ -136,7 +138,6 @@ export const AmountLabelBox = styled.label`
   right: 0;
   display: flex;
   align-items: center;
-  /* padding-right: 20px; */
   height: 40px;
   border: 2px solid #fff;
   width: 130px;
@@ -158,6 +159,7 @@ export const AmountLabelBox = styled.label`
     }
   }
 `;
+
 export const AmountInput = styled.input`
   font-weight: 400;
   font-size: 12px;
@@ -214,11 +216,13 @@ export const CgCalculatorStyled = styled(CgCalculator)`
     border-left: none;
   }
 `;
+
 export const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
   gap: 15px;
 `;
+
 export const InputButton = styled.button`
   width: 110px;
   height: 44px;
@@ -239,6 +243,7 @@ export const InputButton = styled.button`
     background-color: #df651a;
   }
 `;
+
 export const ClearButton = styled.button`
   width: 110px;
   height: 44px;

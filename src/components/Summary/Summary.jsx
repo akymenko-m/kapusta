@@ -24,7 +24,7 @@ export const Summary = () => {
   const [listMonthsState, setlistMonthsState] = useState([]); // масив результатів
   const [isLoadingState, setisLoadingState] = useState(false);
 
-  const ІtemsStore = useSelector(selectTransactions); // слідкую за списком транзакцій
+  const ItemsStore = useSelector(selectTransactions); // слідкую за списком транзакцій
   const isLoadingStore = useSelector(getIsloadingMonthsStats);
 
   // * Відтермінування лоудера
@@ -64,7 +64,7 @@ export const Summary = () => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [ІtemsStore, dispatch, isExpensePage, isIncomePage]);
+  }, [ItemsStore, dispatch, isExpensePage, isIncomePage]);
 
   // * Логіка побудови списку:
   const montsStore = useSelector(selectMonthsStats); // місячна статистика з бекенду
@@ -109,7 +109,7 @@ export const Summary = () => {
       .slice(0, summaryMonth);
 
     setlistMonthsState(result);
-  }, [montsStore, ІtemsStore]);
+  }, [montsStore, ItemsStore]);
 
   return (
     <Container>

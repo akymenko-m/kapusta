@@ -6,6 +6,7 @@ export const GlobalStyles = css`
     margin: 0;
     box-sizing: border-box;
   }
+
   h1,
   h2,
   h3,
@@ -28,7 +29,6 @@ export const GlobalStyles = css`
     border: none;
     font: inherit;
     color: inherit;
-    // background-color: transparent;
     cursor: pointer;
   }
 

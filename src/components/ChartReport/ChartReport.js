@@ -47,21 +47,18 @@ export default function ChartReport({ dataArray }) {
   const { width: screenWidth } = useWindowDimensions();
 
   const renderCustomBarLabel = ({ x, y, width, value }) => {
- 
-
     if (screenWidth < 768) {
-    
       return (
         <text
           x={(window.innerWidth - 40) * 0.8}
           y={y - 4}
           fill="#666"
-          // textAnchor="middle"
           dy={-10}
           fontSize={10}
         >{`${value} UAH`}</text>
       );
     }
+
     return (
       <text
         x={x + width / 2}
@@ -74,13 +71,12 @@ export default function ChartReport({ dataArray }) {
     );
   };
 
-  const RenderCategoryLabel = ({ x, y, value, width, height }) => {
+  const RenderCategoryLabel = ({ x, y, value }) => {
     if (screenWidth < 768) {
-       
       return (
         <text
           x={x}
-          y={y-4}
+          y={y - 4}
           dy={-10}
           fontSize={10}
           fill="#666"
@@ -105,7 +101,6 @@ export default function ChartReport({ dataArray }) {
         height={window.screen.width < 768 ? data.length * 50 : 422}
         data={data}
         margin={{ top: 20 }}
-        // margin={{ top: 50, right: 15, bottom: 15, left: 15 }}
         layout={window.screen.width < 768 ? 'vertical' : 'horizontal'}
       >
         {screenWidth < 768 ? (

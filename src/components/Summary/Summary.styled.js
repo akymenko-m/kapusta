@@ -8,14 +8,16 @@ export const Container = styled.div`
     display: none;
   }
 `;
+
 export const LoaderBox = styled.div`
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-zIndex: '2',
-background: 'rgba(0, 0, 0, 0.1)',
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: '2';
+  background: 'rgba(0, 0, 0, 0.1)';
 `;
+
 export const Title = styled.h3`
   display: flex;
   align-items: center;
@@ -43,7 +45,6 @@ export const Item = styled.li`
   height: 38px;
   background: #f5f6fb;
   border: 1px solid #ffffff;
-  
   &:last-child {
     border-bottom-right-radius: 20px;
   }

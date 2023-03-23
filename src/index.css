@@ -1,46 +1,15 @@
-/* @import-normalize; /* bring in normalize.css styles */
-
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+body {
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-
-  /* color: #989dac; */
-
-/* div.react-datepicker__day.react-datepicker__day--selected.react-datepicker__day--today,
-div.react-datepicker__day.react-datepicker__day--selected {
-  background: #ff751d;
-} */
-
-body {
-  font-family: 'Roboto';
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.04em;
   line-height: 1.17;
   color: #52555f;
-  /* background-color: rgb(255, 117, 29); */
 }
-/* img.animate__animated.animate__hinge.css-2qe138{
-  position: relative;
-
-} */
 
 img.animate__animated.animate__hinge.css-2qe138 {
   position: relative;
   z-index: 0;
 }
-/* .expenseTab.css-1yvxzsh {
-  padding: 15px 14px 8px 3px;
-}
-.incomeTab.css-1yvxzsh {
-  padding: 16px 24px 10px 4px;
-} */

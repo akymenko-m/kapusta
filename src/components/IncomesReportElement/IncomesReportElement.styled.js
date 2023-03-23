@@ -4,6 +4,7 @@ export const IncomesItem = styled.li`
   width: calc((100% -20px) / 2);
   display: flex;
   flex-direction: column-reverse;
+  cursor: pointer;
   @media screen and (max-width: 767px) {
     &:nth-of-type(1)::after {
       content: '';

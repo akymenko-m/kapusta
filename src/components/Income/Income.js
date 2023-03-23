@@ -18,6 +18,7 @@ export const Income = () => {
       dispatch(addIncomeTransaction(formData));
     }
   };
+
   return (
     <>
       <TransactionContainer>

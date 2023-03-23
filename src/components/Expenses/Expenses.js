@@ -18,6 +18,7 @@ export const Expenses = () => {
       dispatch(addExpenseTransaction(formData));
     }
   };
+
   return (
     <>
       <TransactionContainer>

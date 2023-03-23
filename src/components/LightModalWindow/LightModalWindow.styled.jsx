@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 export const StyledModalWindow = styled.div`
   position: absolute;
   top: 50%;
@@ -7,7 +8,7 @@ export const StyledModalWindow = styled.div`
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
-  color: #52555F;
+  color: #52555f;
 `;
 
 export const StyledContentDiv = styled.div`

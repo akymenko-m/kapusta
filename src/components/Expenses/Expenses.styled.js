@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 export const TransactionContainer = styled.div`
   margin: 0 auto;
   @media (min-width: 768px) {
@@ -10,6 +11,7 @@ export const TransactionContainer = styled.div`
     padding: 0px 32px;
   }
 `;
+
 export const Block = styled.div`
   margin: 0 auto;
   max-width: 280px;

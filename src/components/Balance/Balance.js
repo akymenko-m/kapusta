@@ -38,6 +38,7 @@ export function Balance() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
   const location = useLocation();
   const isReportPage = location.pathname.includes('transaction');
   const goBackLink = location?.state?.from ?? '/';
@@ -48,8 +49,6 @@ export function Balance() {
   const dispatch = useDispatch();
   // const [buttonDisabled, setButtonDisabled] = useState(false);
 
-
-
   const [number, setNumber] = useState('');
   const formSubmit = e => {
     e.preventDefault();
@@ -58,6 +57,7 @@ export function Balance() {
     // }
     // setButtonDisabled(true);
   };
+
   const inputChange = event => {
     const { name, value } = event.target;
 
@@ -74,8 +74,6 @@ export function Balance() {
   const handleClick = () => {
     dispatch(balance({ newBalance: Number(number.replace(/\s+/g, '')) }));
     form.current.reset();
-    
-    
   };
   // Open modal window
   const handleModalOpen = () => {
@@ -126,7 +124,7 @@ export function Balance() {
                 type="button"
                 className="btn"
                 onClick={handleModalOpen}
-                disabled={stateBalance > 0} 
+                disabled={stateBalance > 0}
               >
                 Confirm
               </BalanceBtn>

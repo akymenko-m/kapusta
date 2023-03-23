@@ -1,5 +1,4 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-
 import {
   balance,
   deleteTransacton,
@@ -25,7 +24,6 @@ const initialState = {
   monthsStats: {},
   isLoadingMonthsStats: false,
   isActiveCategory: '',
- 
 };
 
 const transactionsSlice = createSlice({
@@ -141,4 +139,5 @@ const transactionsSlice = createSlice({
 
 export const { deleteTransactionItem, changeReportType, setReportsQuery } =
   transactionsSlice.actions;
+
 export const transactionsReducer = transactionsSlice.reducer;

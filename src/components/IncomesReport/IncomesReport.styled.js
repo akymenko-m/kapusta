@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 export const IncomesContainer = styled.div`
   padding: 0 40px;
   @media screen and (min-width: 768px) {

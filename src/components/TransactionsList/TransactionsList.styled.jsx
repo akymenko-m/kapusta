@@ -38,6 +38,7 @@ export const TableHead = styled.li`
     padding-right: 20px;
   }
 `;
+
 export const TableTitle = styled.h2`
   @media (min-width: 768px) {
     font-size: 12px;
@@ -61,12 +62,12 @@ export const TableTitle = styled.h2`
     width: 76px;
   }
 `;
+
 export const TableBody = styled.div`
   height: 200px;
   display: block;
   overflow-y: auto;
   overflow-x: hidden;
-
   background-image: repeating-linear-gradient(
     #ffffff 0px,
     #ffffff 38px,
@@ -92,23 +93,17 @@ export const TableBody = styled.div`
 
 export const TableRow = styled.li`
   height: 35px;
-  // border-bottom: 2px solid #f5f6fb;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
   padding-left: 5px;
   padding-right: 5px;
-  
+
   @media (min-width: 768px) {
     height: 40px;
     padding-left: 20px;
     padding-right: 20px;
-
-    // &:last-child {
-    //   border-bottom-right-radius: 30px;
-    //   border-bottom-left-radius: 30px;
-    // }
   }
 `;
 
@@ -170,19 +165,20 @@ export const TableData = styled.p`
     color: #e7192e;
   }
 `;
+
 export const Button = styled.button`
   background-color: transparent;
   cursor: pointer;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-
   transition: background-color 250ms ease;
   &:hover,
   &:focus {
     background-color: #f5f6fb;
   }
 `;
+
 export const GoTrashcanStyled = styled(GoTrashcan)`
   fill: #52555f;
   cursor: pointer;
@@ -205,6 +201,7 @@ export const Block = styled.div`
     align-items: center;
   }
 `;
+
 export const BlockHead = styled.div`
   @media (min-width: 768px) {
     display: flex;

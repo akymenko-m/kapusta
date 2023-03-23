@@ -1,18 +1,15 @@
 import styled from '@emotion/styled';
 import background from '../../images/backgronds/cabbage.png';
 import { Tab, Tabs, TabList } from 'react-tabs';
-
 import 'react-tabs/style/react-tabs.css';
 import { NavLink } from 'react-router-dom';
 
 export const CabbageTop = styled.div`
   width: 100%;
-
   background-image: url(${background});
   background-repeat: repeat-x;
   background-size: contain;
   background-position: top left;
-
   height: 300px;
 `;
 export const CabbageBottom = styled.div`
@@ -21,16 +18,15 @@ export const CabbageBottom = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  // background-image: url(${background});
   background-repeat: repeat-x;
   background-size: contain;
   background-position: bottom;
   height: 300px;
   @media (min-width: 1200px) {
     background-image: url(${background});
-  };
-
+  } ;
 `;
+
 export const Background = styled.div`
   top: 0;
   left: 0;
@@ -41,9 +37,8 @@ export const Background = styled.div`
   @media (min-width: 768px) {
     height: 526px;
     border-bottom-left-radius: 10%;
-    width: 100%
-
-  };
+    width: 100%;
+  } ;
 `;
 
 export const Wrapper = styled.div`
@@ -59,16 +54,10 @@ export const Title = styled.img`
   z-index: 5;
   position: relative;
   top: 30px;
-  // padding-top: 86px;
-  // padding-bottom:50px;
   width: 183px;
   height: 63px;
-  // @media (min-width: 321px) {
-  //   width: 377px;
-  //   height: 139px;
-  //   margin-left: 135px;
-  // }
-  @media(min-width: 767px) {
+
+  @media (min-width: 767px) {
     margin-left: 135px;
     width: 377px;
     height: 139px;
@@ -77,11 +66,12 @@ export const Title = styled.img`
     margin-bottom: 155px;
   }
 `;
+
 export const TabsStyled = styled(Tabs)`
   margin: 0 auto;
   background-color: transparent;
-  & .react-tabs__tab{
-    padding-top: 16px
+  & .react-tabs__tab {
+    padding-top: 16px;
   }
 
   @media (min-width: 768px) {
@@ -106,18 +96,17 @@ export const TabsStyled = styled(Tabs)`
     margin: 0;
   }
 `;
+
 export const TabStyled = styled(Tab)`
-
   background-color: #f7741d;
-
   width: 50%;
   height: 53px;
   padding: 19px 12px;
   text-align: center;
   transition: background-color 250ms ease;
-  
+
   @media (min-width: 768px) {
-    background-color: #FEFEFE;
+    background-color: #fefefe;
     padding: 13px 12px;
     width: 138px;
     height: 40px;
@@ -130,7 +119,6 @@ export const TabListStyled = styled(TabList)`
   position: absolute;
   bottom: 0;
   left: 0;
-
   margin: 0;
   @media (min-width: 768px) {
     position: relative;

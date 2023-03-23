@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const LoginPageWrapper = styled.div`
+  z-index: 10;
   background-color: #ffffff;
   align-items: center;
   display: flex;
@@ -8,7 +9,7 @@ export const LoginPageWrapper = styled.div`
   margin: 0 auto;
   border-radius: 30px;
   position: relative;
-  @media screen (max-width: 319px) {
+  @media screen and (max-width: 319px) {
     width: 250px;
   }
   @media (max-width: 767px) {
@@ -29,8 +30,8 @@ export const LoginPageWrapper = styled.div`
 export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
-   width: 100%;
-   align-items: start;
+  width: 100%;
+  align-items: start;
   @media screen and (max-width: 319px) {
     gap: 10px;
   }
@@ -41,6 +42,7 @@ export const LoginForm = styled.form`
   @media screen and (min-width: 768px) {
     width: 259px;
     gap: 32px;
+  }
 `;
 
 export const LoginFormLabel = styled.label`
@@ -111,7 +113,6 @@ export const RegisterNavLink = styled.div`
   letter-spacing: 0.02em;
   width: 116px;
   font-weight: 700;
-  // padding: 12px 14px;
   background-color: #f5f6fb;
   font-size: 12px;
   line-height: 14px;
@@ -142,17 +143,17 @@ export const RegisterNavLink = styled.div`
 `;
 
 export const Background = styled.div`
-top: 0;
-left: 0;
-height: 296px;
-background-color: #f5f6fb;
-border-bottom-left-radius: 10%;
-wirdth: 100%;
+  top: 0;
+  left: 0;
+  height: 296px;
+  background-color: #f5f6fb;
+  border-bottom-left-radius: 10%;
+  width: 100%;
 
-@media (min-width: 321px) {
-  height: 526px;
-} ;
-`
+  @media (min-width: 321px) {
+    height: 526px;
+  } ;
+`;
 
 export const Notification = styled.p`
   display: flex;

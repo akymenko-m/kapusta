@@ -1,10 +1,8 @@
 import { useRef, useState } from 'react';
 import { format } from 'date-fns';
 import PropTypes from 'prop-types';
-
 import Example from 'components/DatePicker/DatePicker';
 import { GoCalendar } from 'react-icons/go';
-
 import {
   InputButton,
   ClearButton,

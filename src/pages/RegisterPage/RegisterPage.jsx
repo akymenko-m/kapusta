@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { register } from 'redux/user/userOperations';
 import { Container } from 'components/App.styled';
-import { FooterImg } from './RegisterPage.styled'; 
+import { FooterImg } from './RegisterPage.styled';
 import {
   Title,
   RegisterPageWrapper,
@@ -22,12 +22,11 @@ import {
 } from './RegisterPage.styled';
 import { useAuth } from 'hook/useAuth';
 
-
-
-
 function RegisterPage() {
-   const { errorRegisterMessage } = useAuth();
+  const { errorRegisterMessage } = useAuth();
+
   const dispatch = useDispatch();
+
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -38,7 +37,6 @@ function RegisterPage() {
       password: password.value,
     };
     dispatch(register(user));
-    // event.target.reset();
   };
 
   return (

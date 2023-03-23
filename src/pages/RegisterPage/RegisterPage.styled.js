@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import back from "../../images/backgronds/cabbage-down.png";
-import backMobile from "../../images/backgronds/cabbage-down-tel.png"
+import back from '../../images/backgronds/cabbage-down.png';
+import backMobile from '../../images/backgronds/cabbage-down-tel.png';
+
 export const RegisterPageWrapper = styled.div`
   background-color: #ffffff;
   align-items: center;
@@ -9,7 +10,7 @@ export const RegisterPageWrapper = styled.div`
   margin: 0 auto;
   border-radius: 30px;
   position: relative;
-  @media screen (max-width: 319px) {
+  @media screen and (max-width: 319px) {
     width: 250px;
   }
   @media (max-width: 767px) {
@@ -119,7 +120,6 @@ export const LoginNavLink = styled.div`
   justify-content: center;
   letter-spacing: 0.02em;
   width: 116px;
-  // padding: 12px 14px;
   background-color: #f5f6fb;
   font-weight: 700;
   font-size: 12px;
@@ -154,11 +154,10 @@ export const Title = styled.img`
   z-index: 5;
   position: relative;
   top: 30px;
-
   width: 183px;
   height: 63px;
- 
-  @media(min-width: 767px) {
+
+  @media (min-width: 767px) {
     margin-left: 135px;
     width: 377px;
     height: 139px;
@@ -169,26 +168,23 @@ export const Title = styled.img`
 `;
 
 export const FooterImg = styled.div`
-
-background-image: url(${backMobile});
-background-repeat: no-repeat;
-background-size: contain;
-height: 90px;
-width: 90px;
-@media (min-width: 768px) {
+  background-image: url(${backMobile});
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 90px;
+  width: 90px;
+  @media (min-width: 768px) {
     background-image: url(${back});
     margin-left: 135px;
-   
     height: 145px;
     width: 145px;
-   
   }
-  @media(min-width: 1200px){
+  @media (min-width: 1200px) {
     position: relative;
     bottom: -60px;
     left: 230px;
     width: 183px;
-}
+  }
 `;
 
 export const Notification = styled.p`

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+
 export const BG = styled.div`
   @media screen and (min-width: 768px) {
     padding-top: 20px;
@@ -9,6 +10,7 @@ export const BG = styled.div`
     padding-bottom: 20px;
   }
 `;
+
 export const Wrap = styled.div`
   display: flex;
   flex-direction: raw-reverse;
@@ -21,6 +23,7 @@ export const Wrap = styled.div`
     align-items: center;
   }
 `;
+
 export const BalanceContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,6 +39,7 @@ export const BalanceContainer = styled.div`
     justify-content: center;
   }
 `;
+
 export const BalanceWrap = styled(Link)`
   padding-top: 20px;
   margin-bottom: 35px;
@@ -52,12 +56,14 @@ export const BalanceWrap = styled(Link)`
     order: 1;
   }
 `;
+
 export const BalanceTitle = styled.p`
   text-align: center;
   font-weight: 500;
   color: rgba(82, 85, 95, 0.7);
   margin-bottom: 8px;
 `;
+
 export const BalanceForm = styled.form`
   display: flex;
   padding-bottom: 20px;
@@ -68,6 +74,7 @@ export const BalanceForm = styled.form`
     gap: 21px;
   }
 `;
+
 export const BalanceInput = styled.input`
   padding: 0 10px;
   width: 110px;
@@ -93,6 +100,7 @@ export const BalanceInput = styled.input`
     padding: 0 20px;
   }
 `;
+
 export const BalanceBtn = styled.button`
   width: 100px;
   min-height: 44px;
@@ -112,6 +120,7 @@ export const BalanceBtn = styled.button`
     padding: 0 20px;
   }
 `;
+
 export const BalanceLink = styled(Link)`
   display: flex;
   align-items: center;
@@ -138,6 +147,7 @@ export const BalanceBackText = styled.p`
   color: rgba(82, 85, 95, 0.7);
   min-width: 60px;
 `;
+
 export const Input = styled.input`
   text-align: center;
   margin-bottom: 32px;

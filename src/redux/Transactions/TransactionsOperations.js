@@ -6,7 +6,7 @@ export const balance = createAsyncThunk(
   async (balance, thunkAPI) => {
     try {
       const { data } = await instance.patch('/user/balance', balance);
-      // console.log('balance >>', data);
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,7 +19,7 @@ export const addIncomeTransaction = createAsyncThunk(
   async (income, thunkAPI) => {
     try {
       const res = await instance.post('transaction/income', income);
-      // console.log('addIncome >>', res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -31,7 +31,7 @@ export const addExpenseTransaction = createAsyncThunk(
   async (expense, thunkAPI) => {
     try {
       const res = await instance.post('transaction/expense', expense);
-      // console.log('addExpense >>', res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -46,7 +46,7 @@ export const getPeriodData = createAsyncThunk(
       const { data } = await instance.get(
         `transaction/period-data?date=${periodData}`
       );
-      // console.log('getTransactionData >>', data);
+
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -59,7 +59,7 @@ export const getTransactionIncome = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/income');
-      // console.log('getTransactionIncome >>', res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -71,7 +71,7 @@ export const getTransactionExpense = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/expense');
-      // console.log('getExpense >>', res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -84,7 +84,7 @@ export const deleteTransacton = createAsyncThunk(
   async (transactionId, thunkAPI) => {
     try {
       const res = await instance.delete(`transaction/${transactionId}`);
-      // console.log('deleteTransacton >>', res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -97,7 +97,7 @@ export const getTransactionIncomeMonthsStats = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/income');
-      // console.log('getTransactionIncomeMonthsStats >>', res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -109,7 +109,7 @@ export const getTransactionExpenseMonthsStats = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('transaction/expense');
-      // console.log('getExpenseMonthsStats >>', res.data);
+
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

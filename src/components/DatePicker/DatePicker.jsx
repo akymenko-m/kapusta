@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
 import { DatePickerStyled } from './DatePicker.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -15,6 +14,7 @@ const Example = ({ onChange }) => {
     setStartDate(date);
     onChange(date);
   };
+
   return (
     <DatePickerStyled
       selected={startDate}
